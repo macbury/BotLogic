@@ -68,7 +68,7 @@
       <file leaf-file-name="MeshAssembler.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/graphics/mesh/MeshAssembler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="363" column="0" selection-start="10523" selection-end="10523" vertical-scroll-proportion="0.0" vertical-offset="2838" max-vertical-offset="3528">
+            <state line="363" column="0" selection-start="10523" selection-end="10523" vertical-scroll-proportion="0.0" vertical-offset="2568" max-vertical-offset="3528">
               <folding>
                 <element signature="docComment;class#MeshAssembler#0" expanded="false" />
                 <element signature="method#using#0;class#MeshAssembler#0" expanded="false" />
@@ -96,19 +96,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="playground.map" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/assets/maps/playground.map">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="2" selection-start="2" selection-end="2" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="601">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Map.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Map.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/map/Map.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="30" selection-start="1456" selection-end="1456" vertical-scroll-proportion="0.0" vertical-offset="267" max-vertical-offset="2466">
+            <state line="69" column="55" selection-start="3223" selection-end="3223" vertical-scroll-proportion="1.2857143" vertical-offset="486" max-vertical-offset="2466">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -223,9 +214,9 @@
         <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/map/Block.java" />
         <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/map/BlockFloor.java" />
         <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/map/BlockWall.java" />
-        <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/map/Map.java" />
         <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/graphics/camera/RTSCameraController.java" />
         <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/graphics/mesh/MeshAssembler.java" />
+        <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/map/Map.java" />
         <option value="$PROJECT_DIR$/assets/maps/playground.map" />
       </list>
     </option>
@@ -1071,38 +1062,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/levels/BaseLevel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="35" selection-start="1194" selection-end="1194" vertical-scroll-proportion="0.0" vertical-offset="304" max-vertical-offset="1800">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/map/Block.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="32" selection-start="594" selection-end="594" vertical-scroll-proportion="0.0" vertical-offset="167" max-vertical-offset="666">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#Block#0;class#Block#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/lib/gdx.jar!/com/badlogic/gdx/graphics/g3d/Material.class">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="9" selection-start="302" selection-end="302" vertical-scroll-proportion="0.19660194" vertical-offset="0" max-vertical-offset="824">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/map/Map.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="30" selection-start="1456" selection-end="1456" vertical-scroll-proportion="0.0" vertical-offset="267" max-vertical-offset="2466">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1118,15 +1081,6 @@
     <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/graphics/camera/RTSCameraController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="55" column="0" selection-start="1537" selection-end="1537" vertical-scroll-proportion="0.0" vertical-offset="925" max-vertical-offset="5112">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/map/BlockFloor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="0" selection-start="412" selection-end="412" vertical-scroll-proportion="0.0" vertical-offset="59" max-vertical-offset="558">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1162,10 +1116,47 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/map/Block.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="32" selection-start="594" selection-end="594" vertical-scroll-proportion="0.0" vertical-offset="167" max-vertical-offset="666">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#Block#0;class#Block#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/map/BlockFloor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="0" selection-start="412" selection-end="412" vertical-scroll-proportion="0.0" vertical-offset="59" max-vertical-offset="558">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/levels/BaseLevel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="35" selection-start="1194" selection-end="1194" vertical-scroll-proportion="0.0" vertical-offset="304" max-vertical-offset="1800">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/assets/maps/playground.map">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="2" selection-start="2" selection-end="2" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="601">
+        <state line="7" column="7" selection-start="68" selection-end="68" vertical-scroll-proportion="0.20965058" vertical-offset="0" max-vertical-offset="601">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/map/Map.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="69" column="55" selection-start="3223" selection-end="3223" vertical-scroll-proportion="1.2857143" vertical-offset="486" max-vertical-offset="2466">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

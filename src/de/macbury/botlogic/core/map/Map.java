@@ -52,23 +52,23 @@ public class Map extends Renderable implements Disposable {
           Block rightBlock  = get(x + 1, z);
 
           TextureRegion region = block.getTopTextureRegion(tileset);
-          builder.topFace(x * Block.BLOCK_SIZE, Block.BLOCK_SIZE, z * Block.BLOCK_SIZE, Block.BLOCK_SIZE, Block.BLOCK_SIZE, Block.BLOCK_SIZE,region.getU(),region.getV(),region.getU2(),region.getV2());
+          builder.topFace(x * Block.BLOCK_SIZE, block.getY() + Block.BLOCK_SIZE, z * Block.BLOCK_SIZE, Block.BLOCK_SIZE, Block.BLOCK_SIZE, Block.BLOCK_SIZE,region.getU(),region.getV(),region.getU2(),region.getV2());
 
           region = block.getSideTextureRegion(tileset);
-          if (topBlock == null) {
-            builder.frontFace(x * Block.BLOCK_SIZE, 0f, z * Block.BLOCK_SIZE, Block.BLOCK_SIZE, Block.BLOCK_SIZE, Block.BLOCK_SIZE, region.getU(),region.getV(),region.getU2(),region.getV2());
+          if (topBlock == null || topBlock.getY() < block.getY()) {
+            builder.frontFace(x * Block.BLOCK_SIZE, block.getY(), z * Block.BLOCK_SIZE, Block.BLOCK_SIZE, Block.BLOCK_SIZE, Block.BLOCK_SIZE, region.getU(),region.getV(),region.getU2(),region.getV2());
           }
 
-          if (bottomBlock == null) {
-            builder.backFace(x * Block.BLOCK_SIZE, 0f, z  * Block.BLOCK_SIZE, Block.BLOCK_SIZE, Block.BLOCK_SIZE, Block.BLOCK_SIZE,region.getU(),region.getV(),region.getU2(),region.getV2());
+          if (bottomBlock == null || bottomBlock.getY() < block.getY()) {
+            builder.backFace(x * Block.BLOCK_SIZE, block.getY(), z  * Block.BLOCK_SIZE, Block.BLOCK_SIZE, Block.BLOCK_SIZE, Block.BLOCK_SIZE,region.getU(),region.getV(),region.getU2(),region.getV2());
           }
 
-          if (leftBlock == null) {
-            builder.leftFace(x * Block.BLOCK_SIZE, 0f, z * Block.BLOCK_SIZE, Block.BLOCK_SIZE, Block.BLOCK_SIZE, Block.BLOCK_SIZE, region.getU(),region.getV(),region.getU2(),region.getV2());
+          if (leftBlock == null || leftBlock.getY() < block.getY()) {
+            builder.leftFace(x * Block.BLOCK_SIZE, block.getY(), z * Block.BLOCK_SIZE, Block.BLOCK_SIZE, Block.BLOCK_SIZE, Block.BLOCK_SIZE, region.getU(),region.getV(),region.getU2(),region.getV2());
           }
 
-          if (rightBlock == null) {
-            builder.rightFace(x * Block.BLOCK_SIZE, 0f, z * Block.BLOCK_SIZE, Block.BLOCK_SIZE, Block.BLOCK_SIZE, Block.BLOCK_SIZE, region.getU(),region.getV(),region.getU2(),region.getV2());
+          if (rightBlock == null || rightBlock.getY() < block.getY()) {
+            builder.rightFace(x * Block.BLOCK_SIZE, block.getY(), z * Block.BLOCK_SIZE, Block.BLOCK_SIZE, Block.BLOCK_SIZE, Block.BLOCK_SIZE, region.getU(),region.getV(),region.getU2(),region.getV2());
           }
         }
       }
@@ -106,13 +106,13 @@ public class Map extends Renderable implements Disposable {
           BlockWall wall = new BlockWall();
           wall.setX(col);
           wall.setZ(row);
-          wall.setZ(1);
+          wall.setY(1);
           tiles[col][row] = wall;
         } else if (blockType == BlockFloor.MAP_CHAR) {
           BlockFloor floor = new BlockFloor();
           floor.setX(col);
           floor.setZ(row);
-          floor.setZ(0);
+          floor.setY(0);
           tiles[col][row] = floor;
         } else {
           throw new GdxRuntimeException("Undefined char for map: " + blockType);
