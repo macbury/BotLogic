@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="gdx-openal">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/gdx-openal.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
