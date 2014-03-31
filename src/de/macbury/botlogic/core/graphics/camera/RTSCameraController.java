@@ -77,7 +77,7 @@ public class RTSCameraController extends InputAdapter {
     scrollSpeed = 100.0f;
 
     minTilt = 0.6f;
-    maxTilt = (float) (Math.PI / 2) - 0.001f;
+    maxTilt = (float) (Math.PI / 2) - 0.006f;
 
     currentZoom = maxZoom;
   }
@@ -87,7 +87,7 @@ public class RTSCameraController extends InputAdapter {
   }
 
   public void update(final float delta) {
-    if (this.cam == null || !enabled) {
+    if (this.cam == null) {
       return;
     }
 
@@ -174,6 +174,8 @@ public class RTSCameraController extends InputAdapter {
 
   @Override
   public boolean scrolled(int amount) {
+    if (!enabled)
+      return false;
     if (amount == 0 || rotateMouseButtonPressed) {
       return false;
     } else {
@@ -184,11 +186,15 @@ public class RTSCameraController extends InputAdapter {
 
   @Override
   public boolean keyDown(int keycode) {
+    if (!enabled)
+      return false;
     return changePressStateFor(keycode, true);
   }
 
   @Override
   public boolean keyUp(int keycode) {
+    if (!enabled)
+      return false;
     return changePressStateFor(keycode, false);
   }
 
@@ -250,6 +256,8 @@ public class RTSCameraController extends InputAdapter {
 
   @Override
   public boolean touchDown(int screenX, int screenY, int pointer, int button) {
+    if (!enabled)
+      return false;
     if (button == Input.Buttons.MIDDLE) {
       rotateMouseButtonPressed = true;
       mouseRotationDrag.set(screenX, screenY);
@@ -261,6 +269,8 @@ public class RTSCameraController extends InputAdapter {
 
   @Override
   public boolean touchUp(int screenX, int screenY, int pointer, int button) {
+    if (!enabled)
+      return false;
     if (button == Input.Buttons.MIDDLE) {
       rotateMouseButtonPressed = false;
       return true;
@@ -282,5 +292,20 @@ public class RTSCameraController extends InputAdapter {
     this.enabled = enabled;
   }
 
+  public float getZoom() {
+    return currentZoom;
+  }
 
+  public void setZoom(int zoom) {
+    this.currentZoom = zoom;
+  }
+
+
+  public void setRotation(float rotation) {
+    this.rotation = rotation;
+  }
+
+  public void setTilt(float tilt) {
+    this.tilt = tilt;
+  }
 }

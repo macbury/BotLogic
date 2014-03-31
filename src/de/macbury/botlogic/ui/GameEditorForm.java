@@ -4,6 +4,8 @@ import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import com.badlogic.gdx.backends.lwjgl.LwjglCanvas;
 import de.macbury.botlogic.core.BotLogic;
 import de.macbury.botlogic.core.GameManager;
+import de.macbury.botlogic.core.api.RobotCompletionProvider;
+import de.macbury.botlogic.core.levels.file.LevelFile;
 import de.macbury.botlogic.core.runtime.ScriptRunner;
 import de.macbury.botlogic.core.runtime.ScriptRuntimeListener;
 import org.fife.ui.autocomplete.*;
@@ -19,9 +21,7 @@ import org.mozilla.javascript.RhinoException;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
+import java.awt.event.*;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -40,6 +40,7 @@ public class GameEditorForm implements ScriptRuntimeListener {
   private JPanel openglContainer;
   private JPanel editorContainer;
   private JPanel leftCodeEditor;
+  private JComboBox simulationSpeedComboBox;
   private RSyntaxTextArea textArea;
   private JMenuBar menu;
   private JMenu menuSzkic;
@@ -60,7 +61,8 @@ public class GameEditorForm implements ScriptRuntimeListener {
   private Gutter gutter;
   private JavascriptErrorParser parser;
   private EditorFrame frame;
-
+  private AutoCompletion autoComplete;
+  private String currentLevel = "playground";
   public enum DocumentState {
     New, Changed, Running
   }
@@ -105,15 +107,6 @@ public class GameEditorForm implements ScriptRuntimeListener {
       e.printStackTrace();
     }
 
-    CompletionProvider provider = createCompletionProvider();
-
-    AutoCompletion ac = new AutoCompletion(provider);
-    ac.setAutoActivationEnabled(true);
-    ac.setAutoActivationDelay(50);
-    ac.setAutoCompleteEnabled(true);
-
-    ac.install(textArea);
-
     editorContainer.setLayout(new BorderLayout());
     editorContainer.add(editorScrollPane, BorderLayout.CENTER);
     ErrorStrip es = new ErrorStrip(textArea);
@@ -127,7 +120,6 @@ public class GameEditorForm implements ScriptRuntimeListener {
     parser.setEnabled(false);
 
     textArea.addParser(parser);
-
 
   }
 
@@ -190,15 +182,21 @@ public class GameEditorForm implements ScriptRuntimeListener {
       }
       menu.add(menuSzkic);
 
-      menuTryb.setText("Tryb");
-
-      trybGroup = new ButtonGroup();
-
-      menuTrybSandBox.setText("Zabawa");
-      menuTrybSandBox.setSelected(true);
-      trybGroup.add(menuTrybSandBox);
-      menuTryb.add(menuTrybSandBox);
+      menuTryb.setText("Misja");
       menu.add(menuTryb);
+      for(final LevelFile level : LevelFile.list()) {
+        JMenuItem item = new JMenuItem();
+        item.setText(level.getName());
+        item.setToolTipText(level.getDescription());
+        item.addActionListener(new ActionListener() {
+          @Override
+          public void actionPerformed(ActionEvent e) {
+            currentLevel = level.getFilePath();
+            newDocument(currentLevel);
+          }
+        });
+        menuTryb.add(item);
+      }
 
       //======== menuRobot ========
       {
@@ -231,67 +229,9 @@ public class GameEditorForm implements ScriptRuntimeListener {
     menuNewItem.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent e) {
-        newDocument();
+        newDocument(currentLevel);
       }
     });
-  }
-
-  private CompletionProvider createCompletionProvider() {
-    DefaultCompletionProvider provider = new DefaultCompletionProvider();
-
-    // Add completions for all Java keywords. A BasicCompletion is just
-    // a straightforward word completion.
-    provider.addCompletion(new BasicCompletion(provider, "abstract"));
-    provider.addCompletion(new BasicCompletion(provider, "assert"));
-    provider.addCompletion(new BasicCompletion(provider, "break"));
-    provider.addCompletion(new BasicCompletion(provider, "case"));
-    provider.addCompletion(new BasicCompletion(provider, "catch"));
-    provider.addCompletion(new BasicCompletion(provider, "class"));
-    provider.addCompletion(new BasicCompletion(provider, "const"));
-    provider.addCompletion(new BasicCompletion(provider, "continue"));
-    provider.addCompletion(new BasicCompletion(provider, "default"));
-    provider.addCompletion(new BasicCompletion(provider, "do"));
-    provider.addCompletion(new BasicCompletion(provider, "else"));
-    provider.addCompletion(new BasicCompletion(provider, "enum"));
-    provider.addCompletion(new BasicCompletion(provider, "extends"));
-    provider.addCompletion(new BasicCompletion(provider, "final"));
-    provider.addCompletion(new BasicCompletion(provider, "finally"));
-    provider.addCompletion(new BasicCompletion(provider, "for"));
-    provider.addCompletion(new BasicCompletion(provider, "goto"));
-    provider.addCompletion(new BasicCompletion(provider, "if"));
-    provider.addCompletion(new BasicCompletion(provider, "implements"));
-    provider.addCompletion(new BasicCompletion(provider, "import"));
-    provider.addCompletion(new BasicCompletion(provider, "instanceof"));
-    provider.addCompletion(new BasicCompletion(provider, "interface"));
-    provider.addCompletion(new BasicCompletion(provider, "native"));
-    provider.addCompletion(new BasicCompletion(provider, "new"));
-    provider.addCompletion(new BasicCompletion(provider, "package"));
-    provider.addCompletion(new BasicCompletion(provider, "private"));
-    provider.addCompletion(new BasicCompletion(provider, "protected"));
-    provider.addCompletion(new BasicCompletion(provider, "public"));
-    provider.addCompletion(new BasicCompletion(provider, "return"));
-    provider.addCompletion(new BasicCompletion(provider, "static"));
-    provider.addCompletion(new BasicCompletion(provider, "strictfp"));
-    provider.addCompletion(new BasicCompletion(provider, "super"));
-    provider.addCompletion(new BasicCompletion(provider, "switch"));
-    provider.addCompletion(new BasicCompletion(provider, "synchronized"));
-    provider.addCompletion(new BasicCompletion(provider, "this"));
-    provider.addCompletion(new BasicCompletion(provider, "throw"));
-    provider.addCompletion(new BasicCompletion(provider, "throws"));
-    provider.addCompletion(new BasicCompletion(provider, "transient"));
-    provider.addCompletion(new BasicCompletion(provider, "try"));
-    provider.addCompletion(new BasicCompletion(provider, "void"));
-    provider.addCompletion(new BasicCompletion(provider, "volatile"));
-    provider.addCompletion(new BasicCompletion(provider, "while"));
-    provider.addCompletion(new FunctionCompletion(provider, "name", "name"));
-    // Add a couple of "shorthand" completions. These completions don't
-    // require the input text to be the same thing as the replacement text.
-    provider.addCompletion(new ShorthandCompletion(provider, "sysout",
-            "System.out.println(", "System.out.println("));
-    provider.addCompletion(new ShorthandCompletion(provider, "syserr",
-            "System.err.println(", "System.err.println("));
-    provider.addCompletion(new VariableCompletion(provider, "robot", "Robot"));
-    return provider;
   }
 
   public JPanel getRootPanel() {
@@ -303,10 +243,6 @@ public class GameEditorForm implements ScriptRuntimeListener {
   }
 
   public void bind(EditorFrame editorFrame, GameManager game, LwjglApplicationConfiguration config) {
-    setupMenu();
-    setupTextArea();
-    setupToolbar();
-    editorFrame.setJMenuBar(menu);
     this.frame = editorFrame;
     this.gameCanvas = new LwjglCanvas(game, config);
     Canvas canvas = this.gameCanvas.getCanvas();
@@ -315,7 +251,21 @@ public class GameEditorForm implements ScriptRuntimeListener {
     //canvas.requestFocus();
 
     editorFrame.addWindowListener(new ExitListener(gameCanvas));
-    newDocument();
+    setupMenu();
+    setupTextArea();
+    setupToolbar();
+    editorFrame.setJMenuBar(menu);
+
+    simulationSpeedComboBox.addItemListener(new ItemListener() {
+      @Override
+      public void itemStateChanged(ItemEvent e) {
+        int speed = simulationSpeedComboBox.getSelectedIndex() + 1;
+        BotLogic.game.getLevel().setSpeed(speed);
+      }
+    });
+
+    currentLevel = Gdx.files.internal("maps/playground.level").path();
+    newDocument(currentLevel);
   }
 
   // methods
@@ -342,24 +292,37 @@ public class GameEditorForm implements ScriptRuntimeListener {
   }
 
   private void runCode() {
-    BotLogic.game.getLevel().getScriptRunner().execute("Robot", textArea.getText());
+    BotLogic.game.getController().run(textArea.getText());
   }
 
   private void stopCode() {
-    BotLogic.game.getLevel().getScriptRunner().finish();
+    BotLogic.game.getController().stop();
   }
 
-  private void newDocument() {
+  private void newDocument(String path) {
     if (currentState != DocumentState.New) {
       closeDocument();
     }
 
     textArea.setText(Gdx.files.classpath("de/macbury/botlogic/code/base.js").readString());
     textArea.requestFocusInWindow();
-    BotLogic.game.newGame();
-    BotLogic.game.getLevel().getScriptRunner().addListener(this);
+    simulationSpeedComboBox.setSelectedIndex(0);
+    BotLogic.game.newGame(path);
+    BotLogic.game.getScriptRunner().addListener(this);
     setState(DocumentState.New);
     clearErrors();
+
+
+    if (autoComplete != null) {
+      autoComplete.uninstall();
+    }
+
+    this.autoComplete = new AutoCompletion(new RobotCompletionProvider(BotLogic.game.getLevel()));
+    autoComplete.setAutoActivationEnabled(true);
+    autoComplete.setAutoActivationDelay(50);
+    autoComplete.setAutoCompleteEnabled(true);
+    autoComplete.setShowDescWindow(true);
+    autoComplete.install(textArea);
   }
 
   private void clearErrors() {
@@ -372,7 +335,7 @@ public class GameEditorForm implements ScriptRuntimeListener {
   }
 
   private void closeDocument() {
-    BotLogic.game.getLevel().getScriptRunner().removeListener(this);
+    BotLogic.game.getScriptRunner().removeListener(this);
   }
 
   @Override

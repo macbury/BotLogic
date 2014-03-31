@@ -1,5 +1,6 @@
 package de.macbury.botlogic.core.map;
 
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
@@ -21,5 +22,9 @@ public class BlockFloor extends Block {
   @Override
   public TextureRegion getSideTextureRegion(TextureAtlas atlas) {
     return atlas.findRegion("floor_end");
+  }
+
+  public static boolean is(Color color) {
+    return color.equals(Color.WHITE);
   }
 }

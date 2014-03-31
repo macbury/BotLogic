@@ -3,11 +3,16 @@ package de.macbury.botlogic.core;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
+import de.macbury.botlogic.core.controller.GameController;
 import de.macbury.botlogic.core.input.InputManager;
 import de.macbury.botlogic.core.levels.BaseLevel;
 import de.macbury.botlogic.core.levels.PlaygroundLevel;
 import de.macbury.botlogic.core.runtime.ScriptContextFactory;
+import de.macbury.botlogic.core.runtime.ScriptRunner;
 import org.mozilla.javascript.ContextFactory;
+import sun.font.ScriptRun;
+
+import javax.swing.*;
 
 /**
  * Created by macbury on 27.03.14.
@@ -41,12 +46,20 @@ public class GameManager extends Game {
     super.render();
   }
 
-  public void newGame() {
+  public void newGame(String path) {
     Gdx.app.log(TAG, "New game");
     if (getLevel() != null) {
       getLevel().dispose();
       Gdx.app.log(TAG, "Disposing old level");
     }
-    setScreen(new PlaygroundLevel());
+    setScreen(new PlaygroundLevel(path));
+  }
+
+  public GameController getController() {
+    return getLevel().getController();
+  }
+
+  public ScriptRunner getScriptRunner() {
+    return getController().getScriptRunner();
   }
 }

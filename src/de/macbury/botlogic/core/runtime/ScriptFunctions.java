@@ -18,6 +18,10 @@ public class ScriptFunctions{
     }
   }
 
+  protected void test(String arg) {
+    Gdx.app.log(TAG, "TEST: " +arg);
+  }
+
   public void log(String message) {
     Gdx.app.log(TAG, message);
   }

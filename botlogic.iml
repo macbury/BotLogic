@@ -16,6 +16,9 @@
     <orderEntry type="library" name="gdx-natives" level="project" />
     <orderEntry type="library" name="gdx-openal" level="project" />
     <orderEntry type="library" name="js" level="project" />
+    <orderEntry type="library" name="tween-engine-api" level="project" />
+    <orderEntry type="library" name="tween-engine-api-sources" level="project" />
+    <orderEntry type="library" name="org.simpleframework:simple-xml:2.6.8" level="project" />
   </component>
 </module>
 

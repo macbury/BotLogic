@@ -32,6 +32,8 @@ public class EditorFrame extends JFrame {
     config.title = "Loading...";
     config.width = 512;
     config.height = 512;
+    config.vSyncEnabled = true;
+    config.samples = 8;
     config.useGL30 = true;
 
     this.setVisible(true);

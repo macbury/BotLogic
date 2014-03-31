@@ -3,6 +3,7 @@ package de.macbury.botlogic.core.runtime;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.utils.Disposable;
 import com.badlogic.gdx.utils.GdxRuntimeException;
+import de.macbury.botlogic.core.controller.GameController;
 import org.mozilla.javascript.*;
 
 import java.util.ArrayList;
@@ -14,16 +15,17 @@ public class ScriptRunner implements Disposable {
   private static final String TAG = "ScriptRunner";
   private static final String SCRIPT_SETUP_FUNCTION = "setup();";
   private static final String SCRIPT_LOOP_FUNCTION = "loop();";
+  private GameController gameController;
 
   private ArrayList<ScriptRuntimeListener> listeners;
   private ScriptRunnable currentRunnable;
-
-  public ScriptRunner() {
+  public ScriptRunner(GameController gameController) {
+    this.gameController = gameController;
     Gdx.app.log(TAG, "Initializing script runner");
     this.listeners = new ArrayList<ScriptRuntimeListener>();
   }
 
-  public void execute(String name, String source) {
+  public void execute(String source) {
     if (currentRunnable != null) {
       if (currentRunnable.isRunning()){
         throw new GdxRuntimeException("Already running!");
@@ -35,6 +37,10 @@ public class ScriptRunner implements Disposable {
     currentRunnable = new ScriptRunnable(source);
     Thread thread = new Thread(currentRunnable);
     thread.start();
+  }
+
+  public boolean isRunning() {
+    return (currentRunnable != null && currentRunnable.isRunning());
   }
 
   public void finish() {
@@ -92,8 +98,10 @@ public class ScriptRunner implements Disposable {
       Gdx.app.log(TAG, "Reseting scope");
       this.objectScope = context.initStandardObjects();
       context.setInterrputFlag(false);
-      objectScope.put("scriptfunctions", objectScope, new ScriptFunctions());
-      context.evaluateString(objectScope, " for(var fn in scriptfunctions) { if(typeof scriptfunctions[fn] === 'function') {this[fn] = (function() {var method = scriptfunctions[fn];return function() {return method.apply(scriptfunctions,arguments);};})();}};", "function transferrer", 1, null);
+
+      synchronized (gameController) {
+        objectScope.put("robot", objectScope, gameController.getRobotController());
+      }
 
       Gdx.app.log(TAG, "Running code");
 
@@ -108,7 +116,7 @@ public class ScriptRunner implements Disposable {
         while(running) {
           context.evaluateString(objectScope, SCRIPT_LOOP_FUNCTION, SCRIPT_CONTEXT_NAME, 0, null);
           try {
-            Thread.sleep(100);
+            Thread.sleep(10);
           } catch (InterruptedException e) {
             e.printStackTrace();
           }

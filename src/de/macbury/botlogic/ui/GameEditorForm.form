@@ -62,6 +62,29 @@
                 <constraints/>
                 <properties/>
               </component>
+              <component id="ec992" class="javax.swing.JLabel">
+                <constraints/>
+                <properties>
+                  <text value="Prędkość symulacji:"/>
+                </properties>
+              </component>
+              <component id="c8095" class="javax.swing.JComboBox" binding="simulationSpeedComboBox">
+                <constraints/>
+                <properties>
+                  <model>
+                    <item value="1x"/>
+                    <item value="2x"/>
+                    <item value="3x"/>
+                    <item value="4x"/>
+                    <item value="5x"/>
+                    <item value="6x"/>
+                    <item value="7x"/>
+                    <item value="8x"/>
+                    <item value="9x"/>
+                    <item value="10x"/>
+                  </model>
+                </properties>
+              </component>
             </children>
           </toolbar>
           <grid id="c113b" binding="editorContainer" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
