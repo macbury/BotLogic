@@ -1,6 +1,7 @@
 package de.macbury.botlogic.core.controller;
 
 import com.badlogic.gdx.utils.Disposable;
+import de.macbury.botlogic.core.BotLogic;
 import de.macbury.botlogic.core.graphics.camera.RTSCameraController;
 import de.macbury.botlogic.core.levels.BaseLevel;
 import de.macbury.botlogic.core.runtime.ScriptRunner;
@@ -51,6 +52,7 @@ public class GameController implements Disposable, ScriptRuntimeListener {
   public synchronized void setAction(GameAction action) {
     currentAction = action;
     synchronized (currentAction) {
+      currentAction.setLevel(level);
       currentAction.start();
     }
   }
@@ -81,7 +83,7 @@ public class GameController implements Disposable, ScriptRuntimeListener {
     camera.setZoom(10);
     camera.setRotation(-3.1415f);
     camera.setTilt(1.2f);
-    level.music.play();
+    BotLogic.audio.music.play();
   }
 
   @Override
@@ -103,7 +105,8 @@ public class GameController implements Disposable, ScriptRuntimeListener {
   public void onScriptFinish(ScriptRunner runner) {
     finishAction();
     level.get3DCameraController().setEnabled(true);
-    level.music.stop();
+    BotLogic.audio.music.stop();
+    level.tweenManager.killAll();
   }
 
   public void finishAction() {

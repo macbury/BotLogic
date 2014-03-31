@@ -1,5 +1,6 @@
 package de.macbury.botlogic.core.levels;
 
+import aurelienribon.tweenengine.Tween;
 import aurelienribon.tweenengine.TweenManager;
 import com.badlogic.gdx.Files;
 import com.badlogic.gdx.Gdx;
@@ -20,17 +21,18 @@ import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.badlogic.gdx.utils.UBJsonReader;
 import de.macbury.botlogic.core.controller.GameController;
 import de.macbury.botlogic.core.entites.Entity;
+import de.macbury.botlogic.core.entites.ModelEntity;
 import de.macbury.botlogic.core.entites.RobotEntity;
 import de.macbury.botlogic.core.graphics.camera.RTSCameraController;
 import de.macbury.botlogic.core.levels.file.LevelFile;
 import de.macbury.botlogic.core.map.Map;
 import de.macbury.botlogic.core.runtime.ScriptRunner;
+import de.macbury.botlogic.core.tween.ModelEntityAccessor;
 
 import java.util.ArrayList;
 
 public abstract class BaseLevel implements Screen {
   public TweenManager tweenManager;
-  public Music music;
   public RobotEntity robot;
   private GameController controller;
   private Model robotModel;
@@ -40,12 +42,14 @@ public abstract class BaseLevel implements Screen {
   private ModelBatch modelBatch;
   private PerspectiveCamera perspectiveCamera;
   private ArrayList<Entity> entities;
-  private int speed;
+  private int speed = 1;
 
   public BaseLevel(String mapName) {
     LevelFile levelDefinition = null;
 
     this.tweenManager       = new TweenManager();
+    Tween.registerAccessor(ModelEntity.class, new ModelEntityAccessor());
+
     this.entities           = new ArrayList<Entity>();
     this.perspectiveCamera  = new PerspectiveCamera(67, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 
@@ -56,9 +60,6 @@ public abstract class BaseLevel implements Screen {
     }
 
     this.map                = new Map(levelDefinition.geometryFile());
-    this.music              = Gdx.audio.newMusic(Gdx.files.internal("audio/code_testing.mp3"));
-    music.setLooping(true);
-
     perspectiveCamera.position.set(0, 0, 0);
     perspectiveCamera.near = 0.1f;
     perspectiveCamera.far = 300f;
@@ -92,7 +93,13 @@ public abstract class BaseLevel implements Screen {
   }
 
   public void reset() {
-    robot.position.set(map.getRobotStartPosition());
+    tweenManager.killAll();
+    robot.startPosition = map.getRobotStartPosition();
+
+    for (Entity e : entities) {
+      e.reset();
+    }
+
     cameraController.setCenter(robot.position.x, robot.position.z);
   }
 

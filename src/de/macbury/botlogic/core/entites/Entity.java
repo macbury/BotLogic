@@ -11,15 +11,15 @@ import com.badlogic.gdx.utils.Disposable;
  */
 public abstract class Entity implements Disposable {
   public Vector3 position;
-  public Quaternion rotatation;
+  public float rotatation;
   public Vector3 scale;
   public Entity() {
     position   = new Vector3();
-    rotatation = new Quaternion();
+    rotatation = 0.0f;
     scale      = new Vector3(1,1,1);
   }
 
   public abstract void update(double delta);
   public abstract void render(ModelBatch batch, Environment env);
-
+  public abstract void reset();
 }

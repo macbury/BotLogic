@@ -3,6 +3,7 @@ package de.macbury.botlogic.core;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
+import de.macbury.botlogic.core.audio.AudioManager;
 import de.macbury.botlogic.core.controller.GameController;
 import de.macbury.botlogic.core.input.InputManager;
 import de.macbury.botlogic.core.levels.BaseLevel;
@@ -26,6 +27,7 @@ public class GameManager extends Game {
     Gdx.app.log(TAG, "created");
     BotLogic.game         = this;
     BotLogic.inputManager = new InputManager();
+    BotLogic.audio        = new AudioManager();
     ContextFactory.initGlobal(new ScriptContextFactory());
     loading = false;
   }
