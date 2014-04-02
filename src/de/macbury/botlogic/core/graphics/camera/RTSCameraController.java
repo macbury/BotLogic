@@ -160,6 +160,7 @@ public class RTSCameraController extends InputAdapter {
 
     cam.direction.set(tempVec);
     scrollAmount = 0;
+
   }
 
   public PerspectiveCamera getCamera() {
@@ -296,7 +297,7 @@ public class RTSCameraController extends InputAdapter {
     return currentZoom;
   }
 
-  public void setZoom(int zoom) {
+  public void setZoom(float zoom) {
     this.currentZoom = zoom;
   }
 
@@ -307,5 +308,25 @@ public class RTSCameraController extends InputAdapter {
 
   public void setTilt(float tilt) {
     this.tilt = tilt;
+  }
+
+  public Vector3 getCenter() {
+    return center;
+  }
+
+  public float getTilt() {
+    return tilt;
+  }
+
+  public float getRotation() {
+    return rotation;
+  }
+
+  public float getCurrentZoom() {
+    return currentZoom;
+  }
+
+  public void setCurrentZoom(float currentZoom) {
+    this.currentZoom = currentZoom;
   }
 }

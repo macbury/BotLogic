@@ -42,7 +42,17 @@ public class EditorFrame extends JFrame {
     SwingUtilities.invokeLater(new Runnable() {
       @Override
       public void run() {
-        form.bind(EditorFrame.this, game, config);
+        try {
+          form.bind(EditorFrame.this, game, config);
+        } catch(Exception e) {
+          e.printStackTrace();
+          JOptionPane.showMessageDialog(EditorFrame.this,
+                  e.getMessage(),
+                  "Runtime Error",
+                  JOptionPane.ERROR_MESSAGE);
+          System.exit(1);
+        }
+
       }
     });
 

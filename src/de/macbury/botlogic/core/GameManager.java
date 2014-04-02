@@ -1,15 +1,20 @@
 package de.macbury.botlogic.core;
 
+import aurelienribon.tweenengine.Tween;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import de.macbury.botlogic.core.audio.AudioManager;
 import de.macbury.botlogic.core.controller.GameController;
+import de.macbury.botlogic.core.entites.ModelEntity;
+import de.macbury.botlogic.core.graphics.camera.RTSCameraController;
 import de.macbury.botlogic.core.input.InputManager;
 import de.macbury.botlogic.core.levels.BaseLevel;
 import de.macbury.botlogic.core.levels.PlaygroundLevel;
 import de.macbury.botlogic.core.runtime.ScriptContextFactory;
 import de.macbury.botlogic.core.runtime.ScriptRunner;
+import de.macbury.botlogic.core.tween.CameraAccessor;
+import de.macbury.botlogic.core.tween.ModelEntityAccessor;
 import org.mozilla.javascript.ContextFactory;
 import sun.font.ScriptRun;
 
@@ -28,6 +33,8 @@ public class GameManager extends Game {
     BotLogic.game         = this;
     BotLogic.inputManager = new InputManager();
     BotLogic.audio        = new AudioManager();
+    Tween.registerAccessor(ModelEntity.class, new ModelEntityAccessor());
+    Tween.registerAccessor(RTSCameraController.class, new CameraAccessor());
     ContextFactory.initGlobal(new ScriptContextFactory());
     loading = false;
   }

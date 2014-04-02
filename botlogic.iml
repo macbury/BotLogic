@@ -7,18 +7,18 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="com.fifesoft:rsyntaxtextarea:2.5.0" level="project" />
-    <orderEntry type="library" name="com.fifesoft:autocomplete:2.5.0" level="project" />
-    <orderEntry type="library" name="JGoodies Forms" level="project" />
-    <orderEntry type="library" name="gdx" level="project" />
-    <orderEntry type="library" name="gdx-backend-lwjgl" level="project" />
-    <orderEntry type="library" name="gdx-backend-lwjgl-natives" level="project" />
-    <orderEntry type="library" name="gdx-natives" level="project" />
-    <orderEntry type="library" name="gdx-openal" level="project" />
-    <orderEntry type="library" name="js" level="project" />
-    <orderEntry type="library" name="tween-engine-api" level="project" />
-    <orderEntry type="library" name="tween-engine-api-sources" level="project" />
-    <orderEntry type="library" name="org.simpleframework:simple-xml:2.6.8" level="project" />
+    <orderEntry type="library" exported="" name="com.fifesoft:rsyntaxtextarea:2.5.0" level="project" />
+    <orderEntry type="library" exported="" name="com.fifesoft:autocomplete:2.5.0" level="project" />
+    <orderEntry type="library" exported="" name="JGoodies Forms" level="project" />
+    <orderEntry type="library" exported="" name="gdx" level="project" />
+    <orderEntry type="library" exported="" name="gdx-backend-lwjgl" level="project" />
+    <orderEntry type="library" exported="" name="gdx-backend-lwjgl-natives" level="project" />
+    <orderEntry type="library" exported="" name="gdx-natives" level="project" />
+    <orderEntry type="library" exported="" name="gdx-openal" level="project" />
+    <orderEntry type="library" exported="" name="js" level="project" />
+    <orderEntry type="library" exported="" name="tween-engine-api" level="project" />
+    <orderEntry type="library" exported="" name="tween-engine-api-sources" level="project" />
+    <orderEntry type="library" exported="" name="org.simpleframework:simple-xml:2.6.8" level="project" />
   </component>
 </module>
 

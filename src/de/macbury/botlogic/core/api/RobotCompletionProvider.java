@@ -1,9 +1,7 @@
 package de.macbury.botlogic.core.api;
 
 import de.macbury.botlogic.core.levels.BaseLevel;
-import org.fife.ui.autocomplete.DefaultCompletionProvider;
-import org.fife.ui.autocomplete.FunctionCompletion;
-import org.fife.ui.autocomplete.VariableCompletion;
+import org.fife.ui.autocomplete.*;
 
 /**
  * Created by macbury on 31.03.14.
@@ -13,6 +11,9 @@ public class RobotCompletionProvider extends DefaultCompletionProvider {
     super();
     registerFunction("say", "pokazuje tekst podany w parametrze");
     registerAuto();
+
+    addCompletion(new BasicCompletion(this, "robot", "robot.test", "test robot"));
+    addCompletion(new ShorthandCompletion(this, "robot.say", "robot.say"));
   }
 
   public void registerFunction(String name, String description) {

@@ -31,7 +31,7 @@ public class LevelFile {
   private String filePath;
 
   @ElementList(inline=true, name="using", entry="using")
-  private List<LevelFeature> using = new ArrayList<LevelFeature>();
+  private ArrayList<LevelFeature> using = new ArrayList<LevelFeature>();
 
   public static LevelFile load(String path) throws Exception {
     Serializer serializer = new Persister();
@@ -114,5 +114,9 @@ public class LevelFile {
     }
 
     return results;
+  }
+
+  public ArrayList<LevelFeature> getFeatures() {
+    return using;
   }
 }

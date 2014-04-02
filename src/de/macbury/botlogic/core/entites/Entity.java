@@ -20,6 +20,6 @@ public abstract class Entity implements Disposable {
   }
 
   public abstract void update(double delta);
-  public abstract void render(ModelBatch batch, Environment env);
+
   public abstract void reset();
 }

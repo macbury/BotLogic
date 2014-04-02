@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.utils.Disposable;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import de.macbury.botlogic.core.controller.GameController;
+import de.macbury.botlogic.core.controller.api.MathLib;
 import org.mozilla.javascript.*;
 
 import java.util.ArrayList;
@@ -101,6 +102,8 @@ public class ScriptRunner implements Disposable {
 
       synchronized (gameController) {
         objectScope.put("robot", objectScope, gameController.getRobotController());
+        objectScope.put("math", objectScope, new MathLib());
+        context.evaluateString(objectScope, Gdx.files.internal("sketches/rdk/helpers.js").readString(), SCRIPT_CONTEXT_NAME, 0, null);
       }
 
       Gdx.app.log(TAG, "Running code");

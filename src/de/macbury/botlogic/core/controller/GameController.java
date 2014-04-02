@@ -1,14 +1,14 @@
 package de.macbury.botlogic.core.controller;
 
+import aurelienribon.tweenengine.Timeline;
+import aurelienribon.tweenengine.Tween;
 import com.badlogic.gdx.utils.Disposable;
-import de.macbury.botlogic.core.BotLogic;
+import de.macbury.botlogic.core.controller.api.RobotLib;
 import de.macbury.botlogic.core.graphics.camera.RTSCameraController;
 import de.macbury.botlogic.core.levels.BaseLevel;
 import de.macbury.botlogic.core.runtime.ScriptRunner;
 import de.macbury.botlogic.core.runtime.ScriptRuntimeListener;
-import org.fife.ui.autocomplete.CompletionProvider;
-import org.fife.ui.autocomplete.DefaultCompletionProvider;
-import org.fife.ui.autocomplete.FunctionCompletion;
+import de.macbury.botlogic.core.tween.CameraAccessor;
 import org.mozilla.javascript.RhinoException;
 
 /**
@@ -18,7 +18,7 @@ public class GameController implements Disposable, ScriptRuntimeListener {
   private GameAction currentAction;
   private ScriptRunner scriptRunner;
   private BaseLevel level;
-  private RobotController robotController;
+  private RobotLib robotController;
 
   public GameController(BaseLevel level) {
     this.level          = level;
@@ -27,7 +27,7 @@ public class GameController implements Disposable, ScriptRuntimeListener {
 
     this.scriptRunner.addListener(this);
 
-    this.robotController = new RobotController(this);
+    this.robotController = new RobotLib(this);
   }
 
   public void run(String source) {
@@ -79,11 +79,16 @@ public class GameController implements Disposable, ScriptRuntimeListener {
     level.reset();
 
     RTSCameraController camera = level.get3DCameraController();
-    camera.setEnabled(false);
-    camera.setZoom(10);
-    camera.setRotation(-3.1415f);
-    camera.setTilt(1.2f);
-    BotLogic.audio.music.play();
+    //camera.setEnabled(false);
+
+    float targetZoom = 5;
+    float targetRotation = -5.8463125f;
+    float targetTilt = 1.0542735f;
+
+    Timeline.createSequence().beginParallel()
+      .push(Tween.to(camera, CameraAccessor.CENTER, 1).target(camera.getCenter().x, camera.getCenter().y, camera.getCenter().z))
+      .push(Tween.to(camera, CameraAccessor.ROTATION_TILT_ZOOM, 1).target(targetZoom, targetRotation, targetTilt))
+    .end().start(level.tweenManager);
   }
 
   @Override
@@ -105,8 +110,9 @@ public class GameController implements Disposable, ScriptRuntimeListener {
   public void onScriptFinish(ScriptRunner runner) {
     finishAction();
     level.get3DCameraController().setEnabled(true);
-    BotLogic.audio.music.stop();
+    //BotLogic.audio.music.stop();
     level.tweenManager.killAll();
+    level.reset();
   }
 
   public void finishAction() {
@@ -116,7 +122,7 @@ public class GameController implements Disposable, ScriptRuntimeListener {
     }
   }
 
-  public RobotController getRobotController() {
+  public RobotLib getRobotController() {
     return robotController;
   }
 

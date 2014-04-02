@@ -68,62 +68,27 @@
       <file leaf-file-name="BaseLevel.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/levels/BaseLevel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="35" selection-start="1533" selection-end="1533" vertical-scroll-proportion="0.0" vertical-offset="2634" max-vertical-offset="3186">
+            <state line="104" column="26" selection-start="4245" selection-end="4245" vertical-scroll-proportion="0.0" vertical-offset="1112" max-vertical-offset="3708">
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#4841#4842#0" expanded="true" />
+                <element signature="e#4868#4869#0" expanded="true" />
+                <element signature="e#5161#5162#0" expanded="true" />
+                <element signature="e#5194#5195#0" expanded="true" />
+                <element signature="e#6716#6717#0" expanded="true" />
+                <element signature="e#6744#6745#0" expanded="true" />
+                <element signature="e#6771#6772#0" expanded="true" />
+                <element signature="e#6793#6794#0" expanded="true" />
+                <element signature="e#6931#6932#0" expanded="true" />
+                <element signature="e#6963#6964#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AudioManager.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/audio/AudioManager.java">
+      <file leaf-file-name="RobotEntity.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/entites/RobotEntity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="23" selection-start="501" selection-end="501" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="612">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RotateAction.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/controller/actions/RotateAction.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="0" selection-start="813" selection-end="813" vertical-scroll-proportion="0.0" vertical-offset="171" max-vertical-offset="828">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RobotController.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/controller/RobotController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="43" selection-start="962" selection-end="962" vertical-scroll-proportion="0.0" vertical-offset="396" max-vertical-offset="972">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BotLogic.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/BotLogic.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="18" selection-start="302" selection-end="302" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="342">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GameManager.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/GameManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="14" selection-start="950" selection-end="950" vertical-scroll-proportion="0.0" vertical-offset="195" max-vertical-offset="1044">
+            <state line="32" column="41" selection-start="1079" selection-end="1079" vertical-scroll-proportion="0.6467066" vertical-offset="0" max-vertical-offset="684">
               <folding />
             </state>
           </provider>
@@ -132,38 +97,62 @@
       <file leaf-file-name="ModelEntity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/entites/ModelEntity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="37" selection-start="1136" selection-end="1136" vertical-scroll-proportion="0.0" vertical-offset="369" max-vertical-offset="846">
+            <state line="20" column="40" selection-start="718" selection-end="718" vertical-scroll-proportion="0.0" vertical-offset="14" max-vertical-offset="846">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Entity.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/entites/Entity.java">
+      <file leaf-file-name="RobotLib.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/controller/api/RobotLib.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="25" selection-start="691" selection-end="691" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="486">
+            <state line="6" column="62" selection-start="328" selection-end="328" vertical-scroll-proportion="0.0" vertical-offset="17" max-vertical-offset="918">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RobotEntity.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/entites/RobotEntity.java">
+      <file leaf-file-name="EditorFrame.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/ui/EditorFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="47" selection-start="441" selection-end="441" vertical-scroll-proportion="0.08716707" vertical-offset="108" max-vertical-offset="540">
+            <state line="32" column="23" selection-start="904" selection-end="904" vertical-scroll-proportion="0.0" vertical-offset="214" max-vertical-offset="1062">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameController.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/controller/GameController.java">
+      <file leaf-file-name="GameEditorForm.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/ui/GameEditorForm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="107" column="24" selection-start="2727" selection-end="2727" vertical-scroll-proportion="0.0" vertical-offset="1275" max-vertical-offset="2124">
-              <folding>
-                <element signature="e#2954#2955#0" expanded="true" />
-                <element signature="e#2986#2987#0" expanded="true" />
-              </folding>
+            <state line="103" column="0" selection-start="3493" selection-end="3493" vertical-scroll-proportion="0.0" vertical-offset="664" max-vertical-offset="6984">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ScriptContext.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/runtime/ScriptContext.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="30" column="0" selection-start="708" selection-end="708" vertical-scroll-proportion="0.0" vertical-offset="540" max-vertical-offset="774">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ScriptRunner.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/runtime/ScriptRunner.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="105" column="77" selection-start="3136" selection-end="3136" vertical-scroll-proportion="0.0" vertical-offset="1890" max-vertical-offset="3132">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RTSCameraController.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/graphics/camera/RTSCameraController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="300" column="27" selection-start="7646" selection-end="7646" vertical-scroll-proportion="0.0" vertical-offset="5400" max-vertical-offset="6084">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -178,22 +167,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/runtime/ScriptInterputException.java" />
-        <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/levels/Playground.java" />
-        <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/levels/Base.java" />
-        <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/levels/BaseLeve.java" />
-        <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/runtime/RuntimeListener.java" />
-        <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/runtime/ScriptRuntimeListener.java" />
-        <option value="$PROJECT_DIR$/src/de/macbury/botlogic/Main.java" />
-        <option value="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
-        <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/runtime/ScriptThread.java" />
-        <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/runtime/ScriptContext.java" />
-        <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/runtime/ScriptContextFactory.java" />
-        <option value="$PROJECT_DIR$/src/de/macbury/botlogic/ui/ParserResult.java" />
-        <option value="$PROJECT_DIR$/src/de/macbury/botlogic/ui/JsParserNotice.java" />
-        <option value="$PROJECT_DIR$/src/de/macbury/botlogic/ui/JsParserResult.java" />
-        <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/input/InputManager.java" />
-        <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/camera/RTSCameraController.java" />
         <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/map/Block.java" />
         <option value="$PROJECT_DIR$/assets/maps/playground.map" />
         <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/map/BlockWall.java" />
@@ -201,33 +174,49 @@
         <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/map/Map.java" />
         <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/runtime/ScriptFunctions.java" />
         <option value="$PROJECT_DIR$/assets/maps/playground.js" />
-        <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/graphics/camera/RTSCameraController.java" />
         <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/controller/GameControllerAPIProxy.java" />
         <option value="$PROJECT_DIR$/src/de/macbury/botlogic/code/base.js" />
         <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/graphics/mesh/MeshAssembler.java" />
-        <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/api/RobotCompletionProvider.java" />
         <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/controller/actions/WaitAction.java" />
         <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/levels/file/LevelFeature.java" />
         <option value="$PROJECT_DIR$/assets/maps/playground.level" />
         <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/levels/PlaygroundLevel.java" />
-        <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/levels/file/LevelFile.java" />
-        <option value="$PROJECT_DIR$/assets/maps/maze.level" />
-        <option value="$PROJECT_DIR$/src/de/macbury/botlogic/ui/EditorFrame.java" />
         <option value="$PROJECT_DIR$/src/de/macbury/botlogic/ui/GameEditorForm.form" />
-        <option value="$PROJECT_DIR$/src/de/macbury/botlogic/ui/GameEditorForm.java" />
-        <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/runtime/ScriptRunner.java" />
         <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/controller/GameAction.java" />
-        <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/controller/actions/MoveAction.java" />
         <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/tween/ModelEntityAccessor.java" />
-        <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/entites/Entity.java" />
-        <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/entites/ModelEntity.java" />
-        <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/GameManager.java" />
         <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/BotLogic.java" />
-        <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/levels/BaseLevel.java" />
-        <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/controller/GameController.java" />
         <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/controller/actions/RotateAction.java" />
         <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/controller/RobotController.java" />
+        <option value="$PROJECT_DIR$/assets/sketches/blank.js" />
+        <option value="$PROJECT_DIR$/assets/sketches/new/blank.js" />
+        <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/levels/file/LevelFile.java" />
+        <option value="$PROJECT_DIR$/assets/sketches/features/Led.js" />
+        <option value="$PROJECT_DIR$/assets/sketches/features/Robot.js" />
+        <option value="$PROJECT_DIR$/assets/sketches/features/Scanner.js" />
+        <option value="$PROJECT_DIR$/assets/maps/maze.level" />
+        <option value="$PROJECT_DIR$/src/de/macbury/botlogic/ui/EditorFrame.java" />
+        <option value="$PROJECT_DIR$/assets/sketches/features/Robot.docs" />
+        <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/api/ApiDocs.java" />
+        <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/api/ApiDocsBasicCompletion.java" />
+        <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/api/RobotCompletionProvider.java" />
+        <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/entites/Entity.java" />
+        <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/entites/EntityModelRenderable.java" />
+        <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/entites/EntityDecalRenderable.java" />
+        <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/api/ScriptDocument.java" />
+        <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/controller/api/MathLib.java" />
+        <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/graphics/camera/RTSCameraController.java" />
+        <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/GameManager.java" />
+        <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/tween/CameraAccessor.java" />
         <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/audio/AudioManager.java" />
+        <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/controller/actions/MoveAction.java" />
+        <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/runtime/ScriptRunner.java" />
+        <option value="$PROJECT_DIR$/assets/sketches/rdk/helpers.js" />
+        <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/controller/GameController.java" />
+        <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/controller/api/RobotController.java" />
+        <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/controller/api/RobotLib.java" />
+        <option value="$PROJECT_DIR$/src/de/macbury/botlogic/ui/GameEditorForm.java" />
+        <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/levels/BaseLevel.java" />
+        <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/entites/ModelEntity.java" />
         <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/entites/RobotEntity.java" />
       </list>
     </option>
@@ -333,6 +322,54 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GameEditorForm" />
+              <option name="myItemType" value="com.intellij.uiDesigner.projectView.FormNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="botlogic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="botlogic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="botlogic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="botlogic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="botlogic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="botlogic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="core" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -359,7 +396,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="tween" />
+              <option name="myItemId" value="runtime" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -441,6 +478,36 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="botlogic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="botlogic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="botlogic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="actions" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -456,6 +523,46 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="botlogic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="botlogic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sketches" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rdk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="botlogic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="botlogic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sketches" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -541,7 +648,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="levels" />
+              <option name="myItemId" value="tween" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -563,11 +670,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="graphics" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mesh" />
+              <option name="myItemId" value="runtime" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -589,7 +692,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="graphics" />
+              <option name="myItemId" value="entites" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -615,6 +718,32 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="botlogic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="botlogic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="de.macbury.botlogic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="actions" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -637,7 +766,7 @@
     <property name="Downloaded.Files.Path" value="$PROJECT_DIR$/lib" />
     <property name="Repository.Attach.JavaDocs" value="true" />
     <property name="Repository.Attach.Sources" value="true" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
@@ -660,6 +789,9 @@
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="de.macbury.botlogic.core.graphics" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/assets/sketches/new" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
@@ -828,6 +960,23 @@
       <AnalysisUIOptions />
     </option>
   </component>
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="all">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="dd234c15-44e1-4cb8-8d63-1cc0bfa49fa3" name="Default" comment="" />
@@ -837,35 +986,35 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="27" width="1922" height="1054" extended-state="6" />
+    <frame x="-1" y="27" width="1922" height="1054" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15026738" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2513369" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2513369" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32993197" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32993197" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3968254" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3956916" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3265306" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32539684" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15721925" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.46258503" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32993197" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18074866" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20521542" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15026738" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32993197" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="JFormDesigner Bindings" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32993197" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32993197" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15026738" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -916,86 +1065,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/runtime/ScriptRuntimeListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="40" selection-start="176" selection-end="177" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="13" selection-start="135" selection-end="135" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="414" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/ui/icon_error.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/rsyntaxtextarea-2.5.0-sources.jar!/org/fife/ui/rsyntaxtextarea/RSyntaxTextArea.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="902" column="17" selection-start="25683" selection-end="25683" vertical-scroll-proportion="0.3327787" vertical-offset="15028" max-vertical-offset="52128" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/ui/JsParserNotice.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="27" selection-start="230" selection-end="230" vertical-scroll-proportion="0.18302828" vertical-offset="70" max-vertical-offset="1602" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/ui/JsParserResult.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="20" selection-start="1327" selection-end="1327" vertical-scroll-proportion="0.8797595" vertical-offset="605" max-vertical-offset="1206" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/input/KeyMapping.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="13" selection-start="126" selection-end="126" vertical-scroll-proportion="0.0" vertical-offset="108" max-vertical-offset="846" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/input/InputManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1188" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/graphics/mesh/MeshVertexIndex.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="13" selection-start="142" selection-end="142" vertical-scroll-proportion="0.20965058" vertical-offset="0" max-vertical-offset="630" />
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/gdx.jar!/com/badlogic/gdx/graphics/g2d/TextureAtlas.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="9" selection-start="608" selection-end="608" vertical-scroll-proportion="-7.84" vertical-offset="2" max-vertical-offset="3168" />
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/gdx.jar!/com/badlogic/gdx/graphics/g3d/Material.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="9" selection-start="302" selection-end="302" vertical-scroll-proportion="0.19660194" vertical-offset="0" max-vertical-offset="824" />
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/gdx.jar!/com/badlogic/gdx/graphics/g3d/environment/PointLight.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="62" selection-start="602" selection-end="602" vertical-scroll-proportion="0.40625" vertical-offset="0" max-vertical-offset="576" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/graphics/mesh/MeshVertexData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="14" selection-start="309" selection-end="309" vertical-scroll-proportion="0.1014975" vertical-offset="65" max-vertical-offset="774" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/map/Block.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="18" selection-start="335" selection-end="335" vertical-scroll-proportion="0.0" vertical-offset="83" max-vertical-offset="684" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/map/BlockWall.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="37" selection-start="695" selection-end="695" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="612" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/map/BlockFloor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="35" selection-start="697" selection-end="697" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="612" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/map/Map.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="123" column="64" selection-start="5656" selection-end="5656" vertical-scroll-proportion="0.25358853" vertical-offset="1678" max-vertical-offset="2808" />
@@ -1011,123 +1080,64 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="585" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/maps/playground.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/runtime/ScriptContextFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="0" selection-start="387" selection-end="387" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="414">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/code/base.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="1" selection-start="65" selection-end="65" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="252" />
+        <state line="17" column="0" selection-start="387" selection-end="387" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="414" />
       </provider>
     </entry>
     <entry file="jar://$PROJECT_DIR$/lib/tween-engine-api.jar!/aurelienribon/tweenengine/TweenManager.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="25" selection-start="155" selection-end="1852" vertical-scroll-proportion="0.1092233" vertical-offset="0" max-vertical-offset="936">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/runtime/ScriptContext.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="0" selection-start="708" selection-end="708" vertical-scroll-proportion="0.5300353" vertical-offset="0" max-vertical-offset="849">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/api/RobotCompletionProvider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="72" selection-start="368" selection-end="368" vertical-scroll-proportion="0.43583536" vertical-offset="0" max-vertical-offset="648">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
+        <state line="6" column="25" selection-start="155" selection-end="1852" vertical-scroll-proportion="0.1092233" vertical-offset="0" max-vertical-offset="936" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/graphics/mesh/MeshAssembler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="307" column="17" selection-start="8936" selection-end="8936" vertical-scroll-proportion="0.0" vertical-offset="1016" max-vertical-offset="6444">
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#6640#6641#0" expanded="false" />
-            <element signature="e#6664#6665#0" expanded="false" />
-            <element signature="e#6697#6698#0" expanded="false" />
-            <element signature="e#6721#6722#0" expanded="false" />
-          </folding>
-        </state>
+        <state line="307" column="17" selection-start="8936" selection-end="8936" vertical-scroll-proportion="0.0" vertical-offset="1016" max-vertical-offset="6444" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/maps/playground.level">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="20" selection-start="170" selection-end="170" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="252">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/maps/maze.level">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="22" selection-start="171" selection-end="171" vertical-scroll-proportion="0.21791768" vertical-offset="0" max-vertical-offset="413">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/ui/EditorFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="37" selection-start="601" selection-end="601" vertical-scroll-proportion="0.38162544" vertical-offset="0" max-vertical-offset="849">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/runtime/ScriptRunner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="0" selection-start="1381" selection-end="1381" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2934">
-          <folding />
-        </state>
+        <state line="5" column="20" selection-start="170" selection-end="170" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="252" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/levels/PlaygroundLevel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="28" selection-start="170" selection-end="185" vertical-scroll-proportion="0.14840989" vertical-offset="0" max-vertical-offset="849">
-          <folding />
-        </state>
+        <state line="8" column="28" selection-start="170" selection-end="185" vertical-scroll-proportion="0.14840989" vertical-offset="0" max-vertical-offset="849" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/controller/actions/WaitAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="39" selection-start="349" selection-end="349" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="774" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/controller/GameAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="11" selection-start="177" selection-end="186" vertical-scroll-proportion="0.0" vertical-offset="61" max-vertical-offset="1224" />
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/gdx.jar!/com/badlogic/gdx/audio/Sound.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="7" selection-start="529" selection-end="529" vertical-scroll-proportion="0.41105768" vertical-offset="405" max-vertical-offset="846" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/BotLogic.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="18" selection-start="302" selection-end="302" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="342" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/levels/file/LevelFile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="87" column="0" selection-start="1753" selection-end="1753" vertical-scroll-proportion="0.0" vertical-offset="1707" max-vertical-offset="2232">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#717#731#0" expanded="true" />
-            <element signature="e#1023#1024#0" expanded="true" />
-            <element signature="e#1044#1045#0" expanded="true" />
-            <element signature="e#1082#1083#0" expanded="true" />
-            <element signature="e#1108#1109#0" expanded="true" />
-            <element signature="e#1144#1145#0" expanded="true" />
-            <element signature="e#1172#1173#0" expanded="true" />
-            <element signature="e#1224#1225#0" expanded="true" />
-            <element signature="e#1264#1265#0" expanded="true" />
-            <element signature="e#1292#1293#0" expanded="true" />
-            <element signature="e#1312#1313#0" expanded="true" />
-            <element signature="e#1348#1349#0" expanded="true" />
-            <element signature="e#1372#1373#0" expanded="true" />
-            <element signature="e#1403#1404#0" expanded="true" />
-            <element signature="e#1426#1427#0" expanded="true" />
-            <element signature="e#1468#1469#0" expanded="true" />
-            <element signature="e#1498#1499#0" expanded="true" />
-            <element signature="e#1531#1532#0" expanded="true" />
-            <element signature="e#1556#1557#0" expanded="true" />
-            <element signature="e#1602#1603#0" expanded="true" />
-            <element signature="e#1636#1637#0" expanded="true" />
-            <element signature="e#2166#2177#0" expanded="true" />
-          </folding>
-        </state>
+        <state line="33" column="19" selection-start="686" selection-end="686" vertical-scroll-proportion="-0.5265018" vertical-offset="1041" max-vertical-offset="1908" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/sketches/features/Robot.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="7" selection-start="7" selection-end="7" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="441" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/sketches/features/Scanner.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="7" selection-start="7" selection-end="7" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="441" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/ui/GameEditorForm.form">
@@ -1135,158 +1145,222 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/ui/GameEditorForm.java">
+    <entry file="file://$PROJECT_DIR$/assets/sketches/features/Led.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="261" column="55" selection-start="8462" selection-end="8462" vertical-scroll-proportion="0.0" vertical-offset="3715" max-vertical-offset="6444">
-          <folding>
-            <element signature="e#8320#8538#0" expanded="true" />
-            <element signature="e#8531#8532#0" expanded="true" />
-          </folding>
-        </state>
+        <state line="0" column="8" selection-start="8" selection-end="8" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="441" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/controller/actions/WaitAction.java">
+    <entry file="file://$PROJECT_DIR$/assets/sketches/new/blank.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="39" selection-start="349" selection-end="349" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="774">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
+        <state line="2" column="0" selection-start="20" selection-end="20" vertical-scroll-proportion="0.07675906" vertical-offset="0" max-vertical-offset="469" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/controller/GameAction.java">
+    <entry file="file://$PROJECT_DIR$/assets/maps/maze.level">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="11" selection-start="177" selection-end="186" vertical-scroll-proportion="0.0" vertical-offset="61" max-vertical-offset="1224">
-          <folding>
-            <element signature="e#235#236#0" expanded="true" />
-            <element signature="e#257#258#0" expanded="true" />
-            <element signature="e#675#676#0" expanded="true" />
-            <element signature="e#703#704#0" expanded="true" />
-          </folding>
-        </state>
+        <state line="4" column="28" selection-start="148" selection-end="148" vertical-scroll-proportion="0.15351813" vertical-offset="0" max-vertical-offset="469" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/controller/actions/MoveAction.java">
+    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/api/ApiDocs.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="124" selection-start="508" selection-end="628" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="702">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
+        <state line="9" column="0" selection-start="149" selection-end="149" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/graphics/camera/RTSCameraController.java">
+    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/api/ApiDocsBasicCompletion.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="130" column="14" selection-start="3391" selection-end="3399" vertical-scroll-proportion="-1.4189526" vertical-offset="2747" max-vertical-offset="5328">
-          <folding>
-            <element signature="e#7693#7694#0" expanded="true" />
-            <element signature="e#7727#7728#0" expanded="true" />
-          </folding>
-        </state>
+        <state line="11" column="36" selection-start="303" selection-end="303" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="414" />
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/gdx.jar!/com/badlogic/gdx/math/Matrix4.class">
+    <entry file="jar://$PROJECT_DIR$/lib/autocomplete-2.5.0-sources.jar!/org/fife/ui/autocomplete/ShorthandCompletion.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="144" column="42" selection-start="7912" selection-end="7912" vertical-scroll-proportion="0.35235733" vertical-offset="2432" max-vertical-offset="3456">
-          <folding />
-        </state>
+        <state line="36" column="9" selection-start="999" selection-end="999" vertical-scroll-proportion="0.3326226" vertical-offset="348" max-vertical-offset="2016" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/api/RobotCompletionProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="58" selection-start="535" selection-end="535" vertical-scroll-proportion="0.0" vertical-offset="54" max-vertical-offset="666" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/sketches/features/Robot.docs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="0" selection-start="10" selection-end="10" vertical-scroll-proportion="0.020547945" vertical-offset="0" max-vertical-offset="876" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/entites/EntityDecalRenderable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="34" selection-start="317" selection-end="317" vertical-scroll-proportion="0.20547946" vertical-offset="0" max-vertical-offset="876" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/entites/EntityModelRenderable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="34" selection-start="251" selection-end="262" vertical-scroll-proportion="0.20547946" vertical-offset="0" max-vertical-offset="876" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/maps/playground.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/controller/api/MathLib.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="29" selection-start="244" selection-end="244" vertical-scroll-proportion="0.28088427" vertical-offset="0" max-vertical-offset="769" />
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/js.jar!/org/mozilla/javascript/ContextFactory.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="13" selection-start="165" selection-end="165" vertical-scroll-proportion="0.12802276" vertical-offset="0" max-vertical-offset="1638" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/botlogic.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="769" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/maps/maze.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/api/ScriptDocument.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="27" selection-start="720" selection-end="720" vertical-scroll-proportion="0.71428573" vertical-offset="99" max-vertical-offset="666" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/tween/ModelEntityAccessor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="63" selection-start="619" selection-end="619" vertical-scroll-proportion="0.27437642" vertical-offset="185" max-vertical-offset="900">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="42" column="3" selection-start="261" selection-end="1483" vertical-scroll-proportion="0.74603176" vertical-offset="315" max-vertical-offset="882" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/GameManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="74" selection-start="1407" selection-end="1407" vertical-scroll-proportion="0.5714286" vertical-offset="0" max-vertical-offset="1080">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/entites/Entity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="25" selection-start="691" selection-end="691" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="486">
+        <state line="22" column="0" selection-start="600" selection-end="600" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="486">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/entites/ModelEntity.java">
+    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/tween/CameraAccessor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="37" selection-start="1136" selection-end="1136" vertical-scroll-proportion="0.0" vertical-offset="369" max-vertical-offset="846">
+        <state line="40" column="34" selection-start="1324" selection-end="1324" vertical-scroll-proportion="0.0" vertical-offset="234" max-vertical-offset="954">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/levels/BaseLevel.java">
+    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/audio/AudioManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="35" selection-start="1533" selection-end="1533" vertical-scroll-proportion="0.0" vertical-offset="2634" max-vertical-offset="3186">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/controller/GameController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="107" column="24" selection-start="2727" selection-end="2727" vertical-scroll-proportion="0.0" vertical-offset="1275" max-vertical-offset="2124">
-          <folding>
-            <element signature="e#2954#2955#0" expanded="true" />
-            <element signature="e#2986#2987#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/gdx.jar!/com/badlogic/gdx/audio/Sound.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="7" selection-start="529" selection-end="529" vertical-scroll-proportion="0.41105768" vertical-offset="405" max-vertical-offset="846">
+        <state line="11" column="8" selection-start="288" selection-end="288" vertical-scroll-proportion="0.2671614" vertical-offset="0" max-vertical-offset="594">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/GameManager.java">
+    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/controller/actions/MoveAction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="14" selection-start="950" selection-end="950" vertical-scroll-proportion="0.0" vertical-offset="195" max-vertical-offset="1044">
+        <state line="16" column="62" selection-start="608" selection-end="608" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="630">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/runtime/ScriptContext.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="0" selection-start="708" selection-end="708" vertical-scroll-proportion="0.0" vertical-offset="32" max-vertical-offset="684">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/sketches/rdk/helpers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="5" selection-start="97" selection-end="97" vertical-scroll-proportion="0.14173229" vertical-offset="0" max-vertical-offset="381" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/runtime/ScriptRunner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="105" column="77" selection-start="3136" selection-end="3136" vertical-scroll-proportion="0.0" vertical-offset="1494" max-vertical-offset="2970">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/graphics/camera/RTSCameraController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="300" column="27" selection-start="7646" selection-end="7646" vertical-scroll-proportion="0.0" vertical-offset="4887" max-vertical-offset="5670">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/controller/actions/RotateAction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="0" selection-start="813" selection-end="813" vertical-scroll-proportion="0.0" vertical-offset="171" max-vertical-offset="828">
+        <state line="22" column="24" selection-start="652" selection-end="652" vertical-scroll-proportion="0.0" vertical-offset="77" max-vertical-offset="738">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/controller/api/RobotLib.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="62" selection-start="328" selection-end="328" vertical-scroll-proportion="0.0" vertical-offset="17" max-vertical-offset="918">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/ui/EditorFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="23" selection-start="904" selection-end="904" vertical-scroll-proportion="0.0" vertical-offset="214" max-vertical-offset="1062">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/ui/GameEditorForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="103" column="0" selection-start="3493" selection-end="3493" vertical-scroll-proportion="0.0" vertical-offset="664" max-vertical-offset="6984">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/controller/GameController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="94" column="42" selection-start="2680" selection-end="2680" vertical-scroll-proportion="0.0" vertical-offset="1692" max-vertical-offset="2430">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/levels/BaseLevel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="104" column="26" selection-start="4245" selection-end="4245" vertical-scroll-proportion="0.0" vertical-offset="1112" max-vertical-offset="3708">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#4841#4842#0" expanded="true" />
+            <element signature="e#4868#4869#0" expanded="true" />
+            <element signature="e#5161#5162#0" expanded="true" />
+            <element signature="e#5194#5195#0" expanded="true" />
+            <element signature="e#6716#6717#0" expanded="true" />
+            <element signature="e#6744#6745#0" expanded="true" />
+            <element signature="e#6771#6772#0" expanded="true" />
+            <element signature="e#6793#6794#0" expanded="true" />
+            <element signature="e#6931#6932#0" expanded="true" />
+            <element signature="e#6963#6964#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/controller/RobotController.java">
+    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/entites/ModelEntity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="43" selection-start="962" selection-end="962" vertical-scroll-proportion="0.0" vertical-offset="396" max-vertical-offset="972">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="20" column="40" selection-start="718" selection-end="718" vertical-scroll-proportion="0.0" vertical-offset="14" max-vertical-offset="846">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/BotLogic.java">
+    <entry file="jar://$PROJECT_DIR$/lib/gdx.jar!/com/badlogic/gdx/math/Matrix4.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="18" selection-start="302" selection-end="302" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="342">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/audio/AudioManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="23" selection-start="501" selection-end="501" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="612">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="172" column="39" selection-start="9088" selection-end="9088" vertical-scroll-proportion="0.35253456" vertical-offset="2925" max-vertical-offset="3456">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/entites/RobotEntity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="47" selection-start="441" selection-end="441" vertical-scroll-proportion="0.08716707" vertical-offset="108" max-vertical-offset="540">
+        <state line="32" column="41" selection-start="1079" selection-end="1079" vertical-scroll-proportion="0.6467066" vertical-offset="0" max-vertical-offset="684">
           <folding />
         </state>
       </provider>
@@ -1350,7 +1424,6 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>

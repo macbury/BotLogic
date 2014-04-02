@@ -5,6 +5,7 @@ import com.badlogic.gdx.backends.lwjgl.LwjglCanvas;
 import de.macbury.botlogic.core.BotLogic;
 import de.macbury.botlogic.core.GameManager;
 import de.macbury.botlogic.core.api.RobotCompletionProvider;
+import de.macbury.botlogic.core.api.ScriptDocument;
 import de.macbury.botlogic.core.levels.file.LevelFile;
 import de.macbury.botlogic.core.runtime.ScriptRunner;
 import de.macbury.botlogic.core.runtime.ScriptRuntimeListener;
@@ -20,6 +21,9 @@ import org.fife.ui.rtextarea.RTextScrollPane;
 import org.mozilla.javascript.RhinoException;
 
 import javax.swing.*;
+import javax.swing.event.UndoableEditEvent;
+import javax.swing.event.UndoableEditListener;
+import javax.swing.undo.UndoManager;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.IOException;
@@ -62,7 +66,9 @@ public class GameEditorForm implements ScriptRuntimeListener {
   private JavascriptErrorParser parser;
   private EditorFrame frame;
   private AutoCompletion autoComplete;
-  private String currentLevel = "playground";
+  private ScriptDocument document;
+  private UndoManager undoManager;
+
   public enum DocumentState {
     New, Changed, Running
   }
@@ -92,9 +98,10 @@ public class GameEditorForm implements ScriptRuntimeListener {
     textArea.setTabSize(2);
     textArea.setAutoIndentEnabled(true);
     textArea.setTabsEmulated(true);
-    //textArea.setMarkOccurrences(true);
+    textArea.setMarkOccurrences(true);
     textArea.setBracketMatchingEnabled(true);
     textArea.setCloseCurlyBraces(true);
+
     textArea.setBorder(BorderFactory.createEmptyBorder());
     editorScrollPane = new RTextScrollPane(textArea);
     editorScrollPane.setFoldIndicatorEnabled(true);
@@ -191,8 +198,7 @@ public class GameEditorForm implements ScriptRuntimeListener {
         item.addActionListener(new ActionListener() {
           @Override
           public void actionPerformed(ActionEvent e) {
-            currentLevel = level.getFilePath();
-            newDocument(currentLevel);
+            newDocument(level.getFilePath());
           }
         });
         menuTryb.add(item);
@@ -205,11 +211,23 @@ public class GameEditorForm implements ScriptRuntimeListener {
         //---- menuRunItem ----
         menuRunItem.setText("Uruchom");
         menuRunItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F5, 0));
+        menuRunItem.addActionListener(new ActionListener() {
+          @Override
+          public void actionPerformed(ActionEvent e) {
+            runCode();
+          }
+        });
         menuRobot.add(menuRunItem);
 
         //---- menuStopItem ----
         menuStopItem.setText("Wstrzymaj");
-        menuStopItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0));
+        menuStopItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F9, 0));
+        menuStopItem.addActionListener(new ActionListener() {
+          @Override
+          public void actionPerformed(ActionEvent e) {
+            stopCode();
+          }
+        });
         menuRobot.add(menuStopItem);
       }
       menu.add(menuRobot);
@@ -229,7 +247,7 @@ public class GameEditorForm implements ScriptRuntimeListener {
     menuNewItem.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent e) {
-        newDocument(currentLevel);
+        newDocument(BotLogic.game.getLevel().getFile().getFilePath());
       }
     });
   }
@@ -243,9 +261,10 @@ public class GameEditorForm implements ScriptRuntimeListener {
   }
 
   public void bind(EditorFrame editorFrame, GameManager game, LwjglApplicationConfiguration config) {
-    this.frame = editorFrame;
-    this.gameCanvas = new LwjglCanvas(game, config);
-    Canvas canvas = this.gameCanvas.getCanvas();
+    this.frame        = editorFrame;
+    this.undoManager  = new UndoManager();
+    this.gameCanvas   = new LwjglCanvas(game, config);
+    Canvas canvas     = this.gameCanvas.getCanvas();
     openglContainer.setLayout(new BorderLayout());
     openglContainer.add(canvas, BorderLayout.CENTER);
     //canvas.requestFocus();
@@ -264,8 +283,9 @@ public class GameEditorForm implements ScriptRuntimeListener {
       }
     });
 
-    currentLevel = Gdx.files.internal("maps/playground.level").path();
-    newDocument(currentLevel);
+
+    newDocument(Gdx.files.internal("maps/playground.level").path());
+
   }
 
   // methods
@@ -282,12 +302,28 @@ public class GameEditorForm implements ScriptRuntimeListener {
       textArea.setEditable(false);
       menu.setEnabled(false);
       gameCanvas.getCanvas().requestFocus();
+      menuSzkic.setEnabled(false);
+      menuTryb.setEnabled(false);
+      menuRunItem.setEnabled(false);
+      menuStopItem.setEnabled(true);
     } else {
       runButton.setEnabled(true);
       stopButton.setEnabled(false);
       textArea.setEditable(true);
       menu.setEnabled(true);
       textArea.requestFocus();
+      menuSzkic.setEnabled(true);
+      menuTryb.setEnabled(true);
+      menuRunItem.setEnabled(true);
+      menuStopItem.setEnabled(false);
+    }
+
+    if (document != null) {
+      if (document.isSaved()) {
+        frame.setTitle("BotLogic - ["+document.getFilePath()+"]");
+      } else {
+        frame.setTitle("BotLogic - [Nowy]");
+      }
     }
   }
 
@@ -299,23 +335,34 @@ public class GameEditorForm implements ScriptRuntimeListener {
     BotLogic.game.getController().stop();
   }
 
-  private void newDocument(String path) {
+  private void newDocument(String levelPath) {
     if (currentState != DocumentState.New) {
       closeDocument();
     }
 
-    textArea.setText(Gdx.files.classpath("de/macbury/botlogic/code/base.js").readString());
+    document = new ScriptDocument();
+    document.setLevelPath(levelPath);
+    String body = "";
+
     textArea.requestFocusInWindow();
     simulationSpeedComboBox.setSelectedIndex(0);
-    BotLogic.game.newGame(path);
+    BotLogic.game.newGame(document.getLevelPath());
     BotLogic.game.getScriptRunner().addListener(this);
     setState(DocumentState.New);
     clearErrors();
 
+    for(LevelFile.LevelFeature feature : BotLogic.game.getLevel().getFeatures()) {
+      body += Gdx.files.internal("sketches/features/"+feature.toString()+".js").readString() + "\n";
+    }
+
+    body += "\n" + Gdx.files.internal("sketches/new/blank.js").readString();
 
     if (autoComplete != null) {
       autoComplete.uninstall();
     }
+
+    document.setContent(body);
+    textArea.setText(document.getContent());
 
     this.autoComplete = new AutoCompletion(new RobotCompletionProvider(BotLogic.game.getLevel()));
     autoComplete.setAutoActivationEnabled(true);
@@ -336,6 +383,7 @@ public class GameEditorForm implements ScriptRuntimeListener {
 
   private void closeDocument() {
     BotLogic.game.getScriptRunner().removeListener(this);
+
   }
 
   @Override
@@ -372,6 +420,7 @@ public class GameEditorForm implements ScriptRuntimeListener {
   @Override
   public void onScriptFinish(ScriptRunner runner) {
     Gdx.app.log(TAG, "onScriptFinish");
+    System.gc();
     setState(DocumentState.Changed);
   }
 

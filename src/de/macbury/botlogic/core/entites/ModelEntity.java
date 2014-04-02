@@ -12,7 +12,7 @@ import de.macbury.botlogic.core.tween.ModelEntityAccessor;
 /**
  * Created by macbury on 31.03.14.
  */
-public abstract class ModelEntity extends Entity {
+public abstract class ModelEntity extends Entity implements EntityModelRenderable {
   public ModelInstance instance;
   public Vector3 startPosition = new Vector3();
 
@@ -30,7 +30,7 @@ public abstract class ModelEntity extends Entity {
   }
 
   @Override
-  public void render(ModelBatch batch, Environment env) {
+  public void renderModel(ModelBatch batch, Environment env) {
     batch.render(instance, env);
   }
 
