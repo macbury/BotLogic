@@ -1,41 +1,41 @@
 package de.macbury.botlogic.core.levels;
 
-import aurelienribon.tweenengine.Tween;
 import aurelienribon.tweenengine.TweenManager;
 import com.badlogic.gdx.Files;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.audio.Music;
-import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.*;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g3d.*;
-import com.badlogic.gdx.graphics.g3d.attributes.BlendingAttribute;
 import com.badlogic.gdx.graphics.g3d.attributes.ColorAttribute;
-import com.badlogic.gdx.graphics.g3d.attributes.TextureAttribute;
 import com.badlogic.gdx.graphics.g3d.decals.CameraGroupStrategy;
 import com.badlogic.gdx.graphics.g3d.decals.DecalBatch;
-import com.badlogic.gdx.graphics.g3d.environment.DirectionalLight;
 import com.badlogic.gdx.graphics.g3d.environment.PointLight;
 import com.badlogic.gdx.graphics.g3d.loader.G3dModelLoader;
 import com.badlogic.gdx.graphics.g3d.model.MeshPart;
-import com.badlogic.gdx.graphics.g3d.model.Node;
-import com.badlogic.gdx.graphics.g3d.shaders.DefaultShader;
-import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
-import com.badlogic.gdx.math.Vector3;
+import com.badlogic.gdx.graphics.g3d.shaders.DepthShader;
+import com.badlogic.gdx.graphics.g3d.utils.DefaultTextureBinder;
+import com.badlogic.gdx.graphics.g3d.utils.DepthShaderProvider;
+import com.badlogic.gdx.graphics.g3d.utils.RenderContext;
+import com.badlogic.gdx.graphics.glutils.FrameBuffer;
+import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.badlogic.gdx.utils.UBJsonReader;
 import de.macbury.botlogic.core.BotLogic;
 import de.macbury.botlogic.core.controller.GameController;
 import de.macbury.botlogic.core.entites.*;
 import de.macbury.botlogic.core.graphics.camera.RTSCameraController;
+import de.macbury.botlogic.core.graphics.shader.CellShadingCompositor;
 import de.macbury.botlogic.core.levels.file.LevelFile;
 import de.macbury.botlogic.core.map.Map;
-import de.macbury.botlogic.core.runtime.ScriptRunner;
-import de.macbury.botlogic.core.tween.ModelEntityAccessor;
 
 import java.util.ArrayList;
 
 public abstract class BaseLevel implements Screen {
+  private ModelBatch depthModelBatch;
+  private RenderContext renderContext;
+  private CellShadingCompositor cellShadingCompositor;
+  private FrameBuffer colorBuffer;
   private DecalBatch decalBatch;
   private LevelFile levelDefinition;
   public TweenManager tweenManager;
@@ -45,14 +45,15 @@ public abstract class BaseLevel implements Screen {
   private Map map;
   private RTSCameraController cameraController;
   private Environment environment;
-  private ModelBatch modelBatch;
+  private ModelBatch colorModelBatch;
   private PerspectiveCamera perspectiveCamera;
   private ArrayList<Entity> entities;
   private int speed = 1;
+  private FrameBuffer depthBuffer;
 
   public BaseLevel(String mapName) {
     this.tweenManager       = new TweenManager();
-
+    this.renderContext      = new RenderContext(new DefaultTextureBinder(DefaultTextureBinder.WEIGHTED, 1));
     this.entities           = new ArrayList<Entity>();
     this.perspectiveCamera  = new PerspectiveCamera(67, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 
@@ -65,7 +66,7 @@ public abstract class BaseLevel implements Screen {
     this.map                = new Map(levelDefinition.geometryFile());
     perspectiveCamera.position.set(0, 0, 0);
     perspectiveCamera.near = 0.1f;
-    perspectiveCamera.far = 300f;
+    perspectiveCamera.far = 50f;
     perspectiveCamera.update(true);
 
     this.cameraController = new RTSCameraController();
@@ -79,6 +80,8 @@ public abstract class BaseLevel implements Screen {
 
     G3dModelLoader modelLoader = new G3dModelLoader(new UBJsonReader());
     this.robotModel            = modelLoader.loadModel(Gdx.files.getFileHandle("models/robot.g3db", Files.FileType.Internal));
+
+    this.cellShadingCompositor = new CellShadingCompositor();
 
     /*for (Material material : robotModel.materials) {
 
@@ -109,9 +112,14 @@ public abstract class BaseLevel implements Screen {
       Gdx.app.log("TAG", part.id);
     }
 
-    modelBatch      = new ModelBatch();
+    colorModelBatch = new ModelBatch(renderContext);
     decalBatch      = new DecalBatch();
     decalBatch.setGroupStrategy(new CameraGroupStrategy(perspectiveCamera));
+
+    DepthShader.Config depthConfig     = new DepthShader.Config(Gdx.files.internal("shaders/depth.vertex").readString(), Gdx.files.internal("shaders/depth.frag").readString());
+    depthConfig.defaultCullFace        = GL20.GL_BACK;
+    depthConfig.depthBufferOnly        = false;
+    depthModelBatch = new ModelBatch(renderContext, new DepthShaderProvider(depthConfig));
 
     map.environment = environment;
     this.controller = new GameController(this);
@@ -141,6 +149,25 @@ public abstract class BaseLevel implements Screen {
     return cameraController;
   }
 
+  public void renderEntitiesForBufferAndBatch(FrameBuffer buffer, ModelBatch batch) {
+    buffer.begin();
+      Gdx.gl.glClearColor(0, 0, 0, 0);
+      Gdx.gl.glViewport(0, 0, buffer.getWidth(), buffer.getHeight());
+      Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
+
+      batch.begin(perspectiveCamera);
+        map.shader = null;
+        batch.render(map);
+        for (Entity entity : entities) {
+          if (EntityModelRenderable.class.isInstance(entity)) {
+            EntityModelRenderable en = (EntityModelRenderable)entity;
+            en.renderModel(batch, environment);
+          }
+        }
+      batch.end();
+    buffer.end();
+  }
+
   @Override
   public void render(float delta) {
     float nd = delta * speed;
@@ -153,15 +180,9 @@ public abstract class BaseLevel implements Screen {
       entity.update(nd);
     }
 
-    modelBatch.begin(perspectiveCamera);
-      modelBatch.render(map);
-      for (Entity entity : entities) {
-        if (EntityModelRenderable.class.isInstance(entity)) {
-          EntityModelRenderable en = (EntityModelRenderable)entity;
-          en.renderModel(modelBatch, environment);
-        }
-      }
-    modelBatch.end();
+    renderEntitiesForBufferAndBatch(depthBuffer, depthModelBatch);
+    renderEntitiesForBufferAndBatch(colorBuffer, colorModelBatch);
+
 
     for (Entity entity : entities) {
       if (EntityDecalRenderable.class.isInstance(entity)) {
@@ -171,6 +192,8 @@ public abstract class BaseLevel implements Screen {
     }
 
     decalBatch.flush();
+
+    cellShadingCompositor.render(colorBuffer, depthBuffer, renderContext);
   }
 
   @Override
@@ -178,6 +201,19 @@ public abstract class BaseLevel implements Screen {
     perspectiveCamera.viewportWidth = width;
     perspectiveCamera.viewportHeight = height;
     perspectiveCamera.update(true);
+
+    if (this.colorBuffer != null) {
+      this.colorBuffer.dispose();
+    }
+
+    if (this.depthBuffer != null) {
+      this.depthBuffer.dispose();
+    }
+
+    this.colorBuffer = new FrameBuffer(Pixmap.Format.RGBA8888, Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), true);
+    this.depthBuffer = new FrameBuffer(Pixmap.Format.RGBA8888, Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), true);
+
+    cellShadingCompositor.resize(width, height);
   }
 
   @Override
@@ -202,7 +238,8 @@ public abstract class BaseLevel implements Screen {
 
   @Override
   public void dispose() {
-    modelBatch.dispose();
+    colorModelBatch.dispose();
+    depthModelBatch.dispose();
     controller.dispose();
     map.dispose();
     robotModel.dispose();
@@ -210,6 +247,8 @@ public abstract class BaseLevel implements Screen {
     for (Entity e : entities) {
       e.dispose();
     }
+    this.colorBuffer.dispose();
+    this.depthBuffer.dispose();
   }
 
   public abstract boolean winCondition();

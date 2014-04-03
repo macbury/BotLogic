@@ -18,7 +18,6 @@ public class RobotEntity extends ModelEntity {
   public RobotEntity(Model model) {
     super(model);
     //scale.set(0.2f, 0.2f, 0.2f);
-
   }
   float tempRot = 0;
   @Override
