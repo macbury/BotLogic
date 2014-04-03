@@ -8,13 +8,13 @@ import com.badlogic.gdx.graphics.g3d.utils.RenderContext;
 /**
  * Created by macbury on 03.04.14.
  */
-public class FinalCompositorStep extends CompositorPass {
+public class FinalCellShadeCompositorStep extends BufferedCompositorPass {
   private int u_color_texture;
   private int u_outline_texture;
   private GLTexture outlineTexture;
   private GLTexture colorTexture;
 
-  public FinalCompositorStep(RenderContext context) {
+  public FinalCellShadeCompositorStep(RenderContext context) {
     super(context, Gdx.files.internal("shaders/final.vert"), Gdx.files.internal("shaders/final.frag"));
   }
 

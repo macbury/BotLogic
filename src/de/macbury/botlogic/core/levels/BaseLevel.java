@@ -18,23 +18,24 @@ import com.badlogic.gdx.graphics.g3d.utils.DefaultTextureBinder;
 import com.badlogic.gdx.graphics.g3d.utils.DepthShaderProvider;
 import com.badlogic.gdx.graphics.g3d.utils.RenderContext;
 import com.badlogic.gdx.graphics.glutils.FrameBuffer;
-import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.badlogic.gdx.utils.UBJsonReader;
 import de.macbury.botlogic.core.BotLogic;
 import de.macbury.botlogic.core.controller.GameController;
 import de.macbury.botlogic.core.entites.*;
 import de.macbury.botlogic.core.graphics.camera.RTSCameraController;
-import de.macbury.botlogic.core.graphics.shader.CellShadingCompositor;
+import de.macbury.botlogic.core.graphics.compositor.LevelCompositor;
+import de.macbury.botlogic.core.graphics.skybox.SkyBox;
 import de.macbury.botlogic.core.levels.file.LevelFile;
 import de.macbury.botlogic.core.map.Map;
 
 import java.util.ArrayList;
 
 public abstract class BaseLevel implements Screen {
+  private SkyBox skybox;
   private ModelBatch depthModelBatch;
   private RenderContext renderContext;
-  private CellShadingCompositor cellShadingCompositor;
+  private LevelCompositor cellShadingCompositor;
   private FrameBuffer colorBuffer;
   private DecalBatch decalBatch;
   private LevelFile levelDefinition;
@@ -81,8 +82,8 @@ public abstract class BaseLevel implements Screen {
     G3dModelLoader modelLoader = new G3dModelLoader(new UBJsonReader());
     this.robotModel            = modelLoader.loadModel(Gdx.files.getFileHandle("models/robot.g3db", Files.FileType.Internal));
 
-    this.cellShadingCompositor = new CellShadingCompositor(renderContext);
-
+    this.cellShadingCompositor = new LevelCompositor(renderContext);
+    //this.skybox                = new SkyBox("grid.png");
     /*for (Material material : robotModel.materials) {
 
      // for led
@@ -149,12 +150,16 @@ public abstract class BaseLevel implements Screen {
     return cameraController;
   }
 
-  public void renderEntitiesForBufferAndBatch(FrameBuffer buffer, ModelBatch batch) {
+  public void renderEntitiesForBufferAndBatch(FrameBuffer buffer, ModelBatch batch, boolean renderSkyBox) {
     buffer.begin();
-      Gdx.gl.glClearColor(52, 73, 94, 0);
+      Gdx.gl.glClearColor(0, 0, 0, 0);
       Gdx.gl.glViewport(0, 0, buffer.getWidth(), buffer.getHeight());
       Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
-  
+
+      if (renderSkyBox) {
+        //skybox.render(renderContext, perspectiveCamera);
+      }
+
       batch.begin(perspectiveCamera);
         map.shader = null;
         batch.render(map);
@@ -180,8 +185,8 @@ public abstract class BaseLevel implements Screen {
       entity.update(nd);
     }
 
-    renderEntitiesForBufferAndBatch(depthBuffer, depthModelBatch);
-    renderEntitiesForBufferAndBatch(colorBuffer, colorModelBatch);
+    renderEntitiesForBufferAndBatch(depthBuffer, depthModelBatch, false);
+    renderEntitiesForBufferAndBatch(colorBuffer, colorModelBatch, true);
 
 
     for (Entity entity : entities) {
@@ -238,6 +243,7 @@ public abstract class BaseLevel implements Screen {
 
   @Override
   public void dispose() {
+    //skybox.dispose();
     colorModelBatch.dispose();
     depthModelBatch.dispose();
     controller.dispose();
