@@ -23,7 +23,7 @@ public class CellShadingCompositor implements Disposable {
   public CellShadingCompositor() {
     screenCamera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
     createScreenQuad();
-    detectEdgesShader = new ShaderProgram(Gdx.files.internal("shaders/edge.vert"), Gdx.files.internal("shaders/edge.frag"));
+    detectEdgesShader = new ShaderProgram(Gdx.files.internal("shaders/simple.vert"), Gdx.files.internal("shaders/simple.frag"));
     if (!detectEdgesShader.isCompiled()) {
       Gdx.app.log(TAG, detectEdgesShader.getLog());
     }
