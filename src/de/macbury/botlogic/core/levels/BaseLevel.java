@@ -81,7 +81,7 @@ public abstract class BaseLevel implements Screen {
     G3dModelLoader modelLoader = new G3dModelLoader(new UBJsonReader());
     this.robotModel            = modelLoader.loadModel(Gdx.files.getFileHandle("models/robot.g3db", Files.FileType.Internal));
 
-    this.cellShadingCompositor = new CellShadingCompositor();
+    this.cellShadingCompositor = new CellShadingCompositor(renderContext);
 
     /*for (Material material : robotModel.materials) {
 
@@ -151,10 +151,10 @@ public abstract class BaseLevel implements Screen {
 
   public void renderEntitiesForBufferAndBatch(FrameBuffer buffer, ModelBatch batch) {
     buffer.begin();
-      Gdx.gl.glClearColor(0, 0, 0, 0);
+      Gdx.gl.glClearColor(52, 73, 94, 0);
       Gdx.gl.glViewport(0, 0, buffer.getWidth(), buffer.getHeight());
       Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
-
+  
       batch.begin(perspectiveCamera);
         map.shader = null;
         batch.render(map);
@@ -193,7 +193,7 @@ public abstract class BaseLevel implements Screen {
 
     decalBatch.flush();
 
-    cellShadingCompositor.render(colorBuffer, depthBuffer, renderContext);
+    cellShadingCompositor.render(colorBuffer, depthBuffer);
   }
 
   @Override
