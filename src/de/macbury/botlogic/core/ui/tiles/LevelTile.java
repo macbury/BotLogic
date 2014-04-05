@@ -1,5 +1,6 @@
 package de.macbury.botlogic.core.ui.tiles;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
@@ -49,9 +50,8 @@ public class LevelTile extends Table {
     this.descriptionLabel = skin.builder.normalLabel(levelFile.getDescription());
     descriptionLabel.setWrap(true);
     descriptionTable.row().top().center();
-
-    levelImage = new Image(new Texture(levelFile.geometryFile()));
-    descriptionTable.add(levelImage).colspan(2).pad(15, 30, 15, 30);
+    levelImage = new Image(new Texture(Gdx.files.internal("maps/preview.png")));
+    descriptionTable.add(levelImage).colspan(2).pad(0, 0, 15, 0);
     descriptionTable.row().top().left();
     descriptionTable.add(descriptionLabel).colspan(2).expandX().fillX().pad(0, 30, 25, 30);
 
