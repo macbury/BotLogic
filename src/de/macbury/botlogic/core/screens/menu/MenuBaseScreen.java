@@ -22,8 +22,8 @@ import de.macbury.botlogic.core.ui.tiles.TileScrollPane;
  * Created by macbury on 05.04.14.
  */
 public abstract class MenuBaseScreen implements Screen {
-  protected static final float TOP_TOOLBAR_BUTTON_WIDTH   = 100;
-  protected static final float TOP_TOOLBAR_BUTTON_HEIGHT  = 64;
+  public static final float TOP_TOOLBAR_BUTTON_WIDTH   = 100;
+  public static final float TOP_TOOLBAR_BUTTON_HEIGHT  = 64;
   protected ImageButton exitButton;
   protected ImageButton settingsButton;
   protected Stage stage;

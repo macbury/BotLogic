@@ -3,6 +3,7 @@ package de.macbury.botlogic.core.screens;
 import com.badlogic.gdx.Gdx;
 import de.macbury.botlogic.core.GameManager;
 import de.macbury.botlogic.core.screens.level.GameLevelScreen;
+import de.macbury.botlogic.core.screens.level.GameLevelWithUIScreen;
 import de.macbury.botlogic.core.screens.level.file.LevelFile;
 import de.macbury.botlogic.core.screens.menu.MainMenuScreen;
 
@@ -29,7 +30,7 @@ public class ScreenManager {
   }
 
   public void startLevel(LevelFile levelFile) {
-    levelScreen = new GameLevelScreen(levelFile);
+    levelScreen = new GameLevelWithUIScreen(levelFile);
     this.game.setScreen(levelScreen);
   }
 }

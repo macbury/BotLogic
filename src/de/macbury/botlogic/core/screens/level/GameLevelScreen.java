@@ -43,7 +43,7 @@ public class GameLevelScreen implements Screen {
   private GameController controller;
   private Model robotModel;
   private Map map;
-  private RTSCameraController cameraController;
+  protected RTSCameraController cameraController;
   private Environment environment;
   private ModelBatch colorModelBatch;
   private PerspectiveCamera perspectiveCamera;
@@ -69,7 +69,7 @@ public class GameLevelScreen implements Screen {
     cameraController.setCamera(perspectiveCamera);
     cameraController.setCenter(0, 0);
     cameraController.setEnabled(true);
-    Gdx.input.setInputProcessor(cameraController);
+
 
     environment = new Environment();
     environment.set(new ColorAttribute(ColorAttribute.AmbientLight, 0.5f, 0.5f, 0.5f, 1f));
