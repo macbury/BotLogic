@@ -3,6 +3,7 @@ package de.macbury.botlogic.core;
 import aurelienribon.tweenengine.Tween;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.FPSLogger;
 import com.badlogic.gdx.graphics.GL20;
 import de.macbury.botlogic.core.audio.AudioManager;
 import de.macbury.botlogic.core.controller.GameController;
@@ -13,8 +14,11 @@ import de.macbury.botlogic.core.levels.BaseLevel;
 import de.macbury.botlogic.core.levels.PlaygroundLevel;
 import de.macbury.botlogic.core.runtime.ScriptContextFactory;
 import de.macbury.botlogic.core.runtime.ScriptRunner;
+import de.macbury.botlogic.core.screens.MainMenuScreen;
+import de.macbury.botlogic.core.screens.ScreenManager;
 import de.macbury.botlogic.core.tween.CameraAccessor;
 import de.macbury.botlogic.core.tween.ModelEntityAccessor;
+import de.macbury.botlogic.core.ui.FlatSkin;
 import org.mozilla.javascript.ContextFactory;
 import sun.font.ScriptRun;
 
@@ -26,17 +30,28 @@ import javax.swing.*;
 public class GameManager extends Game {
   private static final String TAG = "GameManager";
   private boolean loading = true;
+  private FPSLogger fpsLogger;
 
   @Override
   public void create() {
     Gdx.app.log(TAG, "created");
-    BotLogic.game         = this;
-    BotLogic.inputManager = new InputManager();
-    BotLogic.audio        = new AudioManager();
+
     Tween.registerAccessor(ModelEntity.class, new ModelEntityAccessor());
     Tween.registerAccessor(RTSCameraController.class, new CameraAccessor());
     ContextFactory.initGlobal(new ScriptContextFactory());
+
+    BotLogic.game         = this;
+    BotLogic.inputManager = new InputManager();
+    BotLogic.audio        = new AudioManager();
+    BotLogic.skin         = new FlatSkin();
+
+
+    BotLogic.screens      = new ScreenManager(this);// always last!!!
+
     loading = false;
+    fpsLogger = new FPSLogger();
+
+    BotLogic.screens.goToMainMenu();
   }
 
   public BaseLevel getLevel() {
@@ -50,6 +65,7 @@ public class GameManager extends Game {
   @Override
   public void render() {
     super.render();
+    fpsLogger.log();
   }
 
   public void newGame(String path) {

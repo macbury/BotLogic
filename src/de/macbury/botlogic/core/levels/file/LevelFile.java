@@ -15,7 +15,6 @@ import java.util.logging.Level;
  */
 @Root
 public class LevelFile {
-
   public enum LevelFeature {
     Scanner, Robot, Led
   }

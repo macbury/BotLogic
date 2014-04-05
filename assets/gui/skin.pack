@@ -1,0 +1,96 @@
+
+skin.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+grid
+  rotate: false
+  xy: 1, 130
+  size: 512, 512
+  orig: 512, 512
+  offset: 0, 0
+  index: -1
+logo
+  rotate: false
+  xy: 1, 60
+  size: 300, 68
+  orig: 300, 68
+  offset: 0, 0
+  index: -1
+button_red_normal
+  rotate: false
+  xy: 515, 610
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+button_red_pressed
+  rotate: false
+  xy: 1, 26
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+button_blue_pressed
+  rotate: false
+  xy: 303, 96
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+button_blue_norma
+  rotate: false
+  xy: 515, 576
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+icon_settings
+  rotate: false
+  xy: 549, 615
+  size: 34, 27
+  orig: 34, 27
+  offset: 0, 0
+  index: -1
+icon_exit
+  rotate: false
+  xy: 1, 1
+  size: 26, 23
+  orig: 26, 23
+  offset: 0, 0
+  index: -1
+background_light
+  rotate: false
+  xy: 35, 42
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+tile_selected
+  rotate: false
+  xy: 303, 78
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+background_dark
+  rotate: false
+  xy: 337, 112
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+white_scroll_background
+  rotate: false
+  xy: 515, 561
+  size: 13, 13
+  orig: 13, 13
+  offset: 0, 0
+  index: -1
+white_scroll_knob
+  rotate: false
+  xy: 549, 600
+  size: 13, 13
+  orig: 13, 13
+  offset: 0, 0
+  index: -1
