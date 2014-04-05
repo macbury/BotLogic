@@ -10,6 +10,11 @@ import com.badlogic.gdx.scenes.scene2d.ui.*;
 
 public class FlatSkin extends Skin {
   public static final float BUTTON_PADDING = 10;
+  public CheckBox.CheckBoxStyle checkBoxStyle;
+  public List.ListStyle listStyle;
+  public ScrollPane.ScrollPaneStyle scrollPaneStyle;
+  public SelectBox.SelectBoxStyle selectBoxStyle;
+  public Window.WindowStyle dialogStyle;
   public Label.LabelStyle robotoThinLabelStyle;
   public BitmapFont robotoThinFont;
   public BitmapFont robotoBigFont;
@@ -44,6 +49,13 @@ public class FlatSkin extends Skin {
     tileScrollPane.hScrollKnob  = this.getDrawable("white_scroll_knob");
     tileScrollPane.vScrollKnob  = this.getDrawable("white_scroll_knob");
 
+    this.scrollPaneStyle         = new ScrollPane.ScrollPaneStyle();
+    scrollPaneStyle.vScroll      = this.getDrawable("white_scroll_background");
+    scrollPaneStyle.hScroll      = this.getDrawable("white_scroll_background");
+    scrollPaneStyle.hScrollKnob  = this.getDrawable("white_scroll_knob");
+    scrollPaneStyle.vScrollKnob  = this.getDrawable("white_scroll_knob");
+    scrollPaneStyle.background   = this.getDrawable("background_dark");
+
     this.robotoBigLabelStyle      = new Label.LabelStyle();
     robotoBigLabelStyle.font      = robotoBigFont;
     robotoBigLabelStyle.fontColor = Color.WHITE;
@@ -52,11 +64,34 @@ public class FlatSkin extends Skin {
     robotoThinLabelStyle.font      = robotoThinFont;
     robotoThinLabelStyle.fontColor = Color.WHITE;
 
+    this.dialogStyle               = new Dialog.WindowStyle();
+    dialogStyle.stageBackground    = this.getDrawable("background_dark_transparent");
+    dialogStyle.background         = this.getDrawable("background_light");
+    dialogStyle.titleFont          = defaultFont;
+    dialogStyle.titleFontColor     = Color.WHITE;
+
+    this.listStyle                 = new List.ListStyle();
+    listStyle.font                 = robotoThinFont;
+    listStyle.fontColorSelected    = Color.WHITE;
+    listStyle.fontColorUnselected  = FlatColors.CLOUDS;
+    listStyle.selection            = this.getDrawable("white_scroll_background");
+
+    this.selectBoxStyle             = new SelectBox.SelectBoxStyle();
+    selectBoxStyle.scrollStyle      = scrollPaneStyle;
+    selectBoxStyle.listStyle        = listStyle;
+    selectBoxStyle.fontColor        = FlatColors.CLOUDS;
+
+    this.checkBoxStyle              = new CheckBox.CheckBoxStyle();
+    this.checkBoxStyle.checkboxOn   = this.getDrawable("checkbox_on");
+    this.checkBoxStyle.checkboxOff  = this.getDrawable("checkbox_off");
+    this.checkBoxStyle.font         = robotoThinFont;
+
     this.builder = new UIBuilder(this);
 
     //Gdx.input.setCursorCatched(true);
     Pixmap cursorPixmap = new Pixmap(Gdx.files.internal("gui/arrow.png"));
     Gdx.input.setCursorImage(cursorPixmap, 0, 0);
+
   }
 
 }

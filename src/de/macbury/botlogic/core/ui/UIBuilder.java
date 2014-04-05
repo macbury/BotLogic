@@ -13,6 +13,19 @@ public class UIBuilder {
     this.skin = skin;
   }
 
+  public CheckBox checkbox(String label){
+    return new CheckBox(label, skin.checkBoxStyle);
+  }
+
+  public SettingsDialog settingsDialog() {
+    return new SettingsDialog(skin.dialogStyle);
+  }
+
+  public Dialog dialog(String title) {
+    Dialog dialog = new Dialog(title, skin.dialogStyle);
+    return dialog;
+  }
+
   public Label titleLabel(String text) {
     Label label = new Label(text, skin.robotoBigLabelStyle);
     return label;

@@ -44,14 +44,15 @@ public class LevelTile extends Table {
       this.debug();
 
     this.row().top().left();
+    this.levelImage = new Image(new Texture(Gdx.files.internal("maps/preview.png")));
     this.titleLabel = BotLogic.skin.builder.titleLabel(levelFile.getName());
-    this.add(titleLabel).expandX().fillX().pad(30,25,25,25).colspan(2);
 
     this.descriptionLabel = skin.builder.normalLabel(levelFile.getDescription());
     descriptionLabel.setWrap(true);
     descriptionTable.row().top().center();
-    levelImage = new Image(new Texture(Gdx.files.internal("maps/preview.png")));
     descriptionTable.add(levelImage).colspan(2).pad(0, 0, 15, 0);
+    descriptionTable.row();
+    descriptionTable.add(titleLabel).expandX().fillX().colspan(2).pad(30,25,25,25);
     descriptionTable.row().top().left();
     descriptionTable.add(descriptionLabel).colspan(2).expandX().fillX().pad(0, 30, 25, 30);
 

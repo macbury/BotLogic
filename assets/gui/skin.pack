@@ -5,140 +5,161 @@ filter: Nearest,Nearest
 repeat: none
 logo
   rotate: false
-  xy: 1, 53
+  xy: 1, 55
   size: 300, 68
   orig: 300, 68
   offset: 0, 0
   index: -1
 button_red_normal
   rotate: false
-  xy: 1, 19
+  xy: 1, 21
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 button_red_pressed
   rotate: false
-  xy: 303, 89
+  xy: 303, 91
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 button_blue_pressed
   rotate: false
-  xy: 35, 19
+  xy: 35, 21
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 button_blue_norma
   rotate: false
-  xy: 303, 55
+  xy: 303, 57
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+background_dark_transparent
+  rotate: false
+  xy: 337, 91
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 icon_settings
   rotate: false
-  xy: 337, 94
+  xy: 69, 26
   size: 34, 27
   orig: 34, 27
   offset: 0, 0
   index: -1
 icon_exit
   rotate: false
-  xy: 69, 28
+  xy: 337, 66
   size: 26, 23
   orig: 26, 23
   offset: 0, 0
   index: -1
 feature_weapon
   rotate: false
-  xy: 337, 68
+  xy: 371, 99
   size: 24, 24
   orig: 24, 24
   offset: 0, 0
   index: -1
 feature_tractor_beam
   rotate: false
-  xy: 373, 97
+  xy: 105, 29
   size: 24, 24
   orig: 24, 24
   offset: 0, 0
   index: -1
 feature_tricoder
   rotate: false
-  xy: 399, 97
+  xy: 397, 99
   size: 24, 24
   orig: 24, 24
   offset: 0, 0
   index: -1
 feature_led
   rotate: false
-  xy: 425, 97
+  xy: 131, 29
   size: 24, 24
   orig: 24, 24
   offset: 0, 0
   index: -1
 feature_drone
   rotate: false
-  xy: 451, 97
+  xy: 423, 99
   size: 24, 24
   orig: 24, 24
   offset: 0, 0
   index: -1
 feature_console
   rotate: false
-  xy: 477, 97
+  xy: 157, 29
   size: 24, 24
   orig: 24, 24
   offset: 0, 0
   index: -1
 feature_compass
   rotate: false
-  xy: 97, 27
+  xy: 449, 99
   size: 24, 24
   orig: 24, 24
   offset: 0, 0
   index: -1
 feature_sonar
   rotate: false
-  xy: 123, 27
+  xy: 183, 29
   size: 24, 24
   orig: 24, 24
   offset: 0, 0
   index: -1
-background_light
+checkbox_on
   rotate: false
   xy: 1, 1
+  size: 18, 18
+  orig: 18, 18
+  offset: 0, 0
+  index: -1
+checkbox_off
+  rotate: false
+  xy: 475, 105
+  size: 18, 18
+  orig: 18, 18
+  offset: 0, 0
+  index: -1
+background_light
+  rotate: false
+  xy: 495, 107
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 tile_selected
   rotate: false
-  xy: 149, 35
+  xy: 495, 89
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 background_dark
   rotate: false
-  xy: 19, 1
+  xy: 209, 37
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 white_scroll_background
   rotate: false
-  xy: 167, 38
+  xy: 21, 6
   size: 13, 13
   orig: 13, 13
   offset: 0, 0
   index: -1
 white_scroll_knob
   rotate: false
-  xy: 37, 4
+  xy: 227, 40
   size: 13, 13
   orig: 13, 13
   offset: 0, 0
