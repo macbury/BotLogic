@@ -6,7 +6,7 @@ import de.macbury.botlogic.core.BotLogic;
 import de.macbury.botlogic.core.GameManager;
 import de.macbury.botlogic.core.api.RobotCompletionProvider;
 import de.macbury.botlogic.core.api.ScriptDocument;
-import de.macbury.botlogic.core.levels.file.LevelFile;
+import de.macbury.botlogic.core.screens.level.file.LevelFile;
 import de.macbury.botlogic.core.runtime.ScriptRunner;
 import de.macbury.botlogic.core.runtime.ScriptRuntimeListener;
 import org.fife.ui.autocomplete.*;
@@ -21,8 +21,6 @@ import org.fife.ui.rtextarea.RTextScrollPane;
 import org.mozilla.javascript.RhinoException;
 
 import javax.swing.*;
-import javax.swing.event.UndoableEditEvent;
-import javax.swing.event.UndoableEditListener;
 import javax.swing.undo.UndoManager;
 import java.awt.*;
 import java.awt.event.*;

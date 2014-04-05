@@ -5,7 +5,7 @@ import aurelienribon.tweenengine.Tween;
 import com.badlogic.gdx.utils.Disposable;
 import de.macbury.botlogic.core.controller.api.RobotLib;
 import de.macbury.botlogic.core.graphics.camera.RTSCameraController;
-import de.macbury.botlogic.core.levels.BaseLevel;
+import de.macbury.botlogic.core.screens.level.GameLevelScreen;
 import de.macbury.botlogic.core.runtime.ScriptRunner;
 import de.macbury.botlogic.core.runtime.ScriptRuntimeListener;
 import de.macbury.botlogic.core.tween.CameraAccessor;
@@ -17,10 +17,10 @@ import org.mozilla.javascript.RhinoException;
 public class GameController implements Disposable, ScriptRuntimeListener {
   private GameAction currentAction;
   private ScriptRunner scriptRunner;
-  private BaseLevel level;
+  private GameLevelScreen level;
   private RobotLib robotController;
 
-  public GameController(BaseLevel level) {
+  public GameController(GameLevelScreen level) {
     this.level          = level;
     this.scriptRunner   = new ScriptRunner(this);
     this.currentAction  = null;

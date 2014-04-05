@@ -15,9 +15,9 @@ public class AudioManager implements Disposable {
   public Sound rotation;
 
   public AudioManager() {
-    this.music              = Gdx.audio.newMusic(Gdx.files.internal("audio/design.mp3"));
+    this.music              = Gdx.audio.newMusic(Gdx.files.internal("audio/music/di_gravity.mp3"));
     music.setLooping(true);
-    music.setVolume(0.1f);
+    music.setVolume(0.6f);
     this.rotation           = Gdx.audio.newSound(Gdx.files.internal("audio/rotate_effect.mp3"));
     this.move               = Gdx.audio.newSound(Gdx.files.internal("audio/move_effect.mp3"));
     this.click              = Gdx.audio.newSound(Gdx.files.internal("audio/effects/click.ogg"));

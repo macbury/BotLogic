@@ -1,13 +1,13 @@
 package de.macbury.botlogic.core.api;
 
-import de.macbury.botlogic.core.levels.BaseLevel;
+import de.macbury.botlogic.core.screens.level.GameLevelScreen;
 import org.fife.ui.autocomplete.*;
 
 /**
  * Created by macbury on 31.03.14.
  */
 public class RobotCompletionProvider extends DefaultCompletionProvider {
-  public RobotCompletionProvider(BaseLevel level) {
+  public RobotCompletionProvider(GameLevelScreen level) {
     super();
     registerFunction("say", "pokazuje tekst podany w parametrze");
     registerAuto();

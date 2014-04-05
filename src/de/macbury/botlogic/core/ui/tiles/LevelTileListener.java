@@ -1,6 +1,6 @@
 package de.macbury.botlogic.core.ui.tiles;
 
-import de.macbury.botlogic.core.levels.file.LevelFile;
+import de.macbury.botlogic.core.screens.level.file.LevelFile;
 
 /**
  * Created by macbury on 05.04.14.

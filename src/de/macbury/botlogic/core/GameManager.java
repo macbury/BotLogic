@@ -3,7 +3,6 @@ package de.macbury.botlogic.core;
 import aurelienribon.tweenengine.Tween;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.graphics.FPSLogger;
 import de.macbury.botlogic.core.audio.AudioManager;
 import de.macbury.botlogic.core.config.ConfigManager;
@@ -11,8 +10,7 @@ import de.macbury.botlogic.core.controller.GameController;
 import de.macbury.botlogic.core.entites.ModelEntity;
 import de.macbury.botlogic.core.graphics.camera.RTSCameraController;
 import de.macbury.botlogic.core.input.InputManager;
-import de.macbury.botlogic.core.levels.BaseLevel;
-import de.macbury.botlogic.core.levels.PlaygroundLevel;
+import de.macbury.botlogic.core.screens.level.GameLevelScreen;
 import de.macbury.botlogic.core.runtime.ScriptContextFactory;
 import de.macbury.botlogic.core.runtime.ScriptRunner;
 import de.macbury.botlogic.core.screens.ScreenManager;
@@ -51,8 +49,8 @@ public class GameManager extends Game {
     BotLogic.screens.goToMainMenu();
   }
 
-  public BaseLevel getLevel() {
-    return (BaseLevel)getScreen();
+  public GameLevelScreen getLevel() {
+    return (GameLevelScreen)getScreen();
   }
 
   public boolean isLoading() {
@@ -66,12 +64,7 @@ public class GameManager extends Game {
   }
 
   public void newGame(String path) {
-    Gdx.app.log(TAG, "New game");
-    if (getLevel() != null) {
-      getLevel().dispose();
-      Gdx.app.log(TAG, "Disposing old level");
-    }
-    setScreen(new PlaygroundLevel(path));
+
   }
 
   public GameController getController() {

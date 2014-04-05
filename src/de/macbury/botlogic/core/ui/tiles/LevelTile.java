@@ -5,13 +5,10 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
-import com.badlogic.gdx.utils.GdxRuntimeException;
 import de.macbury.botlogic.core.BotLogic;
 import de.macbury.botlogic.core.Debug;
-import de.macbury.botlogic.core.levels.file.LevelFile;
+import de.macbury.botlogic.core.screens.level.file.LevelFile;
 import de.macbury.botlogic.core.ui.FlatSkin;
-
-import java.util.logging.Level;
 
 /**
  * Created by macbury on 05.04.14.
@@ -52,7 +49,7 @@ public class LevelTile extends Table {
     descriptionTable.row().top().center();
     descriptionTable.add(levelImage).colspan(2).pad(0, 0, 15, 0);
     descriptionTable.row();
-    descriptionTable.add(titleLabel).expandX().fillX().colspan(2).pad(30,25,25,25);
+    descriptionTable.add(titleLabel).expandX().fillX().colspan(2).pad(30, 25, 25, 25);
     descriptionTable.row().top().left();
     descriptionTable.add(descriptionLabel).colspan(2).expandX().fillX().pad(0, 30, 25, 30);
 

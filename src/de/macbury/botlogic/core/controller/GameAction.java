@@ -1,14 +1,14 @@
 package de.macbury.botlogic.core.controller;
 
-import de.macbury.botlogic.core.levels.BaseLevel;
+import de.macbury.botlogic.core.screens.level.GameLevelScreen;
 
 /**
  * Created by macbury on 31.03.14.
  */
 public abstract class GameAction {
-  protected BaseLevel level;
+  protected GameLevelScreen level;
 
-  public BaseLevel getLevel() {
+  public GameLevelScreen getLevel() {
     return level;
   }
 
@@ -33,7 +33,7 @@ public abstract class GameAction {
   public abstract void update(double delta);
   public abstract void onEnd();
 
-  public void setLevel(BaseLevel level) {
+  public void setLevel(GameLevelScreen level) {
     this.level = level;
   }
 
