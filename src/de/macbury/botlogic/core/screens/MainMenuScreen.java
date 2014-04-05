@@ -2,28 +2,26 @@ package de.macbury.botlogic.core.screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.graphics.Camera;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.g3d.utils.MeshBuilder;
-import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
-import com.badlogic.gdx.utils.Array;
-import com.badlogic.gdx.utils.viewport.FillViewport;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import de.macbury.botlogic.core.BotLogic;
 import de.macbury.botlogic.core.Debug;
+import de.macbury.botlogic.core.audio.AudioManager;
 import de.macbury.botlogic.core.levels.file.LevelFile;
 import de.macbury.botlogic.core.ui.FlatColors;
-import de.macbury.botlogic.core.ui.FlatSkin;
+import de.macbury.botlogic.core.ui.tiles.LevelTile;
+import de.macbury.botlogic.core.ui.tiles.LevelTileListener;
+import de.macbury.botlogic.core.ui.tiles.TileScrollPane;
 
 /**
  * Created by macbury on 03.04.14.
  */
-public class MainMenuScreen implements Screen {
+public class MainMenuScreen implements Screen, LevelTileListener {
   private static final float TOP_TOOLBAR_BUTTON_WIDTH   = 100;
   private static final float TOP_TOOLBAR_BUTTON_HEIGHT  = 64;
+  private TileScrollPane tileScrollPane;
   private Stage stage;
   private Table tableLayout;
 
@@ -31,8 +29,8 @@ public class MainMenuScreen implements Screen {
     this.stage        = new Stage(new ScreenViewport());
     this.tableLayout  = new Table();
 
-    if (Debug.TABLE)
-      tableLayout.debug();
+    //if (Debug.TABLE)
+    //  tableLayout.debug();
     tableLayout.setFillParent(true);
 
     tableLayout.row().top().left();
@@ -50,41 +48,15 @@ public class MainMenuScreen implements Screen {
 
     tableLayout.row();
 
-    ScrollPane tileScrollPane = BotLogic.skin.builder.getTileScrollPane();
-    tileScrollPane.setFillParent(false);
-    tileScrollPane.setFadeScrollBars(false);
-    tileScrollPane.setFlickScroll(false);
-
-    Table table = new Table();
-    table.row().top().left();
-    if (Debug.TABLE)
-      table.debug();
+    this.tileScrollPane = BotLogic.skin.builder.getTileScrollPane();
 
     for (LevelFile lf : LevelFile.list()) {
-      Table cellTable = new Table();
+      LevelTile tile = new LevelTile(lf, BotLogic.skin);
 
-      cellTable.setBackground(BotLogic.skin.getDrawable("background_light"));
-      cellTable.row();
-      cellTable.add(BotLogic.skin.builder.titleLabel(lf.getName())).expandX().fillX().pad(30,25,25,25).colspan(2);
-      cellTable.row();
-
-      ScrollPane descriptionScrollPane = BotLogic.skin.builder.getTileScrollPane();
-      descriptionScrollPane.setFlickScroll(false);
-      Label descriptionLabel = BotLogic.skin.builder.normalLabel(lf.getDescription());
-      descriptionLabel.setWrap(true);
-
-      descriptionScrollPane.setWidget(descriptionLabel);
-
-      cellTable.add(descriptionScrollPane).padLeft(30).fill().colspan(2).expand();
-      cellTable.row();
-      cellTable.add().expandX();
-      cellTable.add(BotLogic.skin.builder.redTextButton("Zagraj")).height(44).width(116).pad(20, 15, 20, 15);
-      if (Debug.TABLE)
-        cellTable.debug();
-      table.add(cellTable).pad(20, 15, 50, 10).width(400).height(450);
+      tile.setListener(this);
+      tileScrollPane.addTile(tile);
     }
 
-    tileScrollPane.setWidget(table);
     tableLayout.add(tileScrollPane).expand().fill().colspan(4);
     tableLayout.setTransform(true);
     stage.addActor(tableLayout);
@@ -137,5 +109,10 @@ public class MainMenuScreen implements Screen {
   @Override
   public void dispose() {
     stage.dispose();
+  }
+
+  @Override
+  public void onPlayClick(LevelFile level, LevelTile tile) {
+    BotLogic.audio.click.play();
   }
 }

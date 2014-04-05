@@ -4,6 +4,5 @@
    <map>playground.png</map>
    <script>playground.js</script>
    <using>Led</using>
-   <using>Robot</using>
-   <using>Scanner</using>
+   <using>Sonar</using>
 </levelFile>

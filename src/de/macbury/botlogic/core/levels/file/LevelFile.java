@@ -2,6 +2,7 @@ package de.macbury.botlogic.core.levels.file;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.utils.GdxRuntimeException;
 import org.simpleframework.xml.*;
 import org.simpleframework.xml.core.Persister;
 
@@ -16,7 +17,7 @@ import java.util.logging.Level;
 @Root
 public class LevelFile {
   public enum LevelFeature {
-    Scanner, Robot, Led
+    Sonar, Led, Drone, Compass, TractorBeam, Console, Weapon, Tricorder
   }
   @Element
   private String name;
@@ -117,5 +118,51 @@ public class LevelFile {
 
   public ArrayList<LevelFeature> getFeatures() {
     return using;
+  }
+
+  public static String getIconByFeature(LevelFile.LevelFeature feature) {
+    switch (feature) {
+      case Tricorder:
+        return "feature_tricoder";
+      case Weapon:
+        return "feature_weapon";
+      case Console:
+        return "feature_console";
+      case TractorBeam:
+        return "feature_tractor_beam";
+      case Compass:
+        return "feature_compass";
+      case Drone:
+        return "feature_drone";
+      case Sonar:
+        return "feature_sonar";
+      case Led:
+        return "feature_led";
+      default:
+        throw new GdxRuntimeException("Undefined icon for: " + feature.toString());
+    }
+  }
+
+  public static String getNameByFeature(LevelFile.LevelFeature feature) {
+    switch (feature) {
+      case Tricorder:
+        return "Tricoder";
+      case Weapon:
+        return "Broń";
+      case Console:
+        return "Konsola";
+      case TractorBeam:
+        return "Promień trakcyjny";
+      case Compass:
+        return "Kompas";
+      case Drone:
+        return "Dron";
+      case Sonar:
+        return "Sonar";
+      case Led:
+        return "Led";
+      default:
+        throw new GdxRuntimeException("Undefined icon for: " + feature.toString());
+    }
   }
 }

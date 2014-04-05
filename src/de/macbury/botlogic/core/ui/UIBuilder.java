@@ -1,6 +1,7 @@
 package de.macbury.botlogic.core.ui;
 
 import com.badlogic.gdx.scenes.scene2d.ui.*;
+import de.macbury.botlogic.core.ui.tiles.TileScrollPane;
 
 /**
  * Created by macbury on 04.04.14.
@@ -32,8 +33,13 @@ public class UIBuilder {
     return button;
   }
 
-  public ScrollPane getTileScrollPane() {
+  public ScrollPane getScrollPaneWithoutMouseScroll() {
     ScrollPaneWithoutMouseScroll pane = new ScrollPaneWithoutMouseScroll(null, skin.tileScrollPane);
+    return pane;
+  }
+
+  public TileScrollPane getTileScrollPane() {
+    TileScrollPane pane = new TileScrollPane(skin.tileScrollPane);
     return pane;
   }
 

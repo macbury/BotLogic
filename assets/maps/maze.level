@@ -3,5 +3,6 @@
     <description>Znajdź wyjście z labiryntu</description>
     <map>maze.png</map>
     <script>maze.js</script>
-    <using>Robot</using>
+    <using>Led</using>
+    <using>Sonar</using>
 </levelFile>

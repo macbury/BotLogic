@@ -12,5 +12,12 @@
     </description>
     <map>test.png</map>
     <script>maze.js</script>
-    <using>Robot</using>
+    <using>Led</using>
+    <using>Sonar</using>
+    <using>Drone</using>
+    <using>Compass</using>
+    <using>TractorBeam</using>
+    <using>Console</using>
+    <using>Weapon</using>
+    <using>Tricorder</using>
 </levelFile>
