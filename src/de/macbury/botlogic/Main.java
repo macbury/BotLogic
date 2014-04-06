@@ -17,7 +17,7 @@ public class Main {
       config.height = 768;
       config.vSyncEnabled = true;
       config.useGL30 = true;
-      config.resizable = true;
+      config.resizable = false;
       LwjglApplication app = new LwjglApplication(new GameManager(), config);
     }
 }

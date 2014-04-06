@@ -37,7 +37,7 @@ public abstract class BufferedCompositorPass extends CompositorPass {
   @Override
   public void resize(int width, int height) {
     super.resize(width, height);
-    this.fbo = new FrameBuffer(Pixmap.Format.RGBA8888, Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), true);
+    this.fbo = new FrameBuffer(Pixmap.Format.RGBA8888, getWidth(), getHeight(), true);
   }
 
   public FrameBuffer getFbo() {

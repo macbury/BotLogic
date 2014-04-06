@@ -8,7 +8,7 @@ import com.badlogic.gdx.Preferences;
  */
 public class ConfigManager {
   private Preferences config;
-
+  private int outlineQualityCache = -1;
   public ConfigManager() {
     this.config = Gdx.app.getPreferences("Settings");
   }
@@ -22,5 +22,18 @@ public class ConfigManager {
 
   public void loadResolution() {
     Gdx.graphics.setDisplayMode(config.getInteger("width", 1024), config.getInteger("height", 768), config.getBoolean("fullscreen", false));
+  }
+
+  public int getOutlineQuality() {
+    if (outlineQualityCache == -1) {
+      outlineQualityCache = config.getInteger("outline_quality", 1);
+    }
+    return outlineQualityCache;
+  }
+
+  public void setOutlineQuality(int quality) {
+    outlineQualityCache = -1;
+    config.putInteger("outline_quality", quality);
+    config.flush();
   }
 }

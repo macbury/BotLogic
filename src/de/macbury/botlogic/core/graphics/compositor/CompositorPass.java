@@ -63,7 +63,7 @@ public abstract class CompositorPass implements Disposable {
     shader.begin();
       context.begin();
         Gdx.gl.glClearColor(0, 0, 0, 0);
-        Gdx.gl.glViewport(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        Gdx.gl.glViewport(0, 0, getWidth(), getHeight());
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
 
         shader.setUniformMatrix(u_projection, screenCamera.combined);
@@ -81,6 +81,14 @@ public abstract class CompositorPass implements Disposable {
     screenCamera.update(true);
     screenQuad = null;
     createScreenQuad();
+  }
+
+  public int getWidth() {
+    return Gdx.graphics.getWidth();
+  }
+
+  public int getHeight() {
+    return Gdx.graphics.getHeight();
   }
 
   @Override

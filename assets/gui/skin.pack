@@ -10,156 +10,216 @@ logo
   orig: 300, 68
   offset: 0, 0
   index: -1
-button_red_normal
+select_box_hover_background
   rotate: false
   xy: 1, 21
+  size: 64, 32
+  split: 4, 29, 4, 4
+  orig: 64, 32
+  offset: 0, 0
+  index: -1
+icon_play
+  rotate: false
+  xy: 303, 75
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
+icon_code
+  rotate: false
+  xy: 353, 75
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
+select_box_active_background
+  rotate: false
+  xy: 67, 21
+  size: 64, 32
+  split: 4, 29, 4, 4
+  orig: 64, 32
+  offset: 0, 0
+  index: -1
+select_box_background
+  rotate: false
+  xy: 403, 91
+  size: 64, 32
+  split: 4, 29, 4, 4
+  orig: 64, 32
+  offset: 0, 0
+  index: -1
+icon_stop
+  rotate: false
+  xy: 133, 5
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
+icon_objective
+  rotate: false
+  xy: 469, 91
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+button_red_normal
+  rotate: false
+  xy: 183, 21
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 button_red_pressed
   rotate: false
-  xy: 303, 91
+  xy: 217, 21
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 button_blue_pressed
   rotate: false
-  xy: 35, 21
-  size: 32, 32
-  orig: 32, 32
-  offset: 0, 0
-  index: -1
-button_blue_norma
-  rotate: false
-  xy: 303, 57
-  size: 32, 32
-  orig: 32, 32
-  offset: 0, 0
-  index: -1
-background_dark_transparent
-  rotate: false
-  xy: 337, 91
+  xy: 251, 21
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 icon_settings
   rotate: false
-  xy: 69, 26
+  xy: 303, 46
   size: 34, 27
   orig: 34, 27
   offset: 0, 0
   index: -1
-icon_exit
+button_blue_norma
   rotate: false
-  xy: 337, 66
-  size: 26, 23
-  orig: 26, 23
+  xy: 339, 41
+  size: 32, 32
+  orig: 32, 32
   offset: 0, 0
   index: -1
-feature_weapon
+background_dark_transparent
   rotate: false
-  xy: 371, 99
-  size: 24, 24
-  orig: 24, 24
+  xy: 373, 41
+  size: 32, 32
+  orig: 32, 32
   offset: 0, 0
   index: -1
-feature_tractor_beam
+background_light
   rotate: false
-  xy: 105, 29
-  size: 24, 24
-  orig: 24, 24
+  xy: 285, 37
+  size: 16, 16
+  orig: 16, 16
   offset: 0, 0
   index: -1
-feature_tricoder
+list_box_background
   rotate: false
-  xy: 397, 99
-  size: 24, 24
-  orig: 24, 24
-  offset: 0, 0
-  index: -1
-feature_led
-  rotate: false
-  xy: 131, 29
-  size: 24, 24
-  orig: 24, 24
-  offset: 0, 0
-  index: -1
-feature_drone
-  rotate: false
-  xy: 423, 99
-  size: 24, 24
-  orig: 24, 24
-  offset: 0, 0
-  index: -1
-feature_console
-  rotate: false
-  xy: 157, 29
-  size: 24, 24
-  orig: 24, 24
-  offset: 0, 0
-  index: -1
-feature_compass
-  rotate: false
-  xy: 449, 99
-  size: 24, 24
-  orig: 24, 24
-  offset: 0, 0
-  index: -1
-feature_sonar
-  rotate: false
-  xy: 183, 29
-  size: 24, 24
-  orig: 24, 24
+  xy: 1, 1
+  size: 18, 18
+  split: 4, 4, 4, 4
+  orig: 18, 18
   offset: 0, 0
   index: -1
 checkbox_on
   rotate: false
-  xy: 1, 1
+  xy: 21, 1
   size: 18, 18
   orig: 18, 18
   offset: 0, 0
   index: -1
 checkbox_off
   rotate: false
-  xy: 475, 105
+  xy: 41, 1
   size: 18, 18
   orig: 18, 18
   offset: 0, 0
   index: -1
-background_light
+icon_exit
   rotate: false
-  xy: 495, 107
-  size: 16, 16
-  orig: 16, 16
+  xy: 407, 66
+  size: 26, 23
+  orig: 26, 23
+  offset: 0, 0
+  index: -1
+feature_weapon
+  rotate: false
+  xy: 407, 40
+  size: 24, 24
+  orig: 24, 24
+  offset: 0, 0
+  index: -1
+feature_tractor_beam
+  rotate: false
+  xy: 435, 65
+  size: 24, 24
+  orig: 24, 24
+  offset: 0, 0
+  index: -1
+feature_tricoder
+  rotate: false
+  xy: 461, 65
+  size: 24, 24
+  orig: 24, 24
+  offset: 0, 0
+  index: -1
+feature_led
+  rotate: false
+  xy: 487, 65
+  size: 24, 24
+  orig: 24, 24
+  offset: 0, 0
+  index: -1
+feature_drone
+  rotate: false
+  xy: 433, 39
+  size: 24, 24
+  orig: 24, 24
+  offset: 0, 0
+  index: -1
+feature_console
+  rotate: false
+  xy: 459, 39
+  size: 24, 24
+  orig: 24, 24
+  offset: 0, 0
+  index: -1
+feature_compass
+  rotate: false
+  xy: 485, 39
+  size: 24, 24
+  orig: 24, 24
   offset: 0, 0
   index: -1
 tile_selected
   rotate: false
-  xy: 495, 89
+  xy: 61, 3
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 background_dark
   rotate: false
-  xy: 209, 37
+  xy: 79, 3
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
+feature_sonar
+  rotate: false
+  xy: 303, 20
+  size: 24, 24
+  orig: 24, 24
+  offset: 0, 0
+  index: -1
 white_scroll_background
   rotate: false
-  xy: 21, 6
+  xy: 97, 6
   size: 13, 13
   orig: 13, 13
   offset: 0, 0
   index: -1
 white_scroll_knob
   rotate: false
-  xy: 227, 40
+  xy: 183, 6
   size: 13, 13
   orig: 13, 13
   offset: 0, 0

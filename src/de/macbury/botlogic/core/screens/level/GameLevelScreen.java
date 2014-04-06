@@ -122,7 +122,7 @@ public class GameLevelScreen implements Screen {
     reset();
 
     environment.add(new PointLight().set(new Color(1f,1f, 1f, 1f), map.getRobotStartPosition().cpy().add(0,1,0), 1.5f));
-
+    environment.set(new ColorAttribute(ColorAttribute.Fog, 0f,0f, 0f, 1f));
     BotLogic.audio.music.play();
   }
 

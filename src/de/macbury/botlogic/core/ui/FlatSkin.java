@@ -10,6 +10,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.*;
 
 public class FlatSkin extends Skin {
   public static final float BUTTON_PADDING = 10;
+  public Slider.SliderStyle sliderStyle;
+  public ImageButton.ImageButtonStyle blueImageButton;
   public CheckBox.CheckBoxStyle checkBoxStyle;
   public List.ListStyle listStyle;
   public ScrollPane.ScrollPaneStyle scrollPaneStyle;
@@ -43,6 +45,10 @@ public class FlatSkin extends Skin {
     redImageButton.up    = this.getDrawable("button_red_normal");
     redImageButton.down  = this.getDrawable("button_red_pressed");
 
+    this.blueImageButton  = new ImageButton.ImageButtonStyle();
+    blueImageButton.up    = this.getDrawable("button_blue_norma");
+    blueImageButton.down  = this.getDrawable("button_blue_pressed");
+
     this.tileScrollPane         = new ScrollPane.ScrollPaneStyle();
     tileScrollPane.vScroll      = this.getDrawable("white_scroll_background");
     tileScrollPane.hScroll      = this.getDrawable("white_scroll_background");
@@ -71,6 +77,7 @@ public class FlatSkin extends Skin {
     dialogStyle.titleFontColor     = Color.WHITE;
 
     this.listStyle                 = new List.ListStyle();
+    listStyle.background           = this.getDrawable("list_box_background");
     listStyle.font                 = robotoThinFont;
     listStyle.fontColorSelected    = Color.WHITE;
     listStyle.fontColorUnselected  = FlatColors.CLOUDS;
@@ -80,12 +87,20 @@ public class FlatSkin extends Skin {
     selectBoxStyle.scrollStyle      = scrollPaneStyle;
     selectBoxStyle.listStyle        = listStyle;
     selectBoxStyle.fontColor        = FlatColors.CLOUDS;
+    selectBoxStyle.background       = this.getDrawable("select_box_background");
+    selectBoxStyle.backgroundOpen   = this.getDrawable("select_box_active_background");
+    selectBoxStyle.backgroundOver   = this.getDrawable("select_box_hover_background");
+    selectBoxStyle.font             = robotoThinFont;
+    selectBoxStyle.fontColor        = FlatColors.CLOUDS;
 
     this.checkBoxStyle              = new CheckBox.CheckBoxStyle();
     this.checkBoxStyle.checkboxOn   = this.getDrawable("checkbox_on");
     this.checkBoxStyle.checkboxOff  = this.getDrawable("checkbox_off");
     this.checkBoxStyle.font         = robotoThinFont;
 
+    this.sliderStyle                = new Slider.SliderStyle();
+    sliderStyle.background          = this.getDrawable("white_scroll_background");
+    sliderStyle.knob                = this.getDrawable("white_scroll_knob");
     this.builder = new UIBuilder(this);
 
     //Gdx.input.setCursorCatched(true);

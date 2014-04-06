@@ -59,4 +59,18 @@ public class UIBuilder {
   public Image image(String name) {
     return new Image(skin.getDrawable(name));
   }
+
+  public ImageButton blueImageButton(String iconName) {
+    ImageButton button = new ImageButton(skin.getDrawable(iconName));
+    button.setStyle(skin.blueImageButton);
+    return button;
+  }
+
+  public Slider slider(float min, float max, float step, boolean vertical) {
+    return new Slider(min, max, step, vertical, skin.sliderStyle);
+  }
+
+  public SelectBox<String> stringSelectBox() {
+    return new SelectBox<String>(skin.selectBoxStyle);
+  }
 }

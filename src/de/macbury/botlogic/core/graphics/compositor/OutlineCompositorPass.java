@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g3d.utils.RenderContext;
+import de.macbury.botlogic.core.BotLogic;
 
 /**
  * Created by macbury on 03.04.14.
@@ -24,6 +25,16 @@ public class OutlineCompositorPass extends BufferedCompositorPass {
   @Override
   protected void applyUniforms() {
     shader.setUniformi(u_texture, context.textureBinder.bind(texture));
+  }
+
+  @Override
+  public int getWidth() {
+    return Math.round(super.getWidth() / BotLogic.config.getOutlineQuality());
+  }
+
+  @Override
+  public int getHeight() {
+    return Math.round(super.getHeight() / BotLogic.config.getOutlineQuality());
   }
 
   public Texture getTexture() {

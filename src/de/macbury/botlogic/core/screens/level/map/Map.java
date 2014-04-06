@@ -62,6 +62,7 @@ public class Map extends Renderable implements Disposable {
             region = block.getSideTextureRegion(tileset);
 
             if (block.getY() > 0) {
+
               builder.frontFace(x * Block.BLOCK_SIZE, block.getY(), z * Block.BLOCK_SIZE, Block.BLOCK_SIZE, Block.BLOCK_SIZE, Block.BLOCK_SIZE, region.getU(),region.getV(),region.getU2(),region.getV2());
               builder.backFace(x * Block.BLOCK_SIZE, block.getY(), z * Block.BLOCK_SIZE, Block.BLOCK_SIZE, Block.BLOCK_SIZE, Block.BLOCK_SIZE, region.getU(), region.getV(), region.getU2(), region.getV2());
               builder.leftFace(x * Block.BLOCK_SIZE, block.getY(), z * Block.BLOCK_SIZE, Block.BLOCK_SIZE, Block.BLOCK_SIZE, Block.BLOCK_SIZE, region.getU(),region.getV(),region.getU2(),region.getV2());

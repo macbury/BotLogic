@@ -1,8 +1,6 @@
 package de.macbury.botlogic.core.ui;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Graphics;
-import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
@@ -24,19 +22,29 @@ public class SettingsDialog extends Dialog {
   private static final float LABEL_WIDTH = 180;
   private static final float RESOLUTION_SCROLL_PANE_HEIGHT = 120;
   private static final float PADDING_BUTTONS_BOTTOM = 25;
+  private SelectBox<String> outlineQualitySelectBox;
   private DisplayMode[] resModes;
   private CheckBox fullScreenCheckBox;
   private TextButton cancelButton;
-  private List<String> resolutionListView;
+  private SelectBox<String> resolutionSelectBox;
   private TextButton saveButton;
 
   public SettingsDialog(WindowStyle windowStyle) {
     super("", windowStyle);
 
+    this.outlineQualitySelectBox = BotLogic.skin.builder.stringSelectBox();
+    Array<String> outlineQualityArray = new Array<String>();
+    outlineQualityArray.add("Najlepsza");
+    outlineQualityArray.add("Słaba");
+    outlineQualityArray.add("Żałosna");
+
+    outlineQualitySelectBox.setItems(outlineQualityArray);
+    outlineQualitySelectBox.setSelectedIndex(BotLogic.config.getOutlineQuality()-1);
+
     this.saveButton   = BotLogic.skin.builder.redTextButton("Zapisz zmiany");
     this.cancelButton = BotLogic.skin.builder.redTextButton("Anuluj");
     this.fullScreenCheckBox = BotLogic.skin.builder.checkbox("");
-    fullScreenCheckBox.setChecked(Gdx.graphics.isFullscreen());
+    this.fullScreenCheckBox.setChecked(Gdx.graphics.isFullscreen());
 
     saveButton.addListener(new ClickListener() {
       @Override
@@ -53,9 +61,7 @@ public class SettingsDialog extends Dialog {
       }
     });
 
-    ScrollPane scrollPane = BotLogic.skin.builder.getScrollPaneWithoutMouseScroll();
-    this.resolutionListView = new List<String>(BotLogic.skin.listStyle);
-    scrollPane.setFadeScrollBars(false);
+    this.resolutionSelectBox = BotLogic.skin.builder.stringSelectBox();
 
     this.resModes = new DisplayMode[0];
     try {
@@ -75,16 +81,18 @@ public class SettingsDialog extends Dialog {
       }
     }
 
-    resolutionListView.setItems(resArrays);
-    resolutionListView.setSelectedIndex(selectedResIndex);
-
-    scrollPane.setWidget(resolutionListView);
+    resolutionSelectBox.setItems(resArrays);
+    resolutionSelectBox.setSelectedIndex(selectedResIndex);
 
     this.row();
       this.add(BotLogic.skin.builder.titleLabel("Ustawienia")).fillX().expandX().pad(PADDING_VERITICAL, PADDING_HORIZONTAL, PADDING_HORIZONTAL, PADDING_VERITICAL).colspan(3);
     this.row().padTop(10);
       this.add(BotLogic.skin.builder.normalLabel("Rozdzielczość:")).width(LABEL_WIDTH).padLeft(PADDING_HORIZONTAL).right().top();
-      this.add(scrollPane).width(OPTION_WIDTH).height(RESOLUTION_SCROLL_PANE_HEIGHT).colspan(2);
+      this.add(resolutionSelectBox).colspan(2).fillX().padRight(PADDING_HORIZONTAL);
+
+    this.row().padTop(10);
+      this.add(BotLogic.skin.builder.normalLabel("Jakość obramowania")).width(LABEL_WIDTH).padLeft(PADDING_HORIZONTAL).right().top();
+      this.add(outlineQualitySelectBox).colspan(2).left().fill().padRight(PADDING_HORIZONTAL);
 
     this.row().padTop(10);
       this.add(BotLogic.skin.builder.normalLabel("Pełny ekran:")).width(LABEL_WIDTH).padLeft(PADDING_HORIZONTAL).right().top();
@@ -102,11 +110,12 @@ public class SettingsDialog extends Dialog {
   private void saveButtonClicked() {
     BotLogic.audio.click.play();
 
-    DisplayMode mode = resModes[resolutionListView.getSelectedIndex()];
+    DisplayMode mode = resModes[resolutionSelectBox.getSelectedIndex()];
 
     Gdx.graphics.setDisplayMode(mode.getWidth(), mode.getHeight(), fullScreenCheckBox.isChecked());
 
     BotLogic.config.putResolution(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), Gdx.graphics.isFullscreen());
+    BotLogic.config.setOutlineQuality(outlineQualitySelectBox.getSelectedIndex()+1);
     hide();
   }
 }
