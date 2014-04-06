@@ -1,6 +1,8 @@
 package de.macbury.botlogic.core.ui;
 
 import com.badlogic.gdx.scenes.scene2d.ui.*;
+import de.macbury.botlogic.core.ui.dialog.EndGameDialog;
+import de.macbury.botlogic.core.ui.dialog.SettingsDialog;
 import de.macbury.botlogic.core.ui.tiles.TileScrollPane;
 
 /**
@@ -19,6 +21,10 @@ public class UIBuilder {
 
   public SettingsDialog settingsDialog() {
     return new SettingsDialog(skin.dialogStyle);
+  }
+
+  public EndGameDialog endGameDialog() {
+    return new EndGameDialog(skin.dialogStyle);
   }
 
   public Dialog dialog(String title) {

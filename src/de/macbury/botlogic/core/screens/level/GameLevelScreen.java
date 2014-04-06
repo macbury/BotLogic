@@ -10,6 +10,7 @@ import com.badlogic.gdx.graphics.g3d.*;
 import com.badlogic.gdx.graphics.g3d.attributes.ColorAttribute;
 import com.badlogic.gdx.graphics.g3d.decals.CameraGroupStrategy;
 import com.badlogic.gdx.graphics.g3d.decals.DecalBatch;
+import com.badlogic.gdx.graphics.g3d.environment.DirectionalLight;
 import com.badlogic.gdx.graphics.g3d.environment.PointLight;
 import com.badlogic.gdx.graphics.g3d.loader.G3dModelLoader;
 import com.badlogic.gdx.graphics.g3d.model.MeshPart;
@@ -18,6 +19,7 @@ import com.badlogic.gdx.graphics.g3d.utils.DefaultTextureBinder;
 import com.badlogic.gdx.graphics.g3d.utils.DepthShaderProvider;
 import com.badlogic.gdx.graphics.g3d.utils.RenderContext;
 import com.badlogic.gdx.graphics.glutils.FrameBuffer;
+import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.UBJsonReader;
 import de.macbury.botlogic.core.BotLogic;
 import de.macbury.botlogic.core.controller.GameController;
@@ -122,7 +124,8 @@ public class GameLevelScreen implements Screen {
     reset();
 
     environment.add(new PointLight().set(new Color(1f,1f, 1f, 1f), map.getRobotStartPosition().cpy().add(0,1,0), 1.5f));
-    environment.set(new ColorAttribute(ColorAttribute.Fog, 0f,0f, 0f, 1f));
+    environment.set(new ColorAttribute(ColorAttribute.Fog, 0f, 0f, 0f, 1f));
+    environment.add(new DirectionalLight().set(new Color(.4f,.4f, .4f, 0.1f), new Vector3(1,-1,0)));
     BotLogic.audio.music.play();
   }
 
