@@ -63,10 +63,21 @@ public class Map extends Renderable implements Disposable {
 
             if (block.getY() > 0) {
 
-              builder.frontFace(x * Block.BLOCK_SIZE, block.getY(), z * Block.BLOCK_SIZE, Block.BLOCK_SIZE, Block.BLOCK_SIZE, Block.BLOCK_SIZE, region.getU(),region.getV(),region.getU2(),region.getV2());
-              builder.backFace(x * Block.BLOCK_SIZE, block.getY(), z * Block.BLOCK_SIZE, Block.BLOCK_SIZE, Block.BLOCK_SIZE, Block.BLOCK_SIZE, region.getU(), region.getV(), region.getU2(), region.getV2());
-              builder.leftFace(x * Block.BLOCK_SIZE, block.getY(), z * Block.BLOCK_SIZE, Block.BLOCK_SIZE, Block.BLOCK_SIZE, Block.BLOCK_SIZE, region.getU(),region.getV(),region.getU2(),region.getV2());
-              builder.rightFace(x * Block.BLOCK_SIZE, block.getY(), z * Block.BLOCK_SIZE, Block.BLOCK_SIZE, Block.BLOCK_SIZE, Block.BLOCK_SIZE, region.getU(),region.getV(),region.getU2(),region.getV2());
+              if (topBlock != null && topBlock.getY() != block.getY()) {
+                builder.frontFace(x * Block.BLOCK_SIZE, block.getY(), z * Block.BLOCK_SIZE, Block.BLOCK_SIZE, Block.BLOCK_SIZE, Block.BLOCK_SIZE, region.getU(),region.getV(),region.getU2(),region.getV2());
+              }
+
+              if (bottomBlock != null && bottomBlock.getY() != block.getY()) {
+                builder.backFace(x * Block.BLOCK_SIZE, block.getY(), z * Block.BLOCK_SIZE, Block.BLOCK_SIZE, Block.BLOCK_SIZE, Block.BLOCK_SIZE, region.getU(), region.getV(), region.getU2(), region.getV2());
+              }
+
+              if (leftBlock != null && leftBlock.getY() != block.getY()) {
+                builder.leftFace(x * Block.BLOCK_SIZE, block.getY(), z * Block.BLOCK_SIZE, Block.BLOCK_SIZE, Block.BLOCK_SIZE, Block.BLOCK_SIZE, region.getU(),region.getV(),region.getU2(),region.getV2());
+              }
+
+              if (rightBlock != null && rightBlock.getY() != block.getY()) {
+                builder.rightFace(x * Block.BLOCK_SIZE, block.getY(), z * Block.BLOCK_SIZE, Block.BLOCK_SIZE, Block.BLOCK_SIZE, Block.BLOCK_SIZE, region.getU(),region.getV(),region.getU2(),region.getV2());
+              }
             }
 
             if (topBlock == null) {
