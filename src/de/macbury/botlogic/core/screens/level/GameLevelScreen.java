@@ -72,7 +72,6 @@ public class GameLevelScreen implements Screen {
     cameraController.setCenter(0, 0);
     cameraController.setEnabled(true);
 
-
     environment = new Environment();
     environment.set(new ColorAttribute(ColorAttribute.AmbientLight, 0.5f, 0.5f, 0.5f, 1f));
 
@@ -126,7 +125,7 @@ public class GameLevelScreen implements Screen {
     environment.add(new PointLight().set(new Color(1f,1f, 1f, 1f), map.getRobotStartPosition().cpy().add(0,1,0), 1.5f));
     environment.set(new ColorAttribute(ColorAttribute.Fog, 0f, 0f, 0f, 1f));
     environment.add(new DirectionalLight().set(new Color(.4f,.4f, .4f, 0.1f), new Vector3(1,-1,0)));
-    BotLogic.audio.music.play();
+    BotLogic.audio.mainMenuMusic.play();
   }
 
   public GameController getController() {

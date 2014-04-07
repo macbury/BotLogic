@@ -42,7 +42,7 @@ public class GameManager extends Game {
     BotLogic.config       = new ConfigManager();
 
     BotLogic.screens      = new ScreenManager(this);// always last!!!
-    BotLogic.config.loadResolution();
+    BotLogic.config.load();
     loading = false;
     fpsLogger = new FPSLogger();
 

@@ -35,12 +35,13 @@ public class MainMenuScreen extends MenuBaseScreen implements LevelTileListener 
   @Override
   public void show() {
     super.show();
-    BotLogic.audio.music.play();
+    BotLogic.audio.mainMenuMusic.play();
+    BotLogic.skin.setPointerCursor();
   }
 
   @Override
   public void hide() {
-
+    BotLogic.audio.mainMenuMusic.stop();
   }
 
   @Override

@@ -340,7 +340,7 @@ public class GameEditorForm implements ScriptRuntimeListener {
 
     document = new ScriptDocument();
     document.setLevelPath(levelPath);
-    String body = "";
+
 
     textArea.requestFocusInWindow();
     simulationSpeedComboBox.setSelectedIndex(0);
@@ -349,6 +349,7 @@ public class GameEditorForm implements ScriptRuntimeListener {
     setState(DocumentState.New);
     clearErrors();
 
+    String body = "";
     for(LevelFile.LevelFeature feature : BotLogic.game.getLevel().getFeatures()) {
       body += Gdx.files.internal("sketches/features/"+feature.toString()+".js").readString() + "\n";
     }

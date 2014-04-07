@@ -110,7 +110,7 @@ public class GameController implements Disposable, ScriptRuntimeListener {
   public void onScriptFinish(ScriptRunner runner) {
     finishAction();
     level.get3DCameraController().setEnabled(true);
-    //BotLogic.audio.music.stop();
+    //BotLogic.audio.mainMenuMusic.stop();
     level.tweenManager.killAll();
     level.reset();
   }

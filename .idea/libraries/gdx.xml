@@ -3,7 +3,9 @@
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/lib/gdx.jar!/" />
     </CLASSES>
-    <JAVADOC />
+    <JAVADOC>
+      <root url="http://libgdx.badlogicgames.com/nightlies/docs/api/" />
+    </JAVADOC>
     <SOURCES />
   </library>
 </component>

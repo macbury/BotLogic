@@ -2,6 +2,7 @@ package de.macbury.botlogic.core.config;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Preferences;
+import de.macbury.botlogic.core.BotLogic;
 
 /**
  * Created by macbury on 05.04.14.
@@ -35,5 +36,24 @@ public class ConfigManager {
     outlineQualityCache = -1;
     config.putInteger("outline_quality", quality);
     config.flush();
+  }
+
+  public void setMusicVolume(float volume) {
+    config.putFloat("music_volume", volume);
+    config.flush();
+  }
+
+  public void load() {
+    loadResolution();
+    loadAudio();
+  }
+
+  public void loadAudio() {
+    BotLogic.audio.mainMenuMusic.setVolume(getMusicVolume());
+    BotLogic.audio.gameMusic.setVolume(getMusicVolume());
+  }
+
+  public float getMusicVolume() {
+    return config.getFloat("music_volume", 0.6f);
   }
 }

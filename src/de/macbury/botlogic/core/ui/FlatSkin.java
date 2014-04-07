@@ -6,10 +6,19 @@ import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
+import de.macbury.botlogic.core.ui.code_editor.widget.CodeEditorTextArea;
+import de.macbury.botlogic.core.ui.colors.FlatColors;
+import de.macbury.botlogic.core.ui.colors.SolarizedDarkColors;
 
 
 public class FlatSkin extends Skin {
   public static final float BUTTON_PADDING = 10;
+  private Pixmap textCursorPixmap;
+  private Pixmap pointerCursorPixmap;
+  public Label.LabelStyle codeLabelStyle;
+  public ScrollPane.ScrollPaneStyle codeEditorScroll;
+  public BitmapFont codeFont;
+  public CodeEditorTextArea.CodeEditorTextAreaStyle codeEditorArea;
   public Slider.SliderStyle sliderStyle;
   public ImageButton.ImageButtonStyle blueImageButton;
   public CheckBox.CheckBoxStyle checkBoxStyle;
@@ -35,6 +44,7 @@ public class FlatSkin extends Skin {
 
     this.robotoBigFont  = new BitmapFont(Gdx.files.internal("fonts/roboto_big.fnt"));
     this.robotoThinFont = new BitmapFont(Gdx.files.internal("fonts/roboto_thin.fnt"));
+    this.codeFont       = new BitmapFont(Gdx.files.internal("fonts/code.fnt"));
 
     this.redTextButton   = new TextButton.TextButtonStyle();
     redTextButton.up     = this.getDrawable("button_red_normal");
@@ -65,6 +75,11 @@ public class FlatSkin extends Skin {
     this.robotoBigLabelStyle      = new Label.LabelStyle();
     robotoBigLabelStyle.font      = robotoBigFont;
     robotoBigLabelStyle.fontColor = Color.WHITE;
+
+    this.codeLabelStyle           = new Label.LabelStyle();
+    codeLabelStyle.font      = codeFont;
+    codeLabelStyle.fontColor = SolarizedDarkColors.TEXT;
+
 
     this.robotoThinLabelStyle      = new Label.LabelStyle();
     robotoThinLabelStyle.font      = robotoThinFont;
@@ -103,10 +118,42 @@ public class FlatSkin extends Skin {
     sliderStyle.knob                = this.getDrawable("white_scroll_knob");
     this.builder = new UIBuilder(this);
 
-    //Gdx.input.setCursorCatched(true);
-    Pixmap cursorPixmap = new Pixmap(Gdx.files.internal("gui/arrow.png"));
-    Gdx.input.setCursorImage(cursorPixmap, 0, 0);
+    this.codeEditorScroll        =  new ScrollPane.ScrollPaneStyle();
+    codeEditorScroll.vScroll      = this.getDrawable("white_scroll_background");
+    codeEditorScroll.hScroll      = this.getDrawable("white_scroll_background");
+    codeEditorScroll.hScrollKnob  = this.getDrawable("white_scroll_knob");
+    codeEditorScroll.vScrollKnob  = this.getDrawable("white_scroll_knob");
+    codeEditorScroll.background   = this.getDrawable("text_area_background");
 
+    this.codeEditorArea                   = new CodeEditorTextArea.CodeEditorTextAreaStyle();
+    this.codeEditorArea.background        = this.getDrawable("text_area_background");
+    this.codeEditorArea.focusedBackground = this.getDrawable("text_area_background");
+    this.codeEditorArea.focusedFontColor  = this.codeEditorArea.fontColor = SolarizedDarkColors.TEXT;
+    this.codeEditorArea.font              = codeFont;
+    this.codeEditorArea.selection         = this.getDrawable("text_area_selection");
+    this.codeEditorArea.cursor            = this.getDrawable("text_area_cursor");
+    this.codeEditorArea.lineNumberBackround = this.getDrawable("text_area_line_number_background");
+    this.codeEditorArea.focusedLineBackround  = this.getDrawable("text_area_current_line_background");
+    this.codeEditorArea.lineNumberColor           = SolarizedDarkColors.LINE_NUMBER;
+    this.codeEditorArea.textColor                 = SolarizedDarkColors.TEXT;
+    this.codeEditorArea.syntaxCommentColor        = SolarizedDarkColors.COMMENT;
+    this.codeEditorArea.syntaxNumberColor         = SolarizedDarkColors.NUMBER;
+    this.codeEditorArea.syntaxStringColor         = SolarizedDarkColors.STRING;
+    this.codeEditorArea.syntaxKeywordColor        = SolarizedDarkColors.KEYWORD;
+    this.codeEditorArea.syntaxSpecialKeywordColor = SolarizedDarkColors.SPECIAL_KEYWORD;
+
+    //Gdx.input.setCursorCatched(true);
+    this.pointerCursorPixmap = new Pixmap(Gdx.files.internal("gui/arrow.png"));
+    this.textCursorPixmap    = new Pixmap(Gdx.files.internal("gui/text_cursor.png"));
+
+    setPointerCursor();
   }
 
+  public void setPointerCursor() {
+    Gdx.input.setCursorImage(pointerCursorPixmap, 0, 0);
+  }
+
+  public void setTextCursor() {
+    Gdx.input.setCursorImage(textCursorPixmap, 16, 0);
+  }
 }

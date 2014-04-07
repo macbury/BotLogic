@@ -22,6 +22,7 @@ public class SettingsDialog extends Dialog {
   private static final float LABEL_WIDTH = 180;
   private static final float RESOLUTION_SCROLL_PANE_HEIGHT = 120;
   private static final float PADDING_BUTTONS_BOTTOM = 25;
+  private Slider musicVolumeSlider;
   private SelectBox<String> outlineQualitySelectBox;
   private DisplayMode[] resModes;
   private CheckBox fullScreenCheckBox;
@@ -32,6 +33,8 @@ public class SettingsDialog extends Dialog {
   public SettingsDialog(WindowStyle windowStyle) {
     super("", windowStyle);
 
+    this.musicVolumeSlider = BotLogic.skin.builder.slider(0,1,0.1f, false);
+    musicVolumeSlider.setValue(BotLogic.config.getMusicVolume());
     this.outlineQualitySelectBox = BotLogic.skin.builder.stringSelectBox();
     Array<String> outlineQualityArray = new Array<String>();
     outlineQualityArray.add("Najlepsza");
@@ -95,6 +98,10 @@ public class SettingsDialog extends Dialog {
       this.add(outlineQualitySelectBox).colspan(2).left().fill().padRight(PADDING_HORIZONTAL);
 
     this.row().padTop(10);
+      this.add(BotLogic.skin.builder.normalLabel("Głośność muzyki")).width(LABEL_WIDTH).padLeft(PADDING_HORIZONTAL).right().top();
+      this.add(musicVolumeSlider).colspan(2).left().fill().padRight(PADDING_HORIZONTAL);
+
+    this.row().padTop(10);
       this.add(BotLogic.skin.builder.normalLabel("Pełny ekran:")).width(LABEL_WIDTH).padLeft(PADDING_HORIZONTAL).right().top();
       this.add(fullScreenCheckBox).colspan(2).left();
 
@@ -111,11 +118,10 @@ public class SettingsDialog extends Dialog {
     BotLogic.audio.click.play();
 
     DisplayMode mode = resModes[resolutionSelectBox.getSelectedIndex()];
-
-    Gdx.graphics.setDisplayMode(mode.getWidth(), mode.getHeight(), fullScreenCheckBox.isChecked());
-
-    BotLogic.config.putResolution(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), Gdx.graphics.isFullscreen());
-    BotLogic.config.setOutlineQuality(outlineQualitySelectBox.getSelectedIndex()+1);
+    BotLogic.config.setMusicVolume(musicVolumeSlider.getValue());
+    BotLogic.config.putResolution(mode.getWidth(), mode.getHeight(), fullScreenCheckBox.isChecked());
+    BotLogic.config.setOutlineQuality(outlineQualitySelectBox.getSelectedIndex() + 1);
+    BotLogic.config.load();
     hide();
   }
 }

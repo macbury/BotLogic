@@ -1,9 +1,7 @@
 package de.macbury.botlogic.core.ui.tiles;
 
-import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
-import de.macbury.botlogic.core.Debug;
-import de.macbury.botlogic.core.ui.ScrollPaneWithoutMouseScroll;
+import de.macbury.botlogic.core.ui.scroll.ScrollPaneWithoutMouseScroll;
 
 /**
  * Created by macbury on 05.04.14.

@@ -5,14 +5,14 @@ filter: Nearest,Nearest
 repeat: none
 logo
   rotate: false
-  xy: 1, 55
+  xy: 1, 56
   size: 300, 68
   orig: 300, 68
   offset: 0, 0
   index: -1
 select_box_hover_background
   rotate: false
-  xy: 1, 21
+  xy: 1, 22
   size: 64, 32
   split: 4, 29, 4, 4
   orig: 64, 32
@@ -20,21 +20,21 @@ select_box_hover_background
   index: -1
 icon_play
   rotate: false
-  xy: 303, 75
+  xy: 303, 76
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 icon_code
   rotate: false
-  xy: 353, 75
+  xy: 353, 76
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
 select_box_active_background
   rotate: false
-  xy: 67, 21
+  xy: 67, 22
   size: 64, 32
   split: 4, 29, 4, 4
   orig: 64, 32
@@ -42,7 +42,7 @@ select_box_active_background
   index: -1
 select_box_background
   rotate: false
-  xy: 403, 91
+  xy: 403, 92
   size: 64, 32
   split: 4, 29, 4, 4
   orig: 64, 32
@@ -50,70 +50,112 @@ select_box_background
   index: -1
 icon_stop
   rotate: false
-  xy: 133, 5
+  xy: 133, 6
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: -1
+text_area_line_number_background
+  rotate: false
+  xy: 183, 20
+  size: 34, 34
+  orig: 34, 34
+  offset: 0, 0
+  index: -1
+text_area_background
+  rotate: false
+  xy: 219, 20
+  size: 34, 34
+  orig: 34, 34
+  offset: 0, 0
+  index: -1
 icon_objective
   rotate: false
-  xy: 469, 91
+  xy: 469, 92
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 button_red_normal
   rotate: false
-  xy: 183, 21
-  size: 32, 32
-  orig: 32, 32
-  offset: 0, 0
-  index: -1
-button_red_pressed
-  rotate: false
-  xy: 217, 21
-  size: 32, 32
-  orig: 32, 32
-  offset: 0, 0
-  index: -1
-button_blue_pressed
-  rotate: false
-  xy: 251, 21
+  xy: 255, 22
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 icon_settings
   rotate: false
-  xy: 303, 46
+  xy: 303, 47
   size: 34, 27
   orig: 34, 27
   offset: 0, 0
   index: -1
+button_red_pressed
+  rotate: false
+  xy: 339, 42
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+button_blue_pressed
+  rotate: false
+  xy: 373, 42
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+text_area_current_line_background
+  rotate: false
+  xy: 407, 58
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
 button_blue_norma
   rotate: false
-  xy: 339, 41
+  xy: 441, 58
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 background_dark_transparent
   rotate: false
-  xy: 373, 41
+  xy: 475, 58
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
-background_light
+icon_exit
   rotate: false
-  xy: 285, 37
-  size: 16, 16
-  orig: 16, 16
+  xy: 407, 33
+  size: 26, 23
+  orig: 26, 23
+  offset: 0, 0
+  index: -1
+feature_weapon
+  rotate: false
+  xy: 435, 32
+  size: 24, 24
+  orig: 24, 24
+  offset: 0, 0
+  index: -1
+feature_tractor_beam
+  rotate: false
+  xy: 461, 32
+  size: 24, 24
+  orig: 24, 24
+  offset: 0, 0
+  index: -1
+feature_tricoder
+  rotate: false
+  xy: 487, 32
+  size: 24, 24
+  orig: 24, 24
   offset: 0, 0
   index: -1
 list_box_background
   rotate: false
-  xy: 1, 1
+  xy: 1, 2
   size: 18, 18
   split: 4, 4, 4, 4
   orig: 18, 18
@@ -121,106 +163,99 @@ list_box_background
   index: -1
 checkbox_on
   rotate: false
-  xy: 21, 1
+  xy: 21, 2
   size: 18, 18
   orig: 18, 18
   offset: 0, 0
   index: -1
 checkbox_off
   rotate: false
-  xy: 41, 1
+  xy: 41, 2
   size: 18, 18
   orig: 18, 18
   offset: 0, 0
   index: -1
-icon_exit
-  rotate: false
-  xy: 407, 66
-  size: 26, 23
-  orig: 26, 23
-  offset: 0, 0
-  index: -1
-feature_weapon
-  rotate: false
-  xy: 407, 40
-  size: 24, 24
-  orig: 24, 24
-  offset: 0, 0
-  index: -1
-feature_tractor_beam
-  rotate: false
-  xy: 435, 65
-  size: 24, 24
-  orig: 24, 24
-  offset: 0, 0
-  index: -1
-feature_tricoder
-  rotate: false
-  xy: 461, 65
-  size: 24, 24
-  orig: 24, 24
-  offset: 0, 0
-  index: -1
 feature_led
   rotate: false
-  xy: 487, 65
+  xy: 289, 21
   size: 24, 24
   orig: 24, 24
   offset: 0, 0
   index: -1
-feature_drone
+background_light
   rotate: false
-  xy: 433, 39
-  size: 24, 24
-  orig: 24, 24
-  offset: 0, 0
-  index: -1
-feature_console
-  rotate: false
-  xy: 459, 39
-  size: 24, 24
-  orig: 24, 24
-  offset: 0, 0
-  index: -1
-feature_compass
-  rotate: false
-  xy: 485, 39
-  size: 24, 24
-  orig: 24, 24
+  xy: 61, 4
+  size: 16, 16
+  orig: 16, 16
   offset: 0, 0
   index: -1
 tile_selected
   rotate: false
-  xy: 61, 3
+  xy: 315, 29
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
 background_dark
   rotate: false
-  xy: 79, 3
+  xy: 79, 4
   size: 16, 16
   orig: 16, 16
   offset: 0, 0
   index: -1
-feature_sonar
+feature_drone
   rotate: false
-  xy: 303, 20
+  xy: 333, 16
+  size: 24, 24
+  orig: 24, 24
+  offset: 0, 0
+  index: -1
+feature_console
+  rotate: false
+  xy: 359, 16
   size: 24, 24
   orig: 24, 24
   offset: 0, 0
   index: -1
 white_scroll_background
   rotate: false
-  xy: 97, 6
+  xy: 97, 7
+  size: 13, 13
+  orig: 13, 13
+  offset: 0, 0
+  index: -1
+text_area_selection
+  rotate: false
+  xy: 97, 7
   size: 13, 13
   orig: 13, 13
   offset: 0, 0
   index: -1
 white_scroll_knob
   rotate: false
-  xy: 183, 6
+  xy: 385, 27
   size: 13, 13
   orig: 13, 13
+  offset: 0, 0
+  index: -1
+feature_compass
+  rotate: false
+  xy: 385, 1
+  size: 24, 24
+  orig: 24, 24
+  offset: 0, 0
+  index: -1
+text_area_cursor
+  rotate: false
+  xy: 503, 108
+  size: 3, 16
+  orig: 3, 16
+  offset: 0, 0
+  index: -1
+feature_sonar
+  rotate: false
+  xy: 411, 6
+  size: 24, 24
+  orig: 24, 24
   offset: 0, 0
   index: -1
