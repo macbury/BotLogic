@@ -7,8 +7,6 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" exported="" name="com.fifesoft:rsyntaxtextarea:2.5.0" level="project" />
-    <orderEntry type="library" exported="" name="com.fifesoft:autocomplete:2.5.0" level="project" />
     <orderEntry type="library" exported="" name="JGoodies Forms" level="project" />
     <orderEntry type="library" exported="" name="gdx" level="project" />
     <orderEntry type="library" exported="" name="gdx-backend-lwjgl" level="project" />

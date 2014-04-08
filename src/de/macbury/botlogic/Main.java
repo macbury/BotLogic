@@ -3,10 +3,6 @@ package de.macbury.botlogic;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import de.macbury.botlogic.core.GameManager;
-import de.macbury.botlogic.ui.EditorFrame;
-
-import javax.swing.*;
-import java.util.Locale;
 
 public class Main {
 
