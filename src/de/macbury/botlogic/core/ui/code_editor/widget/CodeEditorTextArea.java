@@ -1,6 +1,7 @@
 package de.macbury.botlogic.core.ui.code_editor.widget;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -57,6 +58,10 @@ public class CodeEditorTextArea extends Widget {
   private long lastBlink;
   private boolean cursorOn;
 
+  KeyRepeatTask keyRepeatTask = new KeyRepeatTask();
+  float keyRepeatInitialTime = 0.4f;
+  float keyRepeatTime = 0.05f;
+
   public CodeEditorTextArea(CodeEditorTextAreaStyle style, CodeEditorView scrollContainer) {
     this.scroll = scrollContainer;
     this.style = style;
@@ -95,8 +100,164 @@ public class CodeEditorTextArea extends Widget {
   }
 
   private void initializeKeyboard() {
-    inputListener = new ClickListener();
+    inputListener = new ClickListener() {
+      @Override
+      public boolean keyTyped(InputEvent event, char character) {
+        return CodeEditorTextArea.this.keyTyped(event, character);
+      }
+
+      @Override
+      public boolean keyDown(InputEvent event, int keycode) {
+        return CodeEditorTextArea.this.keyDown(event, keycode);
+      }
+
+      @Override
+      public boolean keyUp(InputEvent event, int keycode) {
+        keyRepeatTask.cancel();
+        return true;
+      }
+    };
     addListener(inputListener);
+  }
+
+  public boolean isFocused() {
+    return (getStage() != null && getStage().getKeyboardFocus() == this);
+  }
+
+  private boolean keyTyped(InputEvent event, char character) {
+    if (isFocused()) {
+      if (character == TAB) {
+        caret.clearSelection();
+        insertText("  ");
+        caret.incCol(2);
+      } else if (character == DELETE) {
+        //deleteRight();
+      } else if (character == BACKSPACE) {
+        //delete();
+      } else if (character == ENTER_DESKTOP) {
+        insertText("\n");
+        caret.incRow();
+        int spaces = caret.getPrevPadding();
+        Gdx.app.log(TAG, "Spaces in last line: "+ spaces);
+        caret.setCol(0);
+        for (int i = 0; i < spaces; i++) {
+          insertText(" ");
+        }
+        caret.setCol(spaces);
+      } else if (style.font.containsCharacter(character)) {
+        insertText(String.valueOf(character));
+        caret.incCol(1);
+      } else {
+        return false;
+      }
+
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  private void insertText(String ins) {
+    if (caret.haveSelection()) {
+      //delete();
+    }
+
+    String lineText = getAllText();
+    int pos = caret.getCaretPosition();
+
+    String finalText = lineText.substring(0, pos) + ins;
+    if (pos < lineText.length()) {
+      finalText += lineText.substring(pos, lineText.length());
+    }
+
+    parse(finalText);
+  }
+
+  private String getAllText() {
+    String out = "";
+    for (int i = 0; i < this.lines.size(); i++) {
+      Line line = this.lines.get(i);
+      out += line.getCachedFullText();
+      if (i != this.lines.size() - 1) {
+        out += '\n';
+      }
+    }
+
+    return out;
+  }
+
+  private boolean keyDown(InputEvent event, int keycode) {
+    resetBlink();
+
+    if (isFocused()) {
+      boolean repeat = false;
+      boolean ctrl = Gdx.input.isKeyPressed(Input.Keys.CONTROL_LEFT) || Gdx.input.isKeyPressed(Input.Keys.CONTROL_RIGHT);
+      boolean shift = Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT) || Gdx.input.isKeyPressed(Input.Keys.SHIFT_RIGHT);
+
+      if (keycode == Input.Keys.LEFT) {
+        if (shift) {
+          caret.startSelection();
+        }
+        if (ctrl) {
+          caret.moveByWordInLeft();
+        } else {
+          if (caret.haveSelection() && !shift) {
+            caret.clearSelection();
+          } else {
+            caret.moveOneCharLeft();
+          }
+        }
+
+        repeat = true;
+      }
+
+      if (keycode == Input.Keys.RIGHT) {
+        if (shift) {
+          caret.startSelection();
+        }
+        if (ctrl) {
+          caret.moveByWordInRight();
+        } else {
+          if (caret.haveSelection() && !shift) {
+            caret.clearSelection();
+          } else {
+            caret.moveOneCharRight();
+          }
+        }
+
+        repeat = true;
+      }
+
+      if (keycode == Input.Keys.UP && caret.getRow() > 0) {
+        if (shift) {
+          caret.startSelection();
+        } else {
+          caret.clearSelection();
+        }
+        caret.moveRowUp();
+        repeat = true;
+      }
+
+      if (keycode == Input.Keys.DOWN && caret.getRow() < this.lines.size() - 1) {
+        if (shift) {
+          caret.startSelection();
+        } else {
+          caret.clearSelection();
+        }
+        caret.moveRowDown();
+        repeat = true;
+      }
+
+      if (repeat && (!keyRepeatTask.isScheduled() || keyRepeatTask.keycode != keycode)) {
+        keyRepeatTask.keycode = keycode;
+        keyRepeatTask.cancel();
+        Timer.schedule(keyRepeatTask, keyRepeatInitialTime, keyRepeatTime);
+      }
+
+      return true;
+    } else {
+      return false;
+    }
   }
 
   public void parse(String text) {
@@ -131,13 +292,14 @@ public class CodeEditorTextArea extends Widget {
     this.text = text;
     parse(this.text);
     resetBlink();
-    caret.setCursorPosition(1,1);
+    caret.setCursorPosition(0,0);
   }
 
   private void updateSize() {
     this.height = this.lines.size() * (this.style.font.getLineHeight() + LINE_PADDING) + PADDING_VERITICAL * 2;
-    this.width  = longestLineLength * this.style.font.getSpaceWidth() + PADDING_HORIZONTAL * 2;
+    this.width  = longestLineLength * this.style.font.getSpaceWidth() + PADDING_HORIZONTAL * 2 + GUTTER_WIDTTH + GUTTER_PADDING;
 
+    this.scroll.invalidate();
     this.invalidate();
   }
 
@@ -182,7 +344,7 @@ public class CodeEditorTextArea extends Widget {
         lineElementX += bounds.width;
       }
 
-      if (line.getLineNumber() == caret.getRow()) {
+      if (focused && line.getLineNumber() == caret.getRow()+1) {
         style.focusedLineBackround.draw(batch, 0, linePosY - PADDING_VERITICAL, totalWidth, lineHeight);
       }
     }
@@ -191,8 +353,8 @@ public class CodeEditorTextArea extends Widget {
       blink();
 
       if (cursorOn) {
-        float caretY = gy - ((caret.getRow()-1) * lineHeight) - PADDING_VERITICAL*2;
-        style.cursor.draw(batch, gx + GUTTER_PADDING + (caret.getCol()-1) * style.font.getSpaceWidth(), caretY, CARET_WIDTH, lineHeight);
+        float caretY = gy - ((caret.getRow()) * lineHeight) - PADDING_VERITICAL*2;
+        style.cursor.draw(batch, gx + GUTTER_PADDING + (caret.getCol()) * style.font.getSpaceWidth(), caretY, CARET_WIDTH, lineHeight);
       }
     }
   }
