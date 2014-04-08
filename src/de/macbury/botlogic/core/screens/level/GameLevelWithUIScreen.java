@@ -8,6 +8,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.utils.TimeUtils;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import de.macbury.botlogic.core.BotLogic;
 import de.macbury.botlogic.core.Debug;
@@ -19,12 +20,14 @@ import de.macbury.botlogic.core.ui.button.StateImageButton;
 import de.macbury.botlogic.core.ui.code_editor.CodeEditorView;
 import de.macbury.botlogic.core.ui.dialog.EndGameDialog;
 import de.macbury.botlogic.core.ui.dialog.EndGameListener;
+import de.macbury.botlogic.core.ui.labels.TimerLabel;
 import org.mozilla.javascript.RhinoException;
 
 /**
  * Created by macbury on 05.04.14.
  */
 public class GameLevelWithUIScreen extends GameLevelScreen implements EndGameListener, ScriptRuntimeListener {
+  private TimerLabel timerLabel;
   private CodeEditorView codeEditorView;
   private Label levelSpeedLabel;
   private Slider speedSlider;
@@ -36,6 +39,7 @@ public class GameLevelWithUIScreen extends GameLevelScreen implements EndGameLis
   private InputMultiplexer multiplexer;
   private Table tableLayout;
   private Stage stage;
+
 
   public GameLevelWithUIScreen(LevelFile levelDef) {
     super(levelDef);
@@ -51,8 +55,8 @@ public class GameLevelWithUIScreen extends GameLevelScreen implements EndGameLis
     multiplexer.addProcessor(stage);
     multiplexer.addProcessor(cameraController);
 
-
-    this.endGameDialog = BotLogic.skin.builder.endGameDialog();
+    this.timerLabel     = BotLogic.skin.builder.timerLabel();
+    this.endGameDialog  = BotLogic.skin.builder.endGameDialog();
     this.endGameDialog.setListener(this);
     this.exitButton = BotLogic.skin.builder.redImageButton("icon_exit");
     exitButton.addListener(new ClickListener() {
@@ -104,7 +108,7 @@ public class GameLevelWithUIScreen extends GameLevelScreen implements EndGameLis
     controlerTable.setBackground(BotLogic.skin.getDrawable("background_dark"));
     controlerTable.row();
       controlerTable.add(BotLogic.skin.builder.normalLabel("Czas trwania rundy:")).left().pad(10, 15, 0, 15).expandX();
-      controlerTable.add(BotLogic.skin.builder.normalLabel("0:00")).center().pad(10, 15, 0, 15).width(70).fill();
+      controlerTable.add(timerLabel).center().pad(10, 15, 0, 15).width(70).fill();
     controlerTable.row();
       controlerTable.add(BotLogic.skin.builder.normalLabel("Prędkość symulacji:")).left().pad(10, 15, 10, 15);
       controlerTable.add(levelSpeedLabel).center().pad(10, 15, 0, 15).width(70).fillX();
@@ -126,11 +130,13 @@ public class GameLevelWithUIScreen extends GameLevelScreen implements EndGameLis
     codeEditorView.focus(); //TODO: REMove this!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
     getController().getScriptRunner().addListener(this);
+
   }
 
   @Override
   public void render(float delta) {
     super.render(delta);
+    timerLabel.tick(delta, getSpeed());
     stage.act(delta);
     stage.draw();
 
@@ -203,6 +209,8 @@ public class GameLevelWithUIScreen extends GameLevelScreen implements EndGameLis
     playPauseRobotButton.setOn(true);
     editCodeButton.setDisabled(true);
     codeEditorView.getTextArea().clearError();
+
+    timerLabel.setRunning(true);
   }
 
   @Override
@@ -224,6 +232,7 @@ public class GameLevelWithUIScreen extends GameLevelScreen implements EndGameLis
 
   @Override
   public void onScriptFinish(ScriptRunner runner) {
+    timerLabel.setRunning(false);
     playPauseRobotButton.setOn(false);
     editCodeButton.setDisabled(false);
   }

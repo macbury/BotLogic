@@ -88,7 +88,7 @@ public class GameController implements Disposable, ScriptRuntimeListener {
     Timeline.createSequence().beginParallel()
       .push(Tween.to(camera, CameraAccessor.CENTER, 1).target(camera.getCenter().x, camera.getCenter().y, camera.getCenter().z))
       .push(Tween.to(camera, CameraAccessor.ROTATION_TILT_ZOOM, 1).target(targetZoom, targetRotation, targetTilt))
-    .end().start(level.tweenManager);
+    .end().start(level.uiTweenManager);
   }
 
   @Override
@@ -111,7 +111,7 @@ public class GameController implements Disposable, ScriptRuntimeListener {
     finishAction();
     level.get3DCameraController().setEnabled(true);
     //BotLogic.audio.mainMenuMusic.stop();
-    level.tweenManager.killAll();
+    level.gameObjectsTweenManager.killAll();
     level.reset();
   }
 

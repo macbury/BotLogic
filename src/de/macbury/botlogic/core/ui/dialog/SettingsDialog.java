@@ -1,6 +1,7 @@
 package de.macbury.botlogic.core.ui.dialog;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Graphics;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
@@ -10,6 +11,10 @@ import de.macbury.botlogic.core.Debug;
 import org.lwjgl.LWJGLException;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 
 /**
  * Created by macbury on 05.04.14.
@@ -24,7 +29,7 @@ public class SettingsDialog extends Dialog {
   private static final float PADDING_BUTTONS_BOTTOM = 25;
   private Slider musicVolumeSlider;
   private SelectBox<String> outlineQualitySelectBox;
-  private DisplayMode[] resModes;
+  private ArrayList<TempDisplayMode> resModes;
   private CheckBox fullScreenCheckBox;
   private TextButton cancelButton;
   private SelectBox<String> resolutionSelectBox;
@@ -66,25 +71,34 @@ public class SettingsDialog extends Dialog {
 
     this.resolutionSelectBox = BotLogic.skin.builder.stringSelectBox();
 
-    this.resModes = new DisplayMode[0];
+    Array<String> resArrays = new Array<String>();
+
+
+    this.resModes = new ArrayList<TempDisplayMode>();
+
+    TempDisplayMode currentMode = new TempDisplayMode(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+
     try {
-      resModes = Display.getAvailableDisplayModes();
+      for(DisplayMode mode : Display.getAvailableDisplayModes()) {
+        TempDisplayMode newMode = new TempDisplayMode(mode);
+
+        if(resModes.indexOf(newMode) == -1 && mode.isFullscreenCapable()) {
+          resModes.add(newMode);
+        }
+      }
     } catch (LWJGLException e) {
       e.printStackTrace();
     }
 
-    Array<String> resArrays = new Array<String>();
-    int selectedResIndex = 0;
 
-    for(int i = 0; i < resModes.length; i++) {
-      DisplayMode displayMode = resModes[i];
-      resArrays.add(displayMode.getWidth() + "x"+displayMode.getHeight());
-      if (Gdx.graphics.getWidth() == displayMode.getWidth() && Gdx.graphics.getHeight() == displayMode.getHeight()) {
-        selectedResIndex = i;
-      }
+    Collections.sort(resModes);
+
+    for(TempDisplayMode mode : resModes) {
+      resArrays.add(mode.toString());
     }
 
     resolutionSelectBox.setItems(resArrays);
+    int selectedResIndex = Math.max(0, resModes.indexOf(currentMode));
     resolutionSelectBox.setSelectedIndex(selectedResIndex);
 
     this.row();
@@ -117,11 +131,52 @@ public class SettingsDialog extends Dialog {
   private void saveButtonClicked() {
     BotLogic.audio.click.play();
 
-    DisplayMode mode = resModes[resolutionSelectBox.getSelectedIndex()];
+    TempDisplayMode mode = resModes.get(resolutionSelectBox.getSelectedIndex());
     BotLogic.config.setMusicVolume(musicVolumeSlider.getValue());
-    BotLogic.config.putResolution(mode.getWidth(), mode.getHeight(), fullScreenCheckBox.isChecked());
+    BotLogic.config.putResolution(mode.width, mode.height, fullScreenCheckBox.isChecked());
     BotLogic.config.setOutlineQuality(outlineQualitySelectBox.getSelectedIndex() + 1);
     BotLogic.config.load();
     hide();
+  }
+
+  class TempDisplayMode implements Comparable<TempDisplayMode> {
+    public final int width;
+    public final int height;
+
+    public TempDisplayMode(int width, int height) {
+      this.width = width;
+      this.height = height;
+    }
+
+    public TempDisplayMode(DisplayMode mode) {
+      this.width = mode.getWidth();
+      this.height = mode.getHeight();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+      TempDisplayMode mode = (TempDisplayMode)obj;
+      return mode.width == this.width && mode.height == this.height;
+    }
+
+    public int sum() {
+      return width + height;
+    }
+
+    @Override
+    public String toString() {
+      return width+"x"+height;
+    }
+
+    @Override
+    public int compareTo(TempDisplayMode o) {
+      if (o.sum() > this.sum()){
+        return 1;
+      } else if (o.sum() < this.sum()) {
+        return -1;
+      } else {
+        return 0;
+      }
+    }
   }
 }

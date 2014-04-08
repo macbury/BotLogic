@@ -1,10 +1,10 @@
 package de.macbury.botlogic.core.ui;
 
-import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
 import de.macbury.botlogic.core.ui.button.StateImageButton;
 import de.macbury.botlogic.core.ui.dialog.EndGameDialog;
 import de.macbury.botlogic.core.ui.dialog.SettingsDialog;
+import de.macbury.botlogic.core.ui.labels.TimerLabel;
 import de.macbury.botlogic.core.ui.scroll.ScrollPaneWithoutMouseScroll;
 import de.macbury.botlogic.core.ui.tiles.TileScrollPane;
 
@@ -88,8 +88,7 @@ public class UIBuilder {
     return new SelectBox<String>(skin.selectBoxStyle);
   }
 
-  public Actor codeLabel(String text) {
-    Label label = new Label(text, skin.codeLabelStyle);
-    return label;
+  public TimerLabel timerLabel() {
+    return new TimerLabel(skin.robotoThinLabelStyle);
   }
 }

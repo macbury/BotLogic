@@ -40,7 +40,8 @@ public class GameLevelScreen implements Screen {
   private FrameBuffer colorBuffer;
   private DecalBatch decalBatch;
   private LevelFile levelDefinition;
-  public TweenManager tweenManager;
+  public TweenManager gameObjectsTweenManager;
+  public TweenManager uiTweenManager;
   public RobotEntity robot;
   private GameController controller;
   private Model robotModel;
@@ -54,7 +55,8 @@ public class GameLevelScreen implements Screen {
   private FrameBuffer depthBuffer;
 
   public GameLevelScreen(LevelFile levelDef) {
-    this.tweenManager       = new TweenManager();
+    this.gameObjectsTweenManager = new TweenManager();
+    this.uiTweenManager          = new TweenManager();
     this.renderContext      = new RenderContext(new DefaultTextureBinder(DefaultTextureBinder.WEIGHTED, 1));
     this.entities           = new ArrayList<Entity>();
     this.perspectiveCamera  = new PerspectiveCamera(67, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
@@ -133,7 +135,7 @@ public class GameLevelScreen implements Screen {
   }
 
   public void reset() {
-    tweenManager.killAll();
+    gameObjectsTweenManager.killAll();
     robot.startPosition = map.getRobotStartPosition();
 
     for (Entity e : entities) {
@@ -173,7 +175,8 @@ public class GameLevelScreen implements Screen {
   @Override
   public void render(float delta) {
     float nd = delta * speed;
-    tweenManager.update(nd);
+    gameObjectsTweenManager.update(nd);
+    uiTweenManager.update(delta);
     controller.update(nd);
     cameraController.update(delta);
     perspectiveCamera.update();

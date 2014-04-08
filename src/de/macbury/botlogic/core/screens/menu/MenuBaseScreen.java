@@ -66,7 +66,6 @@ public abstract class MenuBaseScreen implements Screen {
   private void onSettingsButtonClicked() {
     Dialog dialog = BotLogic.skin.builder.settingsDialog();
 
-    //dialog.button(BotLogic.skin.builder.redTextButton("Hello!"));
     dialog.show(stage);
     BotLogic.audio.click.play();
   }
