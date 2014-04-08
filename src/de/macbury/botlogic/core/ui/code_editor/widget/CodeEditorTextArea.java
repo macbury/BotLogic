@@ -40,6 +40,8 @@ public class CodeEditorTextArea extends Widget {
   private static final char   DELETE = 127;
   private static final char   BULLET = 149;
   private static final float CARET_WIDTH = 2;
+  private static final int DELETE_RIGHT = 1;
+  private static final int DELETE_LEFT = -1;
   private CodeEditorView scroll;
   private Clipboard clipboard;
   private HashMap<JavaScriptScanner.Kind, Color> styles;
@@ -131,9 +133,9 @@ public class CodeEditorTextArea extends Widget {
         insertText("  ");
         caret.incCol(2);
       } else if (character == DELETE) {
-        //deleteRight();
+        delete();
       } else if (character == BACKSPACE) {
-        //delete();
+        backspace();
       } else if (character == ENTER_DESKTOP) {
         insertText("\n");
         caret.incRow();
@@ -159,7 +161,7 @@ public class CodeEditorTextArea extends Widget {
 
   private void insertText(String ins) {
     if (caret.haveSelection()) {
-      //delete();
+      delete();
     }
 
     String lineText = getAllText();
@@ -173,7 +175,60 @@ public class CodeEditorTextArea extends Widget {
     parse(finalText);
   }
 
-  private String getAllText() {
+  private void delete() {
+    remove(DELETE_RIGHT);
+  }
+
+  private void backspace() {
+    remove(DELETE_LEFT);
+  }
+
+  private void remove(int i) {
+    String lineText = getAllText();
+    if (lineText.length() == 0) {
+      return;
+    }
+    int pos = Math.max(0, caret.getCaretPosition());
+
+    if (pos <= 0 && i == DELETE_LEFT) {
+      return;
+    }
+
+    if (caret.haveSelection()) {
+      int startPos = caret.getSelectionCaretPosition();
+
+      int from = Math.min(pos, startPos);
+      int to = Math.max(pos, startPos);
+
+      String finalText = lineText.substring(0, from);
+      if (pos < lineText.length()) {
+        finalText += lineText.substring(to, lineText.length());
+      }
+      caret.moveToSelectionStart();
+      caret.clearSelection();
+      parse(finalText);
+    } else {
+      String finalText = null;
+      if (i == -1 && pos > 0) {
+        finalText = lineText.substring(0, pos + i);
+        if (pos < lineText.length()) {
+          finalText += lineText.substring(pos, lineText.length());
+        }
+        caret.moveOneCharLeft();
+      } else {
+        finalText = lineText.substring(0, pos);
+        if (pos + 1 < lineText.length()) {
+          finalText += lineText.substring(pos+ i, lineText.length());
+        }
+        //caret.moveOneCharRight();
+      }
+
+      parse(finalText);
+    }
+
+  }
+
+  public String getAllText() {
     String out = "";
     for (int i = 0; i < this.lines.size(); i++) {
       Line line = this.lines.get(i);
@@ -306,7 +361,6 @@ public class CodeEditorTextArea extends Widget {
   @Override
   public void draw(Batch batch, float parentAlpha) {
     Stage stage = getStage();
-    boolean focused = stage != null && stage.getKeyboardFocus() == this;
 
     float x      = getX();
     float y      = getY();
@@ -344,12 +398,12 @@ public class CodeEditorTextArea extends Widget {
         lineElementX += bounds.width;
       }
 
-      if (focused && line.getLineNumber() == caret.getRow()+1) {
+      if (isFocused() && line.getLineNumber() == caret.getRow()+1) {
         style.focusedLineBackround.draw(batch, 0, linePosY - PADDING_VERITICAL, totalWidth, lineHeight);
       }
     }
     
-    if (focused) {
+    if (isFocused()) {
       blink();
 
       if (cursorOn) {

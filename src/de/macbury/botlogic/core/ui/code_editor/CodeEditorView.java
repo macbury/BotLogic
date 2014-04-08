@@ -10,6 +10,7 @@ import de.macbury.botlogic.core.ui.code_editor.widget.CodeEditorTextArea;
 public class CodeEditorView extends ScrollPane {
 
   private CodeEditorTextArea textArea;
+  private String text;
 
   public CodeEditorView() {
     super(null, BotLogic.skin.codeEditorScroll);
@@ -29,5 +30,14 @@ public class CodeEditorView extends ScrollPane {
     getStage().setScrollFocus(this);
     getStage().setKeyboardFocus(textArea);
     textArea.resetBlink();
+  }
+
+  public void unfocus() {
+    getStage().unfocus(this);
+    getStage().unfocus(textArea);
+  }
+
+  public String getText() {
+    return textArea.getAllText();
   }
 }

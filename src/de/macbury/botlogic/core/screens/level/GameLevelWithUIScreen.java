@@ -70,6 +70,13 @@ public class GameLevelWithUIScreen extends GameLevelScreen implements EndGameLis
       }
     });
 
+    this.playPauseRobotButton.addListener(new ClickListener() {
+      @Override
+      public void clicked(InputEvent event, float x, float y) {
+        GameLevelWithUIScreen.this.playPauseButtonClicked();
+      }
+    });
+
     this.speedSlider          = BotLogic.skin.builder.slider(0f, 9f, 1f, false);
     speedSlider.addListener(new ChangeListener() {
       @Override
@@ -164,10 +171,18 @@ public class GameLevelWithUIScreen extends GameLevelScreen implements EndGameLis
     codeEditorView.setVisible(!codeEditorView.isVisible());
 
     if (!codeEditorView.isVisible()) {
-      stage.unfocusAll();
+      codeEditorView.unfocus();
     } else {
       codeEditorView.focus();
     }
 
+  }
+
+  private void playPauseButtonClicked() {
+    BotLogic.audio.click.play();
+    codeEditorView.setVisible(false);
+    codeEditorView.unfocus();
+
+    getController().getScriptRunner().execute(codeEditorView.getText());
   }
 }
