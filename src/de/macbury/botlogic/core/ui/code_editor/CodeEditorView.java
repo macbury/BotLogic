@@ -22,6 +22,10 @@ public class CodeEditorView extends ScrollPane {
     this.setWidget(textArea);
   }
 
+  public CodeEditorTextArea getTextArea() {
+    return textArea;
+  }
+
   public void setText(String text) {
     this.textArea.setText(text);
   }

@@ -65,52 +65,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="CodeEditorView.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/ui/code_editor/CodeEditorView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="31" selection-start="1003" selection-end="1003" vertical-scroll-proportion="0.0" vertical-offset="342" max-vertical-offset="846">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="CodeEditorTextArea.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/ui/code_editor/widget/CodeEditorTextArea.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="230" column="26" selection-start="6793" selection-end="6803" vertical-scroll-proportion="-2.6785715" vertical-offset="2556" max-vertical-offset="3060">
-              <folding>
-                <element signature="docComment;class#CodeEditorTextArea#0" expanded="false" />
-                <element signature="method#CodeEditorTextArea#0;class#CodeEditorTextArea#0" expanded="false" />
-                <element signature="method#initializeMouse#0;class#CodeEditorTextArea#0" expanded="false" />
-                <element signature="method#initializeKeyboard#0;class#CodeEditorTextArea#0" expanded="false" />
-                <element signature="class#3577:4046" expanded="false" />
-                <element signature="method#keyTyped#0;class#3577:4046" expanded="false" />
-                <element signature="method#keyDown#0;class#3577:4046" expanded="false" />
-                <element signature="method#keyUp#0;class#3577:4046" expanded="false" />
-                <element signature="method#isFocused#0;class#CodeEditorTextArea#0" expanded="false" />
-                <element signature="method#keyTyped#0;class#CodeEditorTextArea#0" expanded="false" />
-                <element signature="method#insertText#0;class#CodeEditorTextArea#0" expanded="false" />
-                <element signature="method#delete#0;class#CodeEditorTextArea#0" expanded="false" />
-                <element signature="method#backspace#0;class#CodeEditorTextArea#0" expanded="false" />
-                <element signature="method#remove#0;class#CodeEditorTextArea#0" expanded="false" />
-                <element signature="method#getAllText#0;class#CodeEditorTextArea#0" expanded="false" />
-                <element signature="method#parse#0;class#CodeEditorTextArea#0" expanded="false" />
-                <element signature="method#setText#0;class#CodeEditorTextArea#0" expanded="false" />
-                <element signature="method#updateSize#0;class#CodeEditorTextArea#0" expanded="false" />
-                <element signature="method#draw#0;class#CodeEditorTextArea#0" expanded="false" />
-                <element signature="method#blink#0;class#CodeEditorTextArea#0" expanded="false" />
-                <element signature="class#CodeEditorTextAreaStyle#0;class#CodeEditorTextArea#0" expanded="false" />
-                <element signature="class#KeyRepeatTask#0;class#CodeEditorTextArea#0" expanded="false" />
-                <element signature="method#run#0;class#KeyRepeatTask#0;class#CodeEditorTextArea#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="blank.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/sketches/new/blank.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="1" selection-start="107" selection-end="107" vertical-scroll-proportion="0.0" vertical-offset="126" max-vertical-offset="234">
+            <state line="59" column="22" selection-start="2384" selection-end="2384" vertical-scroll-proportion="0.2862823" vertical-offset="522" max-vertical-offset="8172">
               <folding />
             </state>
           </provider>
@@ -119,11 +77,17 @@
       <file leaf-file-name="GameLevelWithUIScreen.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/screens/level/GameLevelWithUIScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="185" column="62" selection-start="6765" selection-end="6765" vertical-scroll-proportion="0.0" vertical-offset="2556" max-vertical-offset="3060">
-              <folding>
-                <element signature="e#2729#2905#0" expanded="true" />
-                <element signature="e#2898#2899#0" expanded="true" />
-              </folding>
+            <state line="218" column="72" selection-start="7738" selection-end="7738" vertical-scroll-proportion="0.0" vertical-offset="3924" max-vertical-offset="4248">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StateImageButton.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/ui/button/StateImageButton.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="14" column="0" selection-start="408" selection-end="408" vertical-scroll-proportion="0.0" vertical-offset="62" max-vertical-offset="630">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -131,7 +95,16 @@
       <file leaf-file-name="FlatSkin.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/ui/FlatSkin.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="135" column="102" selection-start="7039" selection-end="7039" vertical-scroll-proportion="0.0" vertical-offset="2430" max-vertical-offset="2970">
+            <state line="145" column="82" selection-start="7895" selection-end="7895" vertical-scroll-proportion="0.0" vertical-offset="2610" max-vertical-offset="3024">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UIBuilder.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/ui/UIBuilder.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="77" column="40" selection-start="2171" selection-end="2185" vertical-scroll-proportion="0.0" vertical-offset="1386" max-vertical-offset="1818">
               <folding />
             </state>
           </provider>
@@ -147,8 +120,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/graphics/compositor/LevelCompositor.java" />
-        <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/ui/ScrollPaneWithoutMouseScroll.java" />
         <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/ui/TileScrollPane.java" />
         <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/ui/tiles/LevelTileListener.java" />
         <option value="$PROJECT_DIR$/assets/maps/playground.level" />
@@ -179,7 +150,6 @@
         <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/audio/AudioManager.java" />
         <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/ui/dialog/SettingsDialog.java" />
         <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/ui/SolarizedDarkColors.java" />
-        <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/ui/UIBuilder.java" />
         <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/screens/level/GameLevelScreen.java" />
         <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/ui/code_editor/CodeEditorTextArea.java" />
         <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/ui/code_editor/Caret.java" />
@@ -188,16 +158,19 @@
         <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/ui/code_editor/KeywordList.java" />
         <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/ui/code_editor/Element.java" />
         <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/ui/code_editor/Line.java" />
-        <option value="$PROJECT_DIR$/src/de/macbury/botlogic/ui/GameEditorForm.java" />
         <option value="$PROJECT_DIR$/assets/sketches/features/Sonar.js" />
         <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/ui/colors/SolarizedDarkColors.java" />
         <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/ui/code_editor/widget/Line.java" />
         <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/screens/menu/MainMenuScreen.java" />
-        <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/ui/FlatSkin.java" />
         <option value="$PROJECT_DIR$/assets/sketches/new/blank.js" />
+        <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/ui/StateImageButton.java" />
+        <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/ui/UIBuilder.java" />
+        <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/ui/button/StateImageButton.java" />
+        <option value="$PROJECT_DIR$/src/de/macbury/botlogic/ui/GameEditorForm.java" />
+        <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/ui/code_editor/CodeEditorView.java" />
+        <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/ui/FlatSkin.java" />
         <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/screens/level/GameLevelWithUIScreen.java" />
         <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/ui/code_editor/widget/CodeEditorTextArea.java" />
-        <option value="$PROJECT_DIR$/src/de/macbury/botlogic/core/ui/code_editor/CodeEditorView.java" />
       </list>
     </option>
   </component>
@@ -233,310 +206,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="botlogic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="botlogic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="botlogic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="botlogic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="botlogic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="botlogic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="botlogic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="botlogic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="botlogic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="botlogic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="botlogic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="botlogic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="botlogic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="botlogic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="botlogic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="botlogic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="botlogic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="code_editor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="botlogic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="botlogic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="botlogic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="code_editor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="widget" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="botlogic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="botlogic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="botlogic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="screens" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="botlogic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="botlogic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="botlogic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="screens" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="menu" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="botlogic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="botlogic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="botlogic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="screens" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="level" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="botlogic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="botlogic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="botlogic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="botlogic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sketches" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="botlogic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="botlogic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sketches" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="new" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="PackagesPane">
         <subPane>
           <PATH>
@@ -723,6 +392,238 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="botlogic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="botlogic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="botlogic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="botlogic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="botlogic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="botlogic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="botlogic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="botlogic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="botlogic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="botlogic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="botlogic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GameEditorForm" />
+              <option name="myItemType" value="com.intellij.uiDesigner.projectView.FormNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="botlogic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="botlogic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="botlogic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="botlogic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="botlogic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="botlogic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="botlogic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="botlogic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="botlogic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="botlogic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="botlogic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="botlogic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="button" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="botlogic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="botlogic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="botlogic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="botlogic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sketches" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="botlogic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="botlogic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sketches" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="new" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="Scope" />
     </panes>
   </component>
@@ -892,19 +793,6 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="true" type="ScalaTestRunConfiguration" factoryName="ScalaTest">
-      <module name="" />
-      <setting name="path" value="" />
-      <setting name="package" value="" />
-      <setting name="vmparams" value="" />
-      <setting name="params" value="" />
-      <setting name="workingDirectory" value="$PROJECT_DIR$" />
-      <setting name="searchForTest" value="Across module dependencies" />
-      <setting name="testName" value="" />
-      <setting name="testKind" value="Class" />
-      <setting name="showProgressMessages" value="true" />
-      <method />
-    </configuration>
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
       <module name="" />
       <option name="ACTIVITY_CLASS" value="" />
@@ -922,6 +810,19 @@
       <option name="NETWORK_LATENCY" value="none" />
       <option name="CLEAR_LOGCAT" value="false" />
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="ScalaTestRunConfiguration" factoryName="ScalaTest">
+      <module name="" />
+      <setting name="path" value="" />
+      <setting name="package" value="" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workingDirectory" value="$PROJECT_DIR$" />
+      <setting name="searchForTest" value="Across module dependencies" />
+      <setting name="testName" value="" />
+      <setting name="testKind" value="Class" />
+      <setting name="showProgressMessages" value="true" />
       <method />
     </configuration>
     <list size="1">
@@ -974,7 +875,7 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2513369" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32993197" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39342403" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39273927" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -985,19 +886,19 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15668449" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39115646" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37755102" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15026738" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32993197" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="JFormDesigner Bindings" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32993197" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32993197" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15026738" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -1005,8 +906,8 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18074866" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34323433" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34323433" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32993197" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1019,8 +920,8 @@
       <window_info id="JFormDesigner Bindings" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32993197" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32453245" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
@@ -1045,21 +946,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/ui/tiles/TileScrollPane.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="65" selection-start="790" selection-end="792" vertical-scroll-proportion="0.0" vertical-offset="163" max-vertical-offset="702" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/ui/colors/FlatColors.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="77" selection-start="548" selection-end="548" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/ui/tiles/LevelTile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="35" selection-start="1858" selection-end="1858" vertical-scroll-proportion="0.0" vertical-offset="380" max-vertical-offset="1674" />
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/lib/gdx.jar!/com/badlogic/gdx/scenes/scene2d/ui/CheckBox.class">
       <provider selected="true" editor-type-id="text-editor">
         <state line="15" column="9" selection-start="696" selection-end="696" vertical-scroll-proportion="0.34957626" vertical-offset="87" max-vertical-offset="810" />
@@ -1180,11 +1066,6 @@
         <state line="201" column="18" selection-start="5036" selection-end="5036" vertical-scroll-proportion="0.5825603" vertical-offset="3106" max-vertical-offset="5490" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/screens/level/GameLevelScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="223" column="3" selection-start="8204" selection-end="8204" vertical-scroll-proportion="1.9858657" vertical-offset="2278" max-vertical-offset="4032" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/config/ConfigManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="46" column="21" selection-start="1281" selection-end="1281" vertical-scroll-proportion="0.72968197" vertical-offset="379" max-vertical-offset="1134" />
@@ -1215,11 +1096,6 @@
         <state line="172" column="0" selection-start="3206" selection-end="3206" vertical-scroll-proportion="0.8727915" vertical-offset="2355" max-vertical-offset="3204" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/ui/GameEditorForm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="351" column="5" selection-start="10806" selection-end="11091" vertical-scroll-proportion="0.32155478" vertical-offset="4911" max-vertical-offset="7002" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/sketches/features/Sonar.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="10" selection-start="10" selection-end="10" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="539" />
@@ -1230,13 +1106,6 @@
         <state line="72" column="1" selection-start="1425" selection-end="1425" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1404" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/ui/UIBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="16" selection-start="458" selection-end="458" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1080">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/lib/gdx.jar!/com/badlogic/gdx/graphics/g2d/Batch.class">
       <provider selected="true" editor-type-id="text-editor">
         <state line="40" column="7" selection-start="744" selection-end="744" vertical-scroll-proportion="0.45192307" vertical-offset="467" max-vertical-offset="1620" />
@@ -1244,23 +1113,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/ui/code_editor/widget/Line.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="27" selection-start="1475" selection-end="1475" vertical-scroll-proportion="0.0" vertical-offset="630" max-vertical-offset="1260">
-          <folding />
-        </state>
+        <state line="69" column="27" selection-start="1475" selection-end="1475" vertical-scroll-proportion="0.0" vertical-offset="630" max-vertical-offset="1260" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/screens/ScreenManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="5" selection-start="883" selection-end="883" vertical-scroll-proportion="0.0" vertical-offset="108" max-vertical-offset="666">
-          <folding />
-        </state>
+        <state line="27" column="5" selection-start="883" selection-end="883" vertical-scroll-proportion="0.0" vertical-offset="108" max-vertical-offset="666" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/screens/menu/MainMenuScreen.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="27" selection-start="1090" selection-end="1090" vertical-scroll-proportion="0.0" vertical-offset="506" max-vertical-offset="1242">
-          <folding />
-        </state>
+        <state line="38" column="27" selection-start="1090" selection-end="1090" vertical-scroll-proportion="0.0" vertical-offset="506" max-vertical-offset="1242" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/ui/colors/SolarizedDarkColors.java">
@@ -1268,84 +1131,85 @@
         <state line="15" column="0" selection-start="555" selection-end="555" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="468" />
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/gdx.jar!/com/badlogic/gdx/scenes/scene2d/utils/Drawable.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="7" selection-start="202" selection-end="202" vertical-scroll-proportion="0.20224719" vertical-offset="0" max-vertical-offset="666" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/ui/code_editor/widget/Caret.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="196" column="14" selection-start="3951" selection-end="3951" vertical-scroll-proportion="0.33273703" vertical-offset="3270" max-vertical-offset="7506">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/ui/FlatSkin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="135" column="102" selection-start="7039" selection-end="7039" vertical-scroll-proportion="0.0" vertical-offset="2105" max-vertical-offset="2826">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/sketches/new/blank.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="1" selection-start="107" selection-end="107" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="234">
-          <folding />
-        </state>
+        <state line="196" column="14" selection-start="3951" selection-end="3951" vertical-scroll-proportion="0.33273703" vertical-offset="3270" max-vertical-offset="7506" />
       </provider>
     </entry>
     <entry file="jar://$PROJECT_DIR$/lib/gdx.jar!/com/badlogic/gdx/scenes/scene2d/InputListener.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="17" selection-start="1486" selection-end="1486" vertical-scroll-proportion="0.6388309" vertical-offset="162" max-vertical-offset="666">
-          <folding />
-        </state>
+        <state line="27" column="17" selection-start="1486" selection-end="1486" vertical-scroll-proportion="0.6388309" vertical-offset="162" max-vertical-offset="666" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/screens/level/GameLevelWithUIScreen.java">
+    <entry file="file://$PROJECT_DIR$/assets/sketches/new/blank.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="185" column="62" selection-start="6765" selection-end="6765" vertical-scroll-proportion="0.0" vertical-offset="2556" max-vertical-offset="3060">
-          <folding>
-            <element signature="e#2729#2905#0" expanded="true" />
-            <element signature="e#2898#2899#0" expanded="true" />
-          </folding>
+        <state line="7" column="1" selection-start="107" selection-end="107" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="234" />
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/gdx.jar!/com/badlogic/gdx/scenes/scene2d/ui/ImageButton.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="13" selection-start="177" selection-end="177" vertical-scroll-proportion="-0.10974106" vertical-offset="179" max-vertical-offset="990" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/ui/UIBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="77" column="40" selection-start="2171" selection-end="2185" vertical-scroll-proportion="0.0" vertical-offset="861" max-vertical-offset="1710">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/ui/code_editor/CodeEditorView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="31" selection-start="1003" selection-end="1003" vertical-scroll-proportion="0.0" vertical-offset="342" max-vertical-offset="846">
+        <state line="25" column="20" selection-start="702" selection-end="702" vertical-scroll-proportion="0.0" vertical-offset="108" max-vertical-offset="918" />
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/gdx.jar!/com/badlogic/gdx/scenes/scene2d/Actor.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="101" column="14" selection-start="4085" selection-end="4085" vertical-scroll-proportion="0.34911242" vertical-offset="1623" max-vertical-offset="3618" />
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/gdx.jar!/com/badlogic/gdx/scenes/scene2d/utils/Drawable.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="7" selection-start="202" selection-end="202" vertical-scroll-proportion="0.112426035" vertical-offset="51" max-vertical-offset="666" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/ui/FlatSkin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="145" column="82" selection-start="7895" selection-end="7895" vertical-scroll-proportion="0.0" vertical-offset="2103" max-vertical-offset="2880">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/ui/button/StateImageButton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="0" selection-start="408" selection-end="408" vertical-scroll-proportion="0.0" vertical-offset="62" max-vertical-offset="630">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/ui/GameEditorForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="275" column="14" selection-start="8825" selection-end="8825" vertical-scroll-proportion="0.38345864" vertical-offset="3666" max-vertical-offset="7002">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/screens/level/GameLevelScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="257" column="14" selection-start="8694" selection-end="8694" vertical-scroll-proportion="0.45864663" vertical-offset="3770" max-vertical-offset="4302" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/screens/level/GameLevelWithUIScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="218" column="72" selection-start="7738" selection-end="7738" vertical-scroll-proportion="0.0" vertical-offset="3158" max-vertical-offset="3690">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/de/macbury/botlogic/core/ui/code_editor/widget/CodeEditorTextArea.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="230" column="26" selection-start="6793" selection-end="6803" vertical-scroll-proportion="-2.6785715" vertical-offset="2556" max-vertical-offset="3060">
-          <folding>
-            <element signature="docComment;class#CodeEditorTextArea#0" expanded="false" />
-            <element signature="method#CodeEditorTextArea#0;class#CodeEditorTextArea#0" expanded="false" />
-            <element signature="method#initializeMouse#0;class#CodeEditorTextArea#0" expanded="false" />
-            <element signature="method#initializeKeyboard#0;class#CodeEditorTextArea#0" expanded="false" />
-            <element signature="class#3577:4046" expanded="false" />
-            <element signature="method#keyTyped#0;class#3577:4046" expanded="false" />
-            <element signature="method#keyDown#0;class#3577:4046" expanded="false" />
-            <element signature="method#keyUp#0;class#3577:4046" expanded="false" />
-            <element signature="method#isFocused#0;class#CodeEditorTextArea#0" expanded="false" />
-            <element signature="method#keyTyped#0;class#CodeEditorTextArea#0" expanded="false" />
-            <element signature="method#insertText#0;class#CodeEditorTextArea#0" expanded="false" />
-            <element signature="method#delete#0;class#CodeEditorTextArea#0" expanded="false" />
-            <element signature="method#backspace#0;class#CodeEditorTextArea#0" expanded="false" />
-            <element signature="method#remove#0;class#CodeEditorTextArea#0" expanded="false" />
-            <element signature="method#getAllText#0;class#CodeEditorTextArea#0" expanded="false" />
-            <element signature="method#parse#0;class#CodeEditorTextArea#0" expanded="false" />
-            <element signature="method#setText#0;class#CodeEditorTextArea#0" expanded="false" />
-            <element signature="method#updateSize#0;class#CodeEditorTextArea#0" expanded="false" />
-            <element signature="method#draw#0;class#CodeEditorTextArea#0" expanded="false" />
-            <element signature="method#blink#0;class#CodeEditorTextArea#0" expanded="false" />
-            <element signature="class#CodeEditorTextAreaStyle#0;class#CodeEditorTextArea#0" expanded="false" />
-            <element signature="class#KeyRepeatTask#0;class#CodeEditorTextArea#0" expanded="false" />
-            <element signature="method#run#0;class#KeyRepeatTask#0;class#CodeEditorTextArea#0" expanded="false" />
-          </folding>
+        <state line="59" column="22" selection-start="2384" selection-end="2384" vertical-scroll-proportion="0.2862823" vertical-offset="522" max-vertical-offset="8172">
+          <folding />
         </state>
       </provider>
     </entry>

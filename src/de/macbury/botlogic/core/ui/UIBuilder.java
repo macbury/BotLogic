@@ -2,6 +2,7 @@ package de.macbury.botlogic.core.ui;
 
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
+import de.macbury.botlogic.core.ui.button.StateImageButton;
 import de.macbury.botlogic.core.ui.dialog.EndGameDialog;
 import de.macbury.botlogic.core.ui.dialog.SettingsDialog;
 import de.macbury.botlogic.core.ui.scroll.ScrollPaneWithoutMouseScroll;
@@ -71,6 +72,11 @@ public class UIBuilder {
   public ImageButton blueImageButton(String iconName) {
     ImageButton button = new ImageButton(skin.getDrawable(iconName));
     button.setStyle(skin.blueImageButton);
+    return button;
+  }
+
+  public StateImageButton twoStateButton(String first, String second) {
+    StateImageButton button = new StateImageButton(skin.blueImageButton, skin.getDrawable(first), skin.getDrawable(second));
     return button;
   }
 

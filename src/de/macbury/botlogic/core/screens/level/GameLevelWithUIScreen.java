@@ -11,22 +11,26 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import de.macbury.botlogic.core.BotLogic;
 import de.macbury.botlogic.core.Debug;
+import de.macbury.botlogic.core.runtime.ScriptRunner;
+import de.macbury.botlogic.core.runtime.ScriptRuntimeListener;
 import de.macbury.botlogic.core.screens.level.file.LevelFile;
 import de.macbury.botlogic.core.screens.menu.MenuBaseScreen;
+import de.macbury.botlogic.core.ui.button.StateImageButton;
 import de.macbury.botlogic.core.ui.code_editor.CodeEditorView;
 import de.macbury.botlogic.core.ui.dialog.EndGameDialog;
 import de.macbury.botlogic.core.ui.dialog.EndGameListener;
+import org.mozilla.javascript.RhinoException;
 
 /**
  * Created by macbury on 05.04.14.
  */
-public class GameLevelWithUIScreen extends GameLevelScreen implements EndGameListener {
+public class GameLevelWithUIScreen extends GameLevelScreen implements EndGameListener, ScriptRuntimeListener {
   private CodeEditorView codeEditorView;
   private Label levelSpeedLabel;
   private Slider speedSlider;
   private EndGameDialog endGameDialog;
   private ImageButton objectiveButton;
-  private ImageButton playPauseRobotButton;
+  private StateImageButton playPauseRobotButton;
   private ImageButton editCodeButton;
   private ImageButton exitButton;
   private InputMultiplexer multiplexer;
@@ -60,7 +64,7 @@ public class GameLevelWithUIScreen extends GameLevelScreen implements EndGameLis
     });
 
     this.editCodeButton       = BotLogic.skin.builder.blueImageButton("icon_code");
-    this.playPauseRobotButton = BotLogic.skin.builder.blueImageButton("icon_play");
+    this.playPauseRobotButton = BotLogic.skin.builder.twoStateButton("icon_play", "icon_stop");
     this.objectiveButton      = BotLogic.skin.builder.blueImageButton("icon_objective");
 
     this.editCodeButton.addListener(new ClickListener() {
@@ -82,6 +86,7 @@ public class GameLevelWithUIScreen extends GameLevelScreen implements EndGameLis
       @Override
       public void changed(ChangeEvent changeEvent, Actor actor) {
         levelSpeedLabel.setText((speedSlider.getValue() + 1) + "x");
+        setSpeed((int)(speedSlider.getValue() + 1));
       }
     });
     this.levelSpeedLabel      = BotLogic.skin.builder.normalLabel("1.0x");
@@ -119,6 +124,8 @@ public class GameLevelWithUIScreen extends GameLevelScreen implements EndGameLis
       tableLayout.add(playPauseRobotButton).width(MenuBaseScreen.TOP_TOOLBAR_BUTTON_WIDTH).height(MenuBaseScreen.TOP_TOOLBAR_BUTTON_HEIGHT);
       tableLayout.add().expandX().colspan(1);
     codeEditorView.focus(); //TODO: REMove this!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+    getController().getScriptRunner().addListener(this);
   }
 
   @Override
@@ -146,6 +153,7 @@ public class GameLevelWithUIScreen extends GameLevelScreen implements EndGameLis
 
   @Override
   public void hide() {
+    getController().getScriptRunner().removeListener(this);
     super.hide();
     BotLogic.audio.gameMusic.stop();
   }
@@ -180,9 +188,43 @@ public class GameLevelWithUIScreen extends GameLevelScreen implements EndGameLis
 
   private void playPauseButtonClicked() {
     BotLogic.audio.click.play();
+    ScriptRunner runner = getController().getScriptRunner();
+    if (runner.isRunning()) {
+      runner.finish();
+    } else {
+      runner.execute(codeEditorView.getText());
+    }
+  }
+
+  @Override
+  public void onScriptStart(ScriptRunner runner) {
     codeEditorView.setVisible(false);
     codeEditorView.unfocus();
+    playPauseRobotButton.setOn(true);
+    editCodeButton.setDisabled(true);
+    codeEditorView.getTextArea().clearError();
+  }
 
-    getController().getScriptRunner().execute(codeEditorView.getText());
+  @Override
+  public void onScriptYield(ScriptRunner runner) {
+
+  }
+
+  @Override
+  public void onScriptInterput(ScriptRunner runner) {
+
+  }
+
+  @Override
+  public void onScriptError(ScriptRunner runner, RhinoException error) {
+    codeEditorView.getTextArea().setErrorLine(error.lineNumber(), error.columnNumber(), error.getMessage());
+    codeEditorView.setVisible(true);
+    codeEditorView.focus();
+  }
+
+  @Override
+  public void onScriptFinish(ScriptRunner runner) {
+    playPauseRobotButton.setOn(false);
+    editCodeButton.setDisabled(false);
   }
 }

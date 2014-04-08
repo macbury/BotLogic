@@ -116,7 +116,7 @@ public class FlatSkin extends Skin {
     this.sliderStyle                = new Slider.SliderStyle();
     sliderStyle.background          = this.getDrawable("white_scroll_background");
     sliderStyle.knob                = this.getDrawable("white_scroll_knob");
-    this.builder = new UIBuilder(this);
+
 
     this.codeEditorScroll        =  new ScrollPane.ScrollPaneStyle();
     codeEditorScroll.vScroll      = this.getDrawable("white_scroll_background");
@@ -125,15 +125,15 @@ public class FlatSkin extends Skin {
     codeEditorScroll.vScrollKnob  = this.getDrawable("white_scroll_knob");
     codeEditorScroll.background   = this.getDrawable("text_area_background");
 
-    this.codeEditorArea                   = new CodeEditorTextArea.CodeEditorTextAreaStyle();
-    this.codeEditorArea.background        = this.getDrawable("text_area_background");
-    this.codeEditorArea.focusedBackground = this.getDrawable("text_area_background");
-    this.codeEditorArea.focusedFontColor  = this.codeEditorArea.fontColor = SolarizedDarkColors.TEXT;
-    this.codeEditorArea.font              = codeFont;
-    this.codeEditorArea.selection         = this.getDrawable("text_area_selection");
-    this.codeEditorArea.cursor            = this.getDrawable("text_area_cursor");
-    this.codeEditorArea.lineNumberBackround = this.getDrawable("text_area_line_number_background");
-    this.codeEditorArea.focusedLineBackround  = this.getDrawable("text_area_current_line_background");
+    this.codeEditorArea                           = new CodeEditorTextArea.CodeEditorTextAreaStyle();
+    this.codeEditorArea.background                = this.getDrawable("text_area_background");
+    this.codeEditorArea.focusedBackground         = this.getDrawable("text_area_background");
+    this.codeEditorArea.focusedFontColor          = this.codeEditorArea.fontColor = SolarizedDarkColors.TEXT;
+    this.codeEditorArea.font                      = codeFont;
+    this.codeEditorArea.selection                 = this.getDrawable("text_area_selection");
+    this.codeEditorArea.cursor                    = this.getDrawable("text_area_cursor");
+    this.codeEditorArea.lineNumberBackround       = this.getDrawable("text_area_line_number_background");
+    this.codeEditorArea.focusedLineBackround      = this.getDrawable("text_area_current_line_background");
     this.codeEditorArea.lineNumberColor           = SolarizedDarkColors.LINE_NUMBER;
     this.codeEditorArea.textColor                 = SolarizedDarkColors.TEXT;
     this.codeEditorArea.syntaxCommentColor        = SolarizedDarkColors.COMMENT;
@@ -141,11 +141,14 @@ public class FlatSkin extends Skin {
     this.codeEditorArea.syntaxStringColor         = SolarizedDarkColors.STRING;
     this.codeEditorArea.syntaxKeywordColor        = SolarizedDarkColors.KEYWORD;
     this.codeEditorArea.syntaxSpecialKeywordColor = SolarizedDarkColors.SPECIAL_KEYWORD;
-
+    this.codeEditorArea.syntaxErrorLineBackground = this.getDrawable("textarea_syntax_error_line_number");
+    this.codeEditorArea.syntaxErrorTextColor      = Color.WHITE;
+    this.codeEditorArea.exceptionGutterIcon       = this.getDrawable("exception");
     //Gdx.input.setCursorCatched(true);
     this.pointerCursorPixmap = new Pixmap(Gdx.files.internal("gui/arrow.png"));
     this.textCursorPixmap    = new Pixmap(Gdx.files.internal("gui/text_cursor.png"));
 
+    this.builder = new UIBuilder(this);
     setPointerCursor();
   }
 

@@ -11,6 +11,7 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.TextField;
 import com.badlogic.gdx.scenes.scene2d.ui.Widget;
+import com.badlogic.gdx.scenes.scene2d.ui.WidgetGroup;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.badlogic.gdx.utils.Clipboard;
@@ -26,7 +27,7 @@ import java.util.HashMap;
 /**
  * Created by macbury on 07.04.14.
  */
-public class CodeEditorTextArea extends Widget {
+public class CodeEditorTextArea extends WidgetGroup {
   private static final String TAG = "CodeEditorTextArea";
   private static final float  LINE_PADDING = 2;
   private static final float  PADDING_HORIZONTAL = 10;
@@ -42,6 +43,7 @@ public class CodeEditorTextArea extends Widget {
   private static final float CARET_WIDTH = 2;
   private static final int DELETE_RIGHT = 1;
   private static final int DELETE_LEFT = -1;
+  private static final float EXCEPTION_ICON_LEFT_MARGIN = 10;
   private CodeEditorView scroll;
   private Clipboard clipboard;
   private HashMap<JavaScriptScanner.Kind, Color> styles;
@@ -64,6 +66,8 @@ public class CodeEditorTextArea extends Widget {
   float keyRepeatInitialTime = 0.4f;
   float keyRepeatTime = 0.05f;
 
+  private int lineWithError = -1;
+
   public CodeEditorTextArea(CodeEditorTextAreaStyle style, CodeEditorView scrollContainer) {
     this.scroll = scrollContainer;
     this.style = style;
@@ -80,15 +84,8 @@ public class CodeEditorTextArea extends Widget {
     styles.put(JavaScriptScanner.Kind.SPECIAL_KEYWORD, style.syntaxSpecialKeywordColor);
 
     setText("");
-
     initializeKeyboard();
-    initializeMouse();
-
     resetBlink();
-  }
-
-  private void initializeMouse() {
-
   }
 
   @Override
@@ -309,6 +306,8 @@ public class CodeEditorTextArea extends Widget {
         Timer.schedule(keyRepeatTask, keyRepeatInitialTime, keyRepeatTime);
       }
 
+      scroll.setScrollY(caret.getRow() * style.font.getLineHeight());
+
       return true;
     } else {
       return false;
@@ -345,9 +344,10 @@ public class CodeEditorTextArea extends Widget {
 
   public void setText(String text) {
     this.text = text;
+    lineWithError = -1;
     parse(this.text);
     resetBlink();
-    caret.setCursorPosition(0,0);
+    caret.setCursorPosition(0, 0);
   }
 
   private void updateSize() {
@@ -388,15 +388,26 @@ public class CodeEditorTextArea extends Widget {
       style.font.setColor(style.lineNumberColor);
       style.font.draw(batch, line.getLineString(), gx - style.font.getBounds(line.getLineString()).width - GUTTER_PADDING, linePosY);
 
+      if (line.getLineNumber() == lineWithError) {
+        style.exceptionGutterIcon.draw(batch, EXCEPTION_ICON_LEFT_MARGIN, linePosY-style.exceptionGutterIcon.getMinHeight()+style.exceptionGutterIcon.getMinHeight()/4, style.exceptionGutterIcon.getMinWidth(), style.exceptionGutterIcon.getMinHeight());
+        style.syntaxErrorLineBackground.draw(batch, GUTTER_WIDTTH, linePosY - PADDING_VERITICAL, totalWidth - GUTTER_WIDTTH, lineHeight);
+      }
+
       for (int lx = 0; lx < line.size(); lx++) {
         Element elem                 = line.get(lx);
         BitmapFont.TextBounds bounds = style.font.getBounds(elem.text);
 
-        style.font.setColor(styles.get(elem.kind));
+        if (line.getLineNumber() == lineWithError) {
+          style.font.setColor(style.syntaxErrorTextColor);
+        } else {
+          style.font.setColor(styles.get(elem.kind));
+        }
+
         style.font.draw(batch, elem.text, gx + GUTTER_PADDING + lineElementX, linePosY);
 
         lineElementX += bounds.width;
       }
+
 
       if (isFocused() && line.getLineNumber() == caret.getRow()+1) {
         style.focusedLineBackround.draw(batch, 0, linePosY - PADDING_VERITICAL, totalWidth, lineHeight);
@@ -413,6 +424,14 @@ public class CodeEditorTextArea extends Widget {
     }
   }
 
+  public void setErrorLine(int line, int col, String message) {
+    lineWithError = line+1;
+    caret.setCursorPosition(col, line);
+  }
+
+  public void clearError() {
+    lineWithError = -1;
+  }
 
   public void resetBlink() {
     lastBlink = 0;
@@ -429,7 +448,10 @@ public class CodeEditorTextArea extends Widget {
 
   public static class CodeEditorTextAreaStyle extends TextField.TextFieldStyle {
     public Drawable lineNumberBackround;
+    public Drawable exceptionGutterIcon;
     public Drawable focusedLineBackround;
+    public Drawable syntaxErrorLineBackground;
+
     public Color lineNumberColor;
 
     public Color syntaxKeywordColor;
@@ -438,6 +460,8 @@ public class CodeEditorTextArea extends Widget {
     public Color syntaxCommentColor;
     public Color syntaxNumberColor;
     public Color syntaxSpecialKeywordColor;
+
+    public Color syntaxErrorTextColor;
   }
 
   class KeyRepeatTask extends Timer.Task {

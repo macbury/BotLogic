@@ -407,7 +407,7 @@ public class GameEditorForm implements ScriptRuntimeListener {
     Gdx.app.log(TAG, "onScriptError"+ error.getMessage());
     Gdx.app.log(TAG, "Line" + error.lineNumber());
 
-    parser.add(error.lineNumber(), error.details());
+    //parser.add(error.lineNumber(), error.details());
     textArea.forceReparsing(parser);
 
     JOptionPane.showMessageDialog(frame,
