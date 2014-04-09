@@ -27,11 +27,16 @@ public class MissionScriptRunner extends ScriptRunner {
 
   @Override
   public long getLoopSleep() {
-    return 1000;
+    return 500;
   }
 
   @Override
   public void onScriptLoop() {
     currentScriptRunnable.getContext().evaluateString(currentScriptRunnable.getScriptObjectScope(), LOOP_FUNCTION, TAG, 0, null);
+  }
+
+  @Override
+  public void beforeFinishScript() {
+    Gdx.app.log(TAG, "Before finish");
   }
 }

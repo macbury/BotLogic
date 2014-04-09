@@ -1,8 +1,0 @@
-<levelFile>
-    <name>Labirint</name>
-    <description>Znajdź wyjście z labiryntu</description>
-    <map>maze.png</map>
-    <script>maze.js</script>
-    <using>Led</using>
-    <using>Sonar</using>
-</levelFile>

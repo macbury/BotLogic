@@ -28,7 +28,7 @@ public class LevelFile {
 
   private String filePath;
 
-  @ElementList(inline=true, name="using", entry="using")
+  @ElementList(inline=true, name="using", entry="using", empty=true)
   private ArrayList<LevelFeature> using = new ArrayList<LevelFeature>();
 
   public static LevelFile load(String path) throws Exception {

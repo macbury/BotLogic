@@ -16,8 +16,13 @@ import org.mozilla.javascript.ScriptableObject;
  */
 public class ScriptRunnable implements Runnable, Disposable {
   public enum ScriptRunnableMode {
-    Single, Loop
+    Single, Loop, Trigger
   }
+
+  public enum ScriptRunnableState {
+    Pending, Running, Stopping, Finished
+  }
+
   private static final String TAG = "ScriptRunnable";
   private ScriptRunner scriptRunner;
   private ScriptContextFactory factory;
@@ -25,7 +30,7 @@ public class ScriptRunnable implements Runnable, Disposable {
   private final Object[] tempArgs;
   private ScriptableObject scriptObjectScope;
   private ScriptContext context;
-  private boolean running;
+  private ScriptRunnableState state = ScriptRunnableState.Pending;
   public ScriptRunnableMode mode = ScriptRunnableMode.Single;
 
   public ScriptRunnable(String source, ScriptRunner scriptRunner) {
@@ -40,43 +45,43 @@ public class ScriptRunnable implements Runnable, Disposable {
     this.context   = (ScriptContext)factory.enterContext();
     context.setOptimizationLevel(-1);
 
-    running = true;
-
     Gdx.app.log(TAG, "Reseting scope");
     this.scriptObjectScope = context.initStandardObjects();
     context.setInterrputFlag(false);
 
     try {
-      running = true;
+      state = ScriptRunnableState.Running;
       Gdx.app.log(TAG, "Loading ENV");
       scriptRunner.prepareScriptEnv();
       Gdx.app.log(TAG, "Running code");
+      
       for(ScriptRuntimeListener listener : scriptRunner.getListeners()) {
         listener.onScriptStart(scriptRunner);
       }
 
       if (mode == ScriptRunnableMode.Loop) {
         context.evaluateString(scriptObjectScope, source, getClass().toString(), 0, null);
-        while(running) {
+        while(state == ScriptRunnableState.Running) {
           try {
             this.scriptRunner.onScriptLoop();
             Thread.sleep(this.scriptRunner.getLoopSleep());
           } catch (InterruptedException e) {
             e.printStackTrace();
-            running = false;
+            state = ScriptRunnableState.Stopping;
           }
         }
       } else {
         context.evaluateString(scriptObjectScope, source, getClass().toString(), 0, null);
+        state = ScriptRunnableState.Stopping;
       }
     } catch (ScriptInterputException e) {
-      running = false;
+      state = ScriptRunnableState.Stopping;
       Gdx.app.log(TAG, "Recived Interput");
       for(ScriptRuntimeListener listener : scriptRunner.getListeners()) {
         listener.onScriptInterput(scriptRunner);
       }
     } catch (RhinoException e) {
-      running = false;
+      state = ScriptRunnableState.Stopping;
       Gdx.app.log(TAG, "Recived syntax exception");
       for(ScriptRuntimeListener listener : scriptRunner.getListeners()) {
         listener.onScriptError(scriptRunner, e);
@@ -85,8 +90,9 @@ public class ScriptRunnable implements Runnable, Disposable {
       Gdx.app.log(TAG, "Something very bad");
       throw new GdxRuntimeException(e);
     } finally {
-      Gdx.app.log(TAG, "Done finishing");
-      running = false;
+      state = ScriptRunnableState.Stopping;
+      scriptRunner.beforeFinishScript();
+      state = ScriptRunnableState.Finished;
       for(ScriptRuntimeListener listener : scriptRunner.getListeners()) {
         listener.onScriptFinish(scriptRunner);
       }
@@ -98,11 +104,11 @@ public class ScriptRunnable implements Runnable, Disposable {
 
 
   public boolean isRunning() {
-    return running;
+    return state == ScriptRunnableState.Running || state == ScriptRunnableState.Stopping;
   }
 
   public void stop() {
-    running = false;
+    state = ScriptRunnableState.Stopping;
     if (context != null) {
       context.interrputScript();
     }

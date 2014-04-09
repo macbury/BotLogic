@@ -33,4 +33,13 @@ public class RobotScriptRunner extends ScriptRunner {
 
   }
 
+  @Override
+  public void beforeFinishScript() {
+    try {
+      Thread.sleep(1000);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+  }
+
 }

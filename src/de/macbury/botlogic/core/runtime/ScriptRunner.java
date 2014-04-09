@@ -84,4 +84,6 @@ public abstract class ScriptRunner implements Disposable {
   public abstract long getLoopSleep();
 
   public abstract void onScriptLoop();
+
+  public abstract void beforeFinishScript();
 }

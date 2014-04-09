@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -67,6 +68,7 @@ public class CodeEditorTextArea extends WidgetGroup {
   float keyRepeatTime = 0.05f;
 
   private int lineWithError = -1;
+  private Vector2 tempVector = new Vector2();
 
   public CodeEditorTextArea(CodeEditorTextAreaStyle style, CodeEditorView scrollContainer) {
     this.scroll = scrollContainer;
@@ -104,6 +106,22 @@ public class CodeEditorTextArea extends WidgetGroup {
   }
 
   private void initializeKeyboard() {
+    scroll.addListener(new ClickListener() {
+      @Override
+      public boolean mouseMoved(InputEvent event, float x, float y) {
+        if (isFocused()) {
+          if (x <= GUTTER_WIDTTH || (x >= scroll.getWidth() - scroll.getScrollBarWidth()) || (y <= scroll.getHeight() - scroll.getScrollHeight())) {
+            BotLogic.skin.setPointerCursor();
+          } else {
+            BotLogic.skin.setTextCursor();
+          }
+          return true;
+        } else {
+          return false;
+        }
+      }
+    });
+
     inputListener = new ClickListener() {
       @Override
       public boolean keyTyped(InputEvent event, char character) {
@@ -122,12 +140,53 @@ public class CodeEditorTextArea extends WidgetGroup {
       }
 
       @Override
-      public boolean isOver() {
-        BotLogic.skin.setTextCursor();
-        return super.isOver();
+      public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+        if (!super.touchDown(event, x, y, pointer, button)) return false;
+        if (pointer == 0 && button != 0) return false;
+        caret.clearSelection();
+        caret.setCursorPosition(xToCol(x) + caret.getColScrollPosition(), yToRow(y) + caret.getRowScrollPosition());
+        scroll.focus();
+        return true;
+      }
+
+      @Override
+      public void touchDragged(InputEvent event, float x, float y, int pointer) {
+        super.touchDragged(event, x, y, pointer);
+      }
+
+      @Override
+      public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+        super.touchUp(event, x, y, pointer, button);
+      }
+
+      @Override
+      public void exit(InputEvent event, float x, float y, int pointer, Actor toActor) {
+        if (toActor == null)
+          BotLogic.skin.setPointerCursor();
       }
     };
     addListener(inputListener);
+  }
+
+  public int xToCol(float x) {
+    int c = (int) Math.round((x - GUTTER_WIDTTH - GUTTER_PADDING) / style.font.getSpaceWidth());
+    if (c < 0) {
+      c = 0;
+    }
+    return c++;
+  }
+
+  public float getLineHeight() {
+    return this.style.font.getLineHeight() + LINE_PADDING;
+  }
+
+  public int yToRow(float y) {
+    float totalHeight  = Math.max(scroll.getHeight(), height);
+    int r = (int) Math.round((totalHeight - y) / getLineHeight()) - 1;
+    if (r < 0) {
+      r = 0;
+    }
+    return r;
   }
 
   public boolean isFocused() {
@@ -373,12 +432,14 @@ public class CodeEditorTextArea extends WidgetGroup {
   @Override
   public void act(float delta) {
     super.act(delta);
+
+    if (!isFocused()) {
+      BotLogic.skin.setPointerCursor();
+    }
   }
 
   @Override
   public void draw(Batch batch, float parentAlpha) {
-    Stage stage = getStage();
-
     float x      = getX();
     float y      = getY();
     float width  = getWidth();

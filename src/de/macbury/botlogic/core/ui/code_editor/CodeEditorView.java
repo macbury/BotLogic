@@ -39,6 +39,7 @@ public class CodeEditorView extends ScrollPane {
   public void unfocus() {
     getStage().unfocus(this);
     getStage().unfocus(textArea);
+    BotLogic.skin.setPointerCursor();
   }
 
   public String getText() {

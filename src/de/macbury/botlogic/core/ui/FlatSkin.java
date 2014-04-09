@@ -157,6 +157,6 @@ public class FlatSkin extends Skin {
   }
 
   public void setTextCursor() {
-    Gdx.input.setCursorImage(textCursorPixmap, 16, 0);
+    Gdx.input.setCursorImage(textCursorPixmap, 16, 16);
   }
 }
