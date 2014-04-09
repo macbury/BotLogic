@@ -66,6 +66,15 @@ public class LevelFile {
     return script;
   }
 
+  public String getScriptContent() {
+    FileHandle handle = Gdx.files.internal(script);
+    if (handle.exists()) {
+      return handle.readString();
+    } else {
+      return null;
+    }
+  }
+
   public void setScript(String script) {
     this.script = script;
   }

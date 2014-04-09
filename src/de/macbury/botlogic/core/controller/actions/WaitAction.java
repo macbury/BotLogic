@@ -31,6 +31,7 @@ public class WaitAction extends GameAction {
 
   @Override
   public void onEnd() {
+    accumulatedTime = sleepTime;
     Gdx.app.log(TAG, "Sleep finished!");
   }
 

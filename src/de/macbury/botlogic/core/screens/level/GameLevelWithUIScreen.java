@@ -8,7 +8,6 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
-import com.badlogic.gdx.utils.TimeUtils;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import de.macbury.botlogic.core.BotLogic;
 import de.macbury.botlogic.core.Debug;
@@ -95,12 +94,13 @@ public class GameLevelWithUIScreen extends GameLevelScreen implements EndGameLis
     });
     this.levelSpeedLabel      = BotLogic.skin.builder.normalLabel("1.0x");
 
-    String body = "";
+    String body = "var robot;\n";
     for(LevelFile.LevelFeature feature : levelDef.getFeatures()) {
       body += Gdx.files.internal("sketches/features/"+feature.toString()+".js").readString() + "\n";
     }
 
     body += "\n" + Gdx.files.internal("sketches/new/blank.js").readString();
+    body += "\n";
 
     this.codeEditorView = new CodeEditorView();
     codeEditorView.setText(body);
@@ -116,7 +116,6 @@ public class GameLevelWithUIScreen extends GameLevelScreen implements EndGameLis
       controlerTable.add(speedSlider).width(MenuBaseScreen.TOP_TOOLBAR_BUTTON_WIDTH * 3).fill().pad(0).space(0).colspan(2);
 
     tableLayout.row().top().left().space(0);
-      //tableLayout.add().colspan(2).fill().expandX();
       tableLayout.add(codeEditorView).colspan(4).expand().fill();
       tableLayout.add(exitButton).width(MenuBaseScreen.TOP_TOOLBAR_BUTTON_WIDTH).height(MenuBaseScreen.TOP_TOOLBAR_BUTTON_HEIGHT);
     tableLayout.row();
@@ -127,10 +126,20 @@ public class GameLevelWithUIScreen extends GameLevelScreen implements EndGameLis
       tableLayout.add(objectiveButton).width(MenuBaseScreen.TOP_TOOLBAR_BUTTON_WIDTH).height(MenuBaseScreen.TOP_TOOLBAR_BUTTON_HEIGHT);
       tableLayout.add(playPauseRobotButton).width(MenuBaseScreen.TOP_TOOLBAR_BUTTON_WIDTH).height(MenuBaseScreen.TOP_TOOLBAR_BUTTON_HEIGHT);
       tableLayout.add().expandX().colspan(1);
-    codeEditorView.focus(); //TODO: REMove this!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-    getController().getScriptRunner().addListener(this);
+    getController().getRobotScriptRunner().addListener(this);
+    codeEditorView.getTextArea().pageDown();
+    setEditorVisibility(false);
+  }
 
+  public void setEditorVisibility(boolean visibility) {
+    codeEditorView.setVisible(visibility);
+
+    if (!codeEditorView.isVisible()) {
+      codeEditorView.unfocus();
+    } else {
+      codeEditorView.focus();
+    }
   }
 
   @Override
@@ -159,7 +168,7 @@ public class GameLevelWithUIScreen extends GameLevelScreen implements EndGameLis
 
   @Override
   public void hide() {
-    getController().getScriptRunner().removeListener(this);
+    getController().getRobotScriptRunner().removeListener(this);
     super.hide();
     BotLogic.audio.gameMusic.stop();
   }
@@ -182,39 +191,28 @@ public class GameLevelWithUIScreen extends GameLevelScreen implements EndGameLis
 
   private void editCodeButtonClicked() {
     BotLogic.audio.click.play();
-    codeEditorView.setVisible(!codeEditorView.isVisible());
-
-    if (!codeEditorView.isVisible()) {
-      codeEditorView.unfocus();
-    } else {
-      codeEditorView.focus();
-    }
-
+    setEditorVisibility(!codeEditorView.isVisible());
   }
 
   private void playPauseButtonClicked() {
     BotLogic.audio.click.play();
-    ScriptRunner runner = getController().getScriptRunner();
-    if (runner.isRunning()) {
-      runner.finish();
+    if (getController().isRunning()) {
+      getController().stop();
     } else {
-      runner.execute(codeEditorView.getText());
+      getController().run(codeEditorView.getText());
     }
   }
 
   @Override
   public void onScriptStart(ScriptRunner runner) {
-    codeEditorView.setVisible(false);
-    codeEditorView.unfocus();
-    playPauseRobotButton.setOn(true);
-    editCodeButton.setDisabled(true);
-    codeEditorView.getTextArea().clearError();
+    if (getController().getRobotScriptRunner() == runner) {
+      setEditorVisibility(false);
+      playPauseRobotButton.setOn(true);
+      editCodeButton.setDisabled(true);
+      codeEditorView.getTextArea().clearError();
 
-    timerLabel.setRunning(true);
-  }
-
-  @Override
-  public void onScriptYield(ScriptRunner runner) {
+      timerLabel.setRunning(true);
+    }
 
   }
 
@@ -225,15 +223,20 @@ public class GameLevelWithUIScreen extends GameLevelScreen implements EndGameLis
 
   @Override
   public void onScriptError(ScriptRunner runner, RhinoException error) {
-    codeEditorView.getTextArea().setErrorLine(error.lineNumber(), error.columnNumber(), error.getMessage());
-    codeEditorView.setVisible(true);
-    codeEditorView.focus();
+    if (getController().getRobotScriptRunner() == runner) {
+      codeEditorView.getTextArea().setErrorLine(error.lineNumber(), error.columnNumber(), error.getMessage());
+      setEditorVisibility(true);
+    }
+
+    error.printStackTrace();
   }
 
   @Override
   public void onScriptFinish(ScriptRunner runner) {
-    timerLabel.setRunning(false);
-    playPauseRobotButton.setOn(false);
-    editCodeButton.setDisabled(false);
+    if (getController().getRobotScriptRunner() == runner) {
+      timerLabel.setRunning(false);
+      playPauseRobotButton.setOn(false);
+      editCodeButton.setDisabled(false);
+    }
   }
 }

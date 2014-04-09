@@ -2,7 +2,7 @@
    <name>Plac zabaw</name>
    <description>Prosty plac zabaw</description>
    <map>playground.png</map>
-   <script>playground.js</script>
+   <script>maps/playground.js</script>
    <using>Led</using>
    <using>Sonar</using>
 </levelFile>

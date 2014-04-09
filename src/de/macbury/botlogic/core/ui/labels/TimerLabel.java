@@ -8,6 +8,7 @@ import com.badlogic.gdx.utils.StringBuilder;
  */
 public class TimerLabel extends Label {
   private static final char TIME_DELIMETER = ':';
+  private static final char MILI_DELIMETER = ';';
   private StringBuilder stringBuilder;
   private boolean running = false;
   private double time       = 0;
@@ -18,8 +19,6 @@ public class TimerLabel extends Label {
   public TimerLabel(LabelStyle style) {
     super("00:00;00", style);
     this.stringBuilder = new StringBuilder(16);
-
-
   }
 
   public void tick(double delta, float speed) {
@@ -27,21 +26,31 @@ public class TimerLabel extends Label {
       time += delta * speed;
       double different    = time;
 
-      long elapsedMinutes = Math.round(different / minutesInMilli);
+      double elapsedMinutes = different / minutesInMilli;
       different = different % minutesInMilli;
 
-      long elapsedSeconds = Math.round(different / secondsInMilli);
+      double elapsedSeconds = different / secondsInMilli;
 
       stringBuilder.delete(0, stringBuilder.capacity());
-      if (elapsedMinutes < 10) {
+      if (elapsedMinutes < 10.0) {
         stringBuilder.append(0);
       }
-      stringBuilder.append(elapsedMinutes);
+      stringBuilder.append((int)elapsedMinutes);
       stringBuilder.append(TIME_DELIMETER);
-      if (elapsedSeconds < 10) {
+      if (elapsedSeconds < 10.0) {
         stringBuilder.append(0);
       }
-      stringBuilder.append(Math.round(elapsedSeconds));
+
+      stringBuilder.append((int)elapsedSeconds);
+
+      int miliseconds = (int)(different % 1.0 * 100);
+      stringBuilder.append(MILI_DELIMETER);
+
+      if (miliseconds < 10.0) {
+        stringBuilder.append(0);
+      }
+
+      stringBuilder.append(miliseconds);
       this.setText(stringBuilder);
     }
   }

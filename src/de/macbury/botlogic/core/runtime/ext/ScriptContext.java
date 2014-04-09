@@ -1,5 +1,6 @@
-package de.macbury.botlogic.core.runtime;
+package de.macbury.botlogic.core.runtime.ext;
 
+import com.badlogic.gdx.Gdx;
 import org.mozilla.javascript.Context;
 import org.mozilla.javascript.ContextFactory;
 
@@ -14,15 +15,15 @@ public class ScriptContext extends Context {
     setInstructionObserverThreshold(5);
   }
 
-  public synchronized boolean isInterrputFlag() {
+  public boolean isInterrputFlag() {
     return interrputFlag;
   }
 
-  public synchronized void setInterrputFlag(boolean nif) {
+  public void setInterrputFlag(boolean nif) {
     this.interrputFlag = nif;
   }
 
-  public synchronized void interrputScript() {
+  public void interrputScript() {
     setInterrputFlag(true);
   }
 

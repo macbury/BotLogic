@@ -11,7 +11,7 @@ import de.macbury.botlogic.core.entites.ModelEntity;
 import de.macbury.botlogic.core.graphics.camera.RTSCameraController;
 import de.macbury.botlogic.core.input.InputManager;
 import de.macbury.botlogic.core.screens.level.GameLevelScreen;
-import de.macbury.botlogic.core.runtime.ScriptContextFactory;
+import de.macbury.botlogic.core.runtime.ext.ScriptContextFactory;
 import de.macbury.botlogic.core.runtime.ScriptRunner;
 import de.macbury.botlogic.core.screens.ScreenManager;
 import de.macbury.botlogic.core.tween.CameraAccessor;
@@ -72,6 +72,6 @@ public class GameManager extends Game {
   }
 
   public ScriptRunner getScriptRunner() {
-    return getController().getScriptRunner();
+    return getController().getRobotScriptRunner();
   }
 }

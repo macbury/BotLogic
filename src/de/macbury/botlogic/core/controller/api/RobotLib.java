@@ -40,10 +40,8 @@ public class RobotLib {
   }
   
   public void sleep(int miliseconds) {
-    Gdx.app.log(TAG, "Will sleep for "+miliseconds);
     WaitAction action = new WaitAction(miliseconds);
     this.controller.setAction(action);
     action.waitUntilDone();
-    Gdx.app.log(TAG, "Finished sleeping!");
   }
 }

@@ -83,9 +83,14 @@ public class CodeEditorTextArea extends WidgetGroup {
     styles.put(JavaScriptScanner.Kind.NUMBER, style.syntaxNumberColor);
     styles.put(JavaScriptScanner.Kind.SPECIAL_KEYWORD, style.syntaxSpecialKeywordColor);
 
-    setText("");
     initializeKeyboard();
+    initializeCursorArea();
     resetBlink();
+    setText("");
+  }
+
+  private void initializeCursorArea() {
+
   }
 
   @Override
@@ -114,6 +119,12 @@ public class CodeEditorTextArea extends WidgetGroup {
       public boolean keyUp(InputEvent event, int keycode) {
         keyRepeatTask.cancel();
         return true;
+      }
+
+      @Override
+      public boolean isOver() {
+        BotLogic.skin.setTextCursor();
+        return super.isOver();
       }
     };
     addListener(inputListener);
@@ -352,10 +363,16 @@ public class CodeEditorTextArea extends WidgetGroup {
 
   private void updateSize() {
     this.height = this.lines.size() * (this.style.font.getLineHeight() + LINE_PADDING) + PADDING_VERITICAL * 2;
-    this.width  = longestLineLength * this.style.font.getSpaceWidth() + PADDING_HORIZONTAL * 2 + GUTTER_WIDTTH + GUTTER_PADDING;
+    this.width  = longestLineLength * this.style.font.getSpaceWidth() + PADDING_HORIZONTAL * 2;
+    this.width += GUTTER_WIDTTH + GUTTER_PADDING;
 
     this.scroll.invalidate();
     this.invalidate();
+  }
+
+  @Override
+  public void act(float delta) {
+    super.act(delta);
   }
 
   @Override
@@ -444,6 +461,10 @@ public class CodeEditorTextArea extends WidgetGroup {
       cursorOn = !cursorOn;
       lastBlink = time;
     }
+  }
+
+  public void pageDown() {
+    //TODO: Implement
   }
 
   public static class CodeEditorTextAreaStyle extends TextField.TextFieldStyle {

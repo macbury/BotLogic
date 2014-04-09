@@ -1,7 +1,7 @@
-package de.macbury.botlogic.core.runtime;
+package de.macbury.botlogic.core.runtime.ext;
 
 
-import com.badlogic.gdx.Gdx;
+import de.macbury.botlogic.core.runtime.ext.ScriptContext;
 import org.mozilla.javascript.Context;
 import org.mozilla.javascript.ContextFactory;
 

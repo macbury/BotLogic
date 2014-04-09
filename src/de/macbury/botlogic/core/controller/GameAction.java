@@ -7,9 +7,14 @@ import de.macbury.botlogic.core.screens.level.GameLevelScreen;
  */
 public abstract class GameAction {
   protected GameLevelScreen level;
+  private GameController controller;
 
   public GameLevelScreen getLevel() {
     return level;
+  }
+
+  public void setController(GameController controller) {
+    this.controller = controller;
   }
 
   public enum GameActionState {
@@ -38,14 +43,16 @@ public abstract class GameAction {
   }
 
   public boolean isDone() {
-    return this.state == GameActionState.Done;
+    return this.state == GameActionState.Done && (controller == null || controller.getCurrentAction() == this);
   }
 
   public void finish() {
     if (this.state != GameActionState.Done) {
       this.state = GameActionState.Done;
+      this.controller.setAction(null);
       onEnd();
       level = null;
+      controller = null;
     }
   }
 

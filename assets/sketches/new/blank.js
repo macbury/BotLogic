@@ -1,8 +1,6 @@
+// kod główny robota tutaj
 
-function setup() { // skonfiguruj swojego robota tutaj
-
-}
-
-function loop() { // kod główny robota tutaj
-
+while(true) {
+    robot.rotate_left();
+    robot.sleep(100);
 }
