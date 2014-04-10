@@ -117,7 +117,7 @@ public class GameLevelWithUIScreen extends GameLevelScreen implements EndGameLis
     body += "\n";
 
     this.codeEditorView = new CodeEditorView();
-    codeEditorView.setText(body);
+
     Table controlerTable = new Table();
     controlerTable.setBackground(BotLogic.skin.getDrawable("background_dark"));
     controlerTable.row();
@@ -143,6 +143,8 @@ public class GameLevelWithUIScreen extends GameLevelScreen implements EndGameLis
 
     getController().getRobotScriptRunner().addListener(this);
     getController().getMissionScriptRunner().addListener(this);
+
+    codeEditorView.setText(body);
     codeEditorView.getTextArea().pageDown();
     setEditorVisibility(false);
 

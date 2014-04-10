@@ -30,7 +30,7 @@ public class JavaScriptScanner {
 
   private static final KeywordList KEYWORD_LIST = new KeywordList(
           "function", "true", "false", "var", "for", "while", "if", "else", "null", "this", "new", "switch", "case", "break", "try", "catch", "do", "instanceof", "return", "throw", "typeof", "with", "prototype");
-  private static final KeywordList SPECIAL_KEYWORD_LIST = new KeywordList("setup", "loop", "Engine");
+  private static final KeywordList SPECIAL_KEYWORD_LIST = new KeywordList("robot", "led", "Engine");
 
   private final CharacterIterator iterator;
 

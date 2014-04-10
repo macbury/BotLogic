@@ -358,6 +358,18 @@ public class CodeEditorTextArea extends WidgetGroup {
       boolean ctrl = Gdx.input.isKeyPressed(Input.Keys.CONTROL_LEFT) || Gdx.input.isKeyPressed(Input.Keys.CONTROL_RIGHT);
       boolean shift = Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT) || Gdx.input.isKeyPressed(Input.Keys.SHIFT_RIGHT);
 
+      if (keycode == Input.Keys.PAGE_DOWN) {
+        pageDown();
+        //updateScrollInDownDirectionForRow();
+        repeat = true;
+      }
+
+      if (keycode == Input.Keys.PAGE_UP) {
+        pageUp();
+        //updateScrollInUpDirectionForRow();
+        repeat = true;
+      }
+
       if (keycode == Input.Keys.LEFT) {
         if (shift) {
           caret.startSelection();
@@ -424,6 +436,15 @@ public class CodeEditorTextArea extends WidgetGroup {
     } else {
       return false;
     }
+  }
+
+  private void pageUp() {
+    int mv = caret.getRow() - 1 - visibleLinesCount();
+    if (mv < 0) {
+      mv = 0;
+    }
+    caret.clearSelection();
+    caret.setRow(mv);
   }
 
   public void parse(String text) {
@@ -606,7 +627,16 @@ public class CodeEditorTextArea extends WidgetGroup {
   }
 
   public void pageDown() {
-    //TODO: Implement
+    int mv = caret.getRow() - 1 + visibleLinesCount();
+    if (mv > this.lines.size() - 1) {
+      mv = this.lines.size() - 1;
+    }
+    caret.clearSelection();
+    caret.setRow(mv);
+  }
+
+  private int visibleLinesCount() {
+    return (int) (this.getHeight() / getLineHeight());
   }
 
   public static class CodeEditorTextAreaStyle extends TextField.TextFieldStyle {

@@ -21,19 +21,19 @@ public class RobotLib {
     Gdx.app.log(TAG, text);
   }
 
-  public void move_forward() {
+  public void moveForward() {
     MoveAction action = new MoveAction();
     this.controller.setAction(action);
     action.waitUntilDone();
   }
 
-  public void rotate_left() {
+  public void rotateLeft() {
     RotateAction action = new RotateAction(1);
     this.controller.setAction(action);
     action.waitUntilDone();
   }
 
-  public void rotate_right() {
+  public void rotateRight() {
     RotateAction action = new RotateAction(-1);
     this.controller.setAction(action);
     action.waitUntilDone();
