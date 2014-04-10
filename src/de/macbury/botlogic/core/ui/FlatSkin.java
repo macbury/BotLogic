@@ -9,10 +9,12 @@ import com.badlogic.gdx.scenes.scene2d.ui.*;
 import de.macbury.botlogic.core.ui.code_editor.widget.CodeEditorTextArea;
 import de.macbury.botlogic.core.ui.colors.FlatColors;
 import de.macbury.botlogic.core.ui.colors.SolarizedDarkColors;
+import de.macbury.botlogic.core.ui.tooltip.TooltipWidget;
 
 
 public class FlatSkin extends Skin {
   public static final float BUTTON_PADDING = 10;
+  public TooltipWidget.TooltipStyle tooltipStyle;
   private Pixmap textCursorPixmap;
   private Pixmap pointerCursorPixmap;
   public Label.LabelStyle codeLabelStyle;
@@ -144,9 +146,14 @@ public class FlatSkin extends Skin {
     this.codeEditorArea.syntaxErrorLineBackground = this.getDrawable("textarea_syntax_error_line_number");
     this.codeEditorArea.syntaxErrorTextColor      = Color.WHITE;
     this.codeEditorArea.exceptionGutterIcon       = this.getDrawable("exception");
-    //Gdx.input.setCursorCatched(true);
+
     this.pointerCursorPixmap = new Pixmap(Gdx.files.internal("gui/arrow.png"));
     this.textCursorPixmap    = new Pixmap(Gdx.files.internal("gui/text_cursor.png"));
+
+    this.tooltipStyle           = new TooltipWidget.TooltipStyle();
+    tooltipStyle.font           = robotoThinFont;
+    tooltipStyle.fontColor      = Color.WHITE;
+    tooltipStyle.background     = this.getDrawable("tooltip_background");
 
     this.builder = new UIBuilder(this);
     setPointerCursor();

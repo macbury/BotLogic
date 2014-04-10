@@ -1,6 +1,8 @@
 package de.macbury.botlogic.core.screens.level;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
+import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
@@ -20,6 +22,7 @@ import de.macbury.botlogic.core.ui.code_editor.CodeEditorView;
 import de.macbury.botlogic.core.ui.dialog.EndGameDialog;
 import de.macbury.botlogic.core.ui.dialog.EndGameListener;
 import de.macbury.botlogic.core.ui.labels.TimerLabel;
+import de.macbury.botlogic.core.ui.stage.FlatStage;
 import org.mozilla.javascript.RhinoException;
 
 /**
@@ -37,12 +40,12 @@ public class GameLevelWithUIScreen extends GameLevelScreen implements EndGameLis
   private ImageButton exitButton;
   private InputMultiplexer multiplexer;
   private Table tableLayout;
-  private Stage stage;
+  private FlatStage stage;
 
 
   public GameLevelWithUIScreen(LevelFile levelDef) {
     super(levelDef);
-    this.stage        = new Stage(new ScreenViewport());
+    this.stage        = new FlatStage(new ScreenViewport());
     this.tableLayout  = new Table();
     this.stage.addActor(tableLayout);
 
@@ -53,6 +56,17 @@ public class GameLevelWithUIScreen extends GameLevelScreen implements EndGameLis
     this.multiplexer = new InputMultiplexer();
     multiplexer.addProcessor(stage);
     multiplexer.addProcessor(cameraController);
+    multiplexer.addProcessor(new InputAdapter() {
+      @Override
+      public boolean keyUp(int keycode) {
+        if (Input.Keys.F5 == keycode) {
+          GameLevelWithUIScreen.this.playPauseButtonClicked();
+          return true;
+        } else {
+          return super.keyUp(keycode);
+        }
+      }
+    });
 
     this.timerLabel     = BotLogic.skin.builder.timerLabel();
     this.endGameDialog  = BotLogic.skin.builder.endGameDialog();
@@ -128,8 +142,11 @@ public class GameLevelWithUIScreen extends GameLevelScreen implements EndGameLis
       tableLayout.add().expandX().colspan(1);
 
     getController().getRobotScriptRunner().addListener(this);
+    getController().getMissionScriptRunner().addListener(this);
     codeEditorView.getTextArea().pageDown();
     setEditorVisibility(false);
+
+
   }
 
   public void setEditorVisibility(boolean visibility) {
@@ -223,12 +240,11 @@ public class GameLevelWithUIScreen extends GameLevelScreen implements EndGameLis
 
   @Override
   public void onScriptError(ScriptRunner runner, RhinoException error) {
-    if (getController().getRobotScriptRunner() == runner) {
-      codeEditorView.getTextArea().setErrorLine(error.lineNumber(), error.columnNumber(), error.getMessage());
-      setEditorVisibility(true);
-    }
+    codeEditorView.getTextArea().setErrorLine(error.lineNumber(), error.columnNumber(), error.getLocalizedMessage());
+    setEditorVisibility(true);
 
     error.printStackTrace();
+    BotLogic.audio.codeError.play();
   }
 
   @Override

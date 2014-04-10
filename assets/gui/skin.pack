@@ -203,72 +203,79 @@ feature_tricoder
   orig: 24, 24
   offset: 0, 0
   index: -1
-button_blue_norma
+tooltip_background
   rotate: false
   xy: 403, 95
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
-background_dark_transparent
+button_blue_norma
   rotate: false
   xy: 403, 61
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
-icon_settings
+background_dark_transparent
   rotate: false
-  xy: 407, 32
-  size: 34, 27
-  orig: 34, 27
+  xy: 407, 27
+  size: 32, 32
+  orig: 32, 32
   offset: 0, 0
   index: -1
 feature_led
   rotate: false
-  xy: 431, 6
+  xy: 431, 1
   size: 24, 24
   orig: 24, 24
   offset: 0, 0
   index: -1
+icon_settings
+  rotate: false
+  xy: 457, 100
+  size: 34, 27
+  orig: 34, 27
+  offset: 0, 0
+  index: -1
+white_scroll_knob
+  rotate: false
+  xy: 441, 114
+  size: 13, 13
+  orig: 13, 13
+  offset: 0, 0
+  index: -1
 feature_drone
   rotate: false
-  xy: 457, 103
+  xy: 437, 74
   size: 24, 24
   orig: 24, 24
   offset: 0, 0
   index: -1
 feature_console
   rotate: false
-  xy: 483, 103
+  xy: 441, 48
   size: 24, 24
   orig: 24, 24
   offset: 0, 0
   index: -1
-white_scroll_knob
-  rotate: false
-  xy: 437, 114
-  size: 13, 13
-  orig: 13, 13
-  offset: 0, 0
-  index: -1
 feature_compass
   rotate: false
-  xy: 437, 77
+  xy: 463, 74
   size: 24, 24
   orig: 24, 24
   offset: 0, 0
   index: -1
 feature_sonar
   rotate: false
-  xy: 443, 51
+  xy: 467, 48
   size: 24, 24
   orig: 24, 24
   offset: 0, 0
   index: -1
 icon_exit
   rotate: false
-  xy: 463, 77
+  xy: 457, 22
   size: 24, 24
   orig: 24, 24
   offset: 0, 0

@@ -21,6 +21,7 @@ import com.badlogic.gdx.utils.Timer;
 import de.macbury.botlogic.core.BotLogic;
 import de.macbury.botlogic.core.ui.code_editor.CodeEditorView;
 import de.macbury.botlogic.core.ui.code_editor.js.JavaScriptScanner;
+import de.macbury.botlogic.core.ui.stage.FlatStage;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -69,6 +70,7 @@ public class CodeEditorTextArea extends WidgetGroup {
 
   private int lineWithError = -1;
   private Vector2 tempVector = new Vector2();
+  private String lineErrorMessage;
 
   public CodeEditorTextArea(CodeEditorTextAreaStyle style, CodeEditorView scrollContainer) {
     this.scroll = scrollContainer;
@@ -115,6 +117,17 @@ public class CodeEditorTextArea extends WidgetGroup {
           } else {
             BotLogic.skin.setTextCursor();
           }
+
+          FlatStage stage = (FlatStage)getStage();
+
+          if(lineWithError != -1 && (lineToY(lineWithError)+getLineHeight() >= y && lineToY(lineWithError) <= y)) {
+            if (!stage.isTooltipVisible()) {
+              stage.showTooltip(lineErrorMessage);
+            }
+          } else {
+            stage.hideTooltip();
+          }
+
           return true;
         } else {
           return false;
@@ -152,6 +165,7 @@ public class CodeEditorTextArea extends WidgetGroup {
       @Override
       public void touchDragged(InputEvent event, float x, float y, int pointer) {
         super.touchDragged(event, x, y, pointer);
+        onTouchDraged(event, x,y, pointer);
       }
 
       @Override
@@ -187,6 +201,34 @@ public class CodeEditorTextArea extends WidgetGroup {
       r = 0;
     }
     return r;
+  }
+
+  public void onTouchDraged(InputEvent event, float x, float y, int pointer) {
+    lastBlink = 0;
+    cursorOn = false;
+    int col = xToCol(x) + caret.getColScrollPosition();
+    int row = yToRow(y) + caret.getRowScrollPosition();
+
+    int rd = row - caret.getRow();
+
+    boolean moveLeft = col - caret.getCol() <= 0;
+    caret.setCursorPosition(col,row);
+
+    if (moveLeft) {
+      //updateScrollInLeftDirectionForCol();
+    } else {
+      //updateScrollInRightDirectionForCol();
+    }
+
+    if (rd == 0) {
+
+    } else if(rd < 0) {
+      //updateScrollInDownDirectionForRow();
+    } else {
+      //updateScrollInUpDirectionForRow();
+    }
+
+    caret.startSelection();
   }
 
   public boolean isFocused() {
@@ -438,6 +480,20 @@ public class CodeEditorTextArea extends WidgetGroup {
     }
   }
 
+  public float lineToY(int row) {
+    float y      = getY();
+    float height = getHeight();
+
+    float parentHeight = getParent().getHeight();
+
+    float totalHeight  = Math.max(parentHeight, height);
+
+    float lineHeight   = this.style.font.getLineHeight() + LINE_PADDING;
+    float gy = totalHeight + y;
+
+    return gy - (row * lineHeight) - PADDING_VERITICAL;
+  }
+
   @Override
   public void draw(Batch batch, float parentAlpha) {
     float x      = getX();
@@ -458,10 +514,34 @@ public class CodeEditorTextArea extends WidgetGroup {
     float gy = totalHeight + y;
     float gx = x + GUTTER_WIDTTH;
 
+    if (caret.haveSelection()) {
+      int cursorRowStart = Math.min(caret.getSelectionStartRow(), caret.getRow());
+      int cursorRowEnd = Math.max(caret.getRow(), caret.getSelectionStartRow());
+
+      int cursorColEnd    = caret.getCol();
+      int cursorColStart  = caret.getSelectionStartCol();
+      if (caret.getRow() < caret.getSelectionStartRow()) {
+        cursorColEnd    = caret.getSelectionStartCol();
+        cursorColStart  = caret.getCol();
+      }
+
+      if (cursorRowStart == cursorRowEnd) {
+        style.selection.draw(batch, gx + GUTTER_PADDING + cursorColStart * style.font.getSpaceWidth(), lineToY(cursorRowStart) - PADDING_VERITICAL, (cursorColEnd - cursorColStart) * style.font.getSpaceWidth(), lineHeight);
+      } else {
+        style.selection.draw(batch, gx + GUTTER_PADDING + cursorColStart * style.font.getSpaceWidth(), lineToY(cursorRowStart) - PADDING_VERITICAL, totalWidth, lineHeight);
+
+        int rowCount = Math.abs(cursorRowStart - cursorRowEnd) - 1;
+        for (int i = 0; i < rowCount; i++) {
+          style.selection.draw(batch, gx + GUTTER_PADDING, lineToY(cursorRowStart+i+1) - PADDING_VERITICAL, totalWidth, lineHeight);
+        }
+
+        style.selection.draw(batch, gx + GUTTER_PADDING, lineToY(cursorRowEnd) - PADDING_VERITICAL, cursorColEnd * style.font.getSpaceWidth(), lineHeight);
+      }
+    }
+
     for(Line line : lines) {
-      int ly              = line.getLineNumber() - 1;
       float lineElementX  = 0;
-      float linePosY      = gy - (ly * lineHeight)  - PADDING_VERITICAL;
+      float linePosY      = lineToY(line.getLineNumber() - 1);
 
       style.font.setColor(style.lineNumberColor);
       style.font.draw(batch, line.getLineString(), gx - style.font.getBounds(line.getLineString()).width - GUTTER_PADDING, linePosY);
@@ -504,6 +584,7 @@ public class CodeEditorTextArea extends WidgetGroup {
 
   public void setErrorLine(int line, int col, String message) {
     lineWithError = line+1;
+    lineErrorMessage = message;
     caret.setCursorPosition(col, line);
   }
 

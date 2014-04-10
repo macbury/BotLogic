@@ -24,7 +24,7 @@ public class MoveAction extends GameAction implements TweenCallback {
 
   @Override
   public void onEnd() {
-
+    level.robot.steps += 1;
   }
 
   @Override

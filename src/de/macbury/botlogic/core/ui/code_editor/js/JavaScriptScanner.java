@@ -98,10 +98,14 @@ public class JavaScriptScanner {
 
   private void scanString(int endMarker) {
     for(;;) {
+
       int ch = iterator.next();
       if(ch == '\\') {
         iterator.next();
-      } else if(ch == endMarker || ch == '\n' || ch == '\r') {
+      } else if(ch == '\n') {
+        iterator.pushback();
+        return;
+      } else if(ch == endMarker || ch == '\n' || ch == '\r' || ch < 0) {
         return;
       }
     }

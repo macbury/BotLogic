@@ -3,10 +3,12 @@ package de.macbury.botlogic.core.ui;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
 import de.macbury.botlogic.core.ui.button.StateImageButton;
 import de.macbury.botlogic.core.ui.dialog.EndGameDialog;
+import de.macbury.botlogic.core.ui.dialog.ErrorDialog;
 import de.macbury.botlogic.core.ui.dialog.SettingsDialog;
 import de.macbury.botlogic.core.ui.labels.TimerLabel;
 import de.macbury.botlogic.core.ui.scroll.ScrollPaneWithoutMouseScroll;
 import de.macbury.botlogic.core.ui.tiles.TileScrollPane;
+import de.macbury.botlogic.core.ui.tooltip.TooltipWidget;
 
 /**
  * Created by macbury on 04.04.14.
@@ -90,5 +92,13 @@ public class UIBuilder {
 
   public TimerLabel timerLabel() {
     return new TimerLabel(skin.robotoThinLabelStyle);
+  }
+
+  public ErrorDialog errorDialog(String content) {
+    return new ErrorDialog(skin.dialogStyle, content);
+  }
+
+  public TooltipWidget tooltip(String message) {
+    return new TooltipWidget(skin.tooltipStyle, message);
   }
 }

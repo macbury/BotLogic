@@ -18,7 +18,7 @@ public class RobotScriptRunner extends ScriptRunner {
   @Override
   public void prepareScriptEnv() {
     ScriptableObject scriptObjectScope = currentScriptRunnable.getScriptObjectScope();
-    scriptObjectScope.put("robot", scriptObjectScope, gameController.getRobotController());
+    scriptObjectScope.put("robot", scriptObjectScope, gameController.getRobotLib());
     scriptObjectScope.put("math", scriptObjectScope, new MathLib());
     currentScriptRunnable.getContext().evaluateString(scriptObjectScope, Gdx.files.internal("sketches/rdk/helpers.js").readString(), "RobotScriptRunner", 0, null);//TODO: Better loading
   }
@@ -34,12 +34,8 @@ public class RobotScriptRunner extends ScriptRunner {
   }
 
   @Override
-  public void beforeFinishScript() {
-    try {
-      Thread.sleep(1000);
-    } catch (InterruptedException e) {
-      e.printStackTrace();
-    }
+  public void onScriptEnd() {
+
   }
 
 }

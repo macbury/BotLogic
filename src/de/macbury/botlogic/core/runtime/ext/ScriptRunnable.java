@@ -33,6 +33,7 @@ public class ScriptRunnable implements Runnable, Disposable {
   private ScriptRunnableState state = ScriptRunnableState.Pending;
   public ScriptRunnableMode mode = ScriptRunnableMode.Single;
 
+
   public ScriptRunnable(String source, ScriptRunner scriptRunner) {
     this.source       = source;
     this.scriptRunner = scriptRunner;
@@ -54,7 +55,7 @@ public class ScriptRunnable implements Runnable, Disposable {
       Gdx.app.log(TAG, "Loading ENV");
       scriptRunner.prepareScriptEnv();
       Gdx.app.log(TAG, "Running code");
-      
+
       for(ScriptRuntimeListener listener : scriptRunner.getListeners()) {
         listener.onScriptStart(scriptRunner);
       }
@@ -70,9 +71,11 @@ public class ScriptRunnable implements Runnable, Disposable {
             state = ScriptRunnableState.Stopping;
           }
         }
+        Gdx.app.log(TAG, "Running last script loop");
+        this.scriptRunner.onScriptEnd();
       } else {
         context.evaluateString(scriptObjectScope, source, getClass().toString(), 0, null);
-        state = ScriptRunnableState.Stopping;
+        this.scriptRunner.onScriptEnd();
       }
     } catch (ScriptInterputException e) {
       state = ScriptRunnableState.Stopping;
@@ -90,15 +93,14 @@ public class ScriptRunnable implements Runnable, Disposable {
       Gdx.app.log(TAG, "Something very bad");
       throw new GdxRuntimeException(e);
     } finally {
-      state = ScriptRunnableState.Stopping;
-      scriptRunner.beforeFinishScript();
+      Context.exit();
       state = ScriptRunnableState.Finished;
+
       for(ScriptRuntimeListener listener : scriptRunner.getListeners()) {
         listener.onScriptFinish(scriptRunner);
       }
 
       Gdx.app.log(TAG, "Exiting context");
-      Context.exit();
     }
   }
 
@@ -108,9 +110,11 @@ public class ScriptRunnable implements Runnable, Disposable {
   }
 
   public void stop() {
-    state = ScriptRunnableState.Stopping;
-    if (context != null) {
-      context.interrputScript();
+    if (state == ScriptRunnableState.Running) {
+      state = ScriptRunnableState.Stopping;
+      if (context != null) {
+        context.interrputScript();
+      }
     }
   }
 

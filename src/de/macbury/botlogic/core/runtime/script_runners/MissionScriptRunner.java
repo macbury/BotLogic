@@ -12,6 +12,7 @@ import org.mozilla.javascript.ScriptableObject;
 public class MissionScriptRunner extends ScriptRunner {
   public static final String TAG = "MissionScriptRunner";
   private static final String LOOP_FUNCTION = "loop();";
+  private static final String END_FUNCTION = "onEnd();";
 
   public MissionScriptRunner(GameController gameController) {
     super(gameController);
@@ -22,7 +23,7 @@ public class MissionScriptRunner extends ScriptRunner {
     this.currentScriptRunnable.mode = ScriptRunnable.ScriptRunnableMode.Loop;
 
     ScriptableObject scriptObjectScope = currentScriptRunnable.getScriptObjectScope();
-    scriptObjectScope.put("game", scriptObjectScope, gameController);
+    scriptObjectScope.put("game", scriptObjectScope, gameController.getGameLib());
   }
 
   @Override
@@ -36,7 +37,8 @@ public class MissionScriptRunner extends ScriptRunner {
   }
 
   @Override
-  public void beforeFinishScript() {
-    Gdx.app.log(TAG, "Before finish");
+  public void onScriptEnd() {
+    currentScriptRunnable.getContext().evaluateString(currentScriptRunnable.getScriptObjectScope(), END_FUNCTION, TAG, 0, null);
   }
+
 }

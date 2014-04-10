@@ -40,9 +40,7 @@ public class GameLevelScreen implements Screen {
   private FrameBuffer colorBuffer;
   private DecalBatch decalBatch;
   private LevelFile levelDefinition;
-  public TweenManager gameObjectsTweenManager;
-  public TweenManager uiTweenManager;
-  public RobotEntity robot;
+
   private GameController controller;
   private Model robotModel;
   private Map map;
@@ -53,6 +51,10 @@ public class GameLevelScreen implements Screen {
   private ArrayList<Entity> entities;
   private int speed = 1;
   private FrameBuffer depthBuffer;
+
+  public TweenManager gameObjectsTweenManager;
+  public TweenManager uiTweenManager;
+  public RobotEntity robot;
 
   public GameLevelScreen(LevelFile levelDef) {
     this.gameObjectsTweenManager = new TweenManager();

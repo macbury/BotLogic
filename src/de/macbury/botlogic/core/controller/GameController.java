@@ -5,6 +5,7 @@ import aurelienribon.tweenengine.Tween;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.utils.Disposable;
 import com.badlogic.gdx.utils.GdxRuntimeException;
+import de.macbury.botlogic.core.controller.api.GameLib;
 import de.macbury.botlogic.core.controller.api.RobotLib;
 import de.macbury.botlogic.core.graphics.camera.RTSCameraController;
 import de.macbury.botlogic.core.runtime.script_runners.MissionScriptRunner;
@@ -20,11 +21,13 @@ import org.mozilla.javascript.RhinoException;
  */
 public class GameController implements Disposable, ScriptRuntimeListener {
   private static final String TAG = "GameController";
+  private GameLib gameLib;
   private MissionScriptRunner missionScriptRunner;
   private GameAction currentAction;
   private RobotScriptRunner robotScriptRunner;
   private GameLevelScreen level;
-  private RobotLib robotController;
+  private RobotLib robotLib;
+  private float runningTime;
 
   public GameController(GameLevelScreen level) {
     this.level               = level;
@@ -34,10 +37,13 @@ public class GameController implements Disposable, ScriptRuntimeListener {
 
     this.robotScriptRunner.addListener(this);
     this.missionScriptRunner.addListener(this);
-    this.robotController = new RobotLib(this);
+
+    this.robotLib = new RobotLib(this);
+    this.gameLib  = new GameLib(this);
   }
 
   public void run(String source) {
+    runningTime = 0.0f;
     this.robotScriptRunner.execute(source);
 
     String missionScript = level.getFile().getScriptContent();
@@ -55,15 +61,14 @@ public class GameController implements Disposable, ScriptRuntimeListener {
     this.robotScriptRunner.finish();
   }
 
-  public ScriptRunner getRobotScriptRunner() {
-    return robotScriptRunner;
+  public void reset() {
+    level.get3DCameraController().setEnabled(true);
+    level.gameObjectsTweenManager.killAll();
+    level.reset();
   }
 
-  @Override
-  public void dispose() {
-    robotScriptRunner.dispose();
-    missionScriptRunner.dispose();
-    finishAction();
+  public ScriptRunner getRobotScriptRunner() {
+    return robotScriptRunner;
   }
 
   public synchronized void setAction(GameAction action) {
@@ -84,6 +89,7 @@ public class GameController implements Disposable, ScriptRuntimeListener {
   public void update(float delta) {
     if (robotScriptRunner.isRunning()) {
       level.get3DCameraController().setCenter(level.robot.position.x, level.robot.position.z);
+      runningTime += delta;
     }
 
     if (currentAction != null) {
@@ -103,7 +109,7 @@ public class GameController implements Disposable, ScriptRuntimeListener {
       level.reset();
 
       RTSCameraController camera = level.get3DCameraController();
-      //camera.setEnabled(false);
+      camera.setEnabled(false);
 
       float targetZoom = 5;
       float targetRotation = -5.8463125f;
@@ -133,12 +139,11 @@ public class GameController implements Disposable, ScriptRuntimeListener {
   public void onScriptFinish(ScriptRunner runner) {
     Gdx.app.log(TAG, "OnScriptFinish!");
     if (runner == robotScriptRunner) {
-      finishAction();
-      level.get3DCameraController().setEnabled(true);
-      level.gameObjectsTweenManager.killAll();
-      level.reset();
-
       missionScriptRunner.finish();
+    }
+
+    if (runner == missionScriptRunner) {
+      finishAction();
     }
   }
 
@@ -150,25 +155,38 @@ public class GameController implements Disposable, ScriptRuntimeListener {
     currentAction = null;
   }
 
-  public RobotLib getRobotController() {
-    return robotController;
+  public RobotLib getRobotLib() {
+    return robotLib;
   }
 
   public boolean isRunning() {
-    return (robotScriptRunner != null && robotScriptRunner.isRunning()) && (missionScriptRunner != null && robotScriptRunner.isRunning());
-  }
-
-  public void test(final String test) {
-    Gdx.app.postRunnable(new Runnable() {
-      @Override
-      public void run() {
-        Gdx.app.log(TAG, test);
-      }
-    });
-
+    return (robotScriptRunner != null && robotScriptRunner.isRunning()) || (missionScriptRunner != null && missionScriptRunner.isRunning());
   }
 
   public GameAction getCurrentAction() {
     return currentAction;
+  }
+
+  public MissionScriptRunner getMissionScriptRunner() {
+    return missionScriptRunner;
+  }
+
+  public float getRunningTime() {
+    return runningTime;
+  }
+
+  @Override
+  public void dispose() {
+    robotScriptRunner.dispose();
+    missionScriptRunner.dispose();
+    finishAction();
+  }
+
+  public GameLib getGameLib() {
+    return gameLib;
+  }
+
+  public GameLevelScreen getLevel() {
+    return level;
   }
 }

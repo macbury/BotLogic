@@ -15,6 +15,9 @@ import de.macbury.botlogic.core.tween.ModelEntityAccessor;
  */
 public class RobotEntity extends ModelEntity {
   private static final float ROTATE_SPEED = 0.5f;
+  public int steps = 0;
+  public int rotations = 0;
+
   public RobotEntity(Model model) {
     super(model);
     //scale.set(0.2f, 0.2f, 0.2f);
@@ -30,6 +33,13 @@ public class RobotEntity extends ModelEntity {
     Node head = instance.getNode("Bone_001");
     head.globalTransform.setToLookAt(Vector3.Zero, Vector3.Z);
     head.calculateBoneTransforms(true);*/
+  }
+
+  @Override
+  public void reset() {
+    super.reset();
+    steps     = 0;
+    rotations = 0;
   }
 
   public Tween getRotationTween(int direction) {
