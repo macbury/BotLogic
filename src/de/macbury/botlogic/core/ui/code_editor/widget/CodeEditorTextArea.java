@@ -358,6 +358,28 @@ public class CodeEditorTextArea extends WidgetGroup {
       boolean ctrl = Gdx.input.isKeyPressed(Input.Keys.CONTROL_LEFT) || Gdx.input.isKeyPressed(Input.Keys.CONTROL_RIGHT);
       boolean shift = Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT) || Gdx.input.isKeyPressed(Input.Keys.SHIFT_RIGHT);
 
+      if (ctrl) {
+        if (keycode == Input.Keys.V) {
+          paste();
+          return true;
+        }
+        if (keycode == Input.Keys.C || keycode == Input.Keys.INSERT) {
+          copy();
+          return true;
+        }
+        if (keycode == Input.Keys.X || keycode == Input.Keys.DEL) {
+          cut();
+          return true;
+        }
+
+        if (keycode == Input.Keys.A) {
+          caret.clearSelection();
+          caret.selectAll();
+          return true;
+        }
+
+      }
+
       if (keycode == Input.Keys.PAGE_DOWN) {
         pageDown();
         //updateScrollInDownDirectionForRow();
@@ -422,6 +444,22 @@ public class CodeEditorTextArea extends WidgetGroup {
         }
         caret.moveRowDown();
         repeat = true;
+      }
+
+      if (keycode == Input.Keys.HOME) {
+        if (shift) {
+          caret.startSelection();
+        }
+        caret.setColHome();
+        //updateScrollInRightDirectionForCol();
+      }
+
+      if (keycode == Input.Keys.END) {
+        if (shift) {
+          caret.startSelection();
+        }
+        caret.setColEnd();
+        //updateScrollInLeftDirectionForCol();
       }
 
       if (repeat && (!keyRepeatTask.isScheduled() || keyRepeatTask.keycode != keycode)) {
@@ -633,6 +671,38 @@ public class CodeEditorTextArea extends WidgetGroup {
     }
     caret.clearSelection();
     caret.setRow(mv);
+  }
+
+  private void cut() {
+    if (caret.haveSelection()) {
+      copy();
+      delete();
+    }
+  }
+
+  private void copy() {
+    String lineText = getAllText();
+    int pos = caret.getCaretPosition();
+
+    if (caret.haveSelection()) {
+      int startPos = caret.getSelectionCaretPosition();
+
+      int from = Math.min(pos, startPos);
+      int to = Math.max(pos, startPos);
+
+      String copyText = lineText.substring(from, to);
+      clipboard.setContents(copyText);
+    }
+  }
+
+  private void paste() {
+    String content = clipboard.getContents();
+
+    if (content != null) {
+      insertText(content);
+      caret.moveForwardByCharCount(content.length());
+      caret.clearSelection();
+    }
   }
 
   private int visibleLinesCount() {
