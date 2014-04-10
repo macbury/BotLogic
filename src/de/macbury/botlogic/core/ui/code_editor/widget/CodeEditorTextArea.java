@@ -229,6 +229,8 @@ public class CodeEditorTextArea extends WidgetGroup {
     }
 
     caret.startSelection();
+
+    updateScroll();
   }
 
   public boolean isFocused() {
@@ -334,7 +336,7 @@ public class CodeEditorTextArea extends WidgetGroup {
 
       parse(finalText);
     }
-
+    updateScroll();
   }
 
   public String getAllText() {
@@ -468,12 +470,22 @@ public class CodeEditorTextArea extends WidgetGroup {
         Timer.schedule(keyRepeatTask, keyRepeatInitialTime, keyRepeatTime);
       }
 
-      scroll.setScrollY(caret.getRow() * style.font.getLineHeight());
+      updateScroll();
 
       return true;
     } else {
       return false;
     }
+  }
+
+  private void updateScroll() {
+    float width   = style.font.getSpaceWidth()+GUTTER_WIDTTH;
+    float height  = getLineHeight();
+    float x       = (caret.getCol() + 1) * style.font.getSpaceWidth() + GUTTER_WIDTTH;
+    if (caret.getCol() <= 1) {
+      x = 0;
+    }
+    scroll.scrollTo(x, getHeight() - PADDING_VERITICAL * 2 - (caret.getRow()) * getLineHeight(), width, height);
   }
 
   private void pageUp() {
