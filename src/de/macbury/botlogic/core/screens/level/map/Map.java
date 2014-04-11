@@ -35,7 +35,7 @@ public class Map extends Renderable implements Disposable {
     TextureAttribute textureAttribute = TextureAttribute.createDiffuse(this.tileset.getTextures().first());
     this.material = new Material(textureAttribute);
     this.primitiveType = GL20.GL_TRIANGLES;
-    this.robotStartPosition = new Vector3(0, 1, 0);
+    this.robotStartPosition = new Vector3(0, 1.6f, 0);
     parse(handle);
     build();
   }
@@ -130,7 +130,7 @@ public class Map extends Renderable implements Disposable {
       for(int col = 0; col < width; col++) {
         Color.rgba8888ToColor(color,  mapPixmap.getPixel(col, row));
         if (Color.RED.equals(color)) {
-          robotStartPosition = new Vector3(col+0.5f, 1, row+0.5f);
+          robotStartPosition = new Vector3(col+0.5f, 1.05f, row+0.5f);
           BlockFloor floor = new BlockFloor();
           floor.setX(col);
           floor.setZ(row);

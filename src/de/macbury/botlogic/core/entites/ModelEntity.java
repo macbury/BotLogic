@@ -1,18 +1,23 @@
 package de.macbury.botlogic.core.entites;
 
-import aurelienribon.tweenengine.BaseTween;
-import aurelienribon.tweenengine.Tween;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g3d.Environment;
 import com.badlogic.gdx.graphics.g3d.Model;
 import com.badlogic.gdx.graphics.g3d.ModelBatch;
 import com.badlogic.gdx.graphics.g3d.ModelInstance;
+import com.badlogic.gdx.math.MathUtils;
+import com.badlogic.gdx.math.Quaternion;
 import com.badlogic.gdx.math.Vector3;
-import de.macbury.botlogic.core.tween.ModelEntityAccessor;
 
 /**
  * Created by macbury on 31.03.14.
  */
 public abstract class ModelEntity extends Entity implements EntityModelRenderable {
+  private static final String TAG = "ModelEntity";
+
+  public enum Direction {
+    North, South, Weast, East
+  }
   public ModelInstance instance;
   public Vector3 startPosition = new Vector3();
 
@@ -26,7 +31,7 @@ public abstract class ModelEntity extends Entity implements EntityModelRenderabl
     instance.transform.idt();
     instance.transform.translate(position);
     instance.transform.scale(scale.x, scale.y, scale.z);
-    instance.transform.rotate(Vector3.Y, rotatation);
+    instance.transform.rotate(Vector3.Y, rotation);
   }
 
   @Override
@@ -36,8 +41,39 @@ public abstract class ModelEntity extends Entity implements EntityModelRenderabl
 
   @Override
   public void reset() {
-    this.rotatation = 0;
+    this.rotation = 0;
     this.position.set(startPosition);
+    instance.transform.idt();
+  }
+
+  Quaternion tempDirectionRotation = new Quaternion();
+  public Direction getDirection() {
+    instance.transform.getRotation(tempDirectionRotation, true);
+    if (tempDirectionRotation.getYaw() == 0) {
+      return Direction.South;
+    } else if (tempDirectionRotation.getYaw() == -90) {
+      return Direction.East;
+    } else if (tempDirectionRotation.getYaw() == 90) {
+      return Direction.Weast;
+    }
+    return Direction.North;
+  }
+
+  public static void directionToVector(Direction dir, Vector3 vector) {
+    switch (dir) {
+      case South:
+        vector.set(0,0,1);
+      break;
+      case North:
+        vector.set(0,0,-1);
+      break;
+      case Weast:
+        vector.set(1,0,0);
+        break;
+      case East:
+        vector.set(-1,0,0);
+      break;
+    }
   }
 
   @Override

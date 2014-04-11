@@ -109,7 +109,7 @@ public class GameController implements Disposable, ScriptRuntimeListener {
       level.reset();
 
       RTSCameraController camera = level.get3DCameraController();
-      camera.setEnabled(false);
+      camera.setEnabled(true);
 
       float targetZoom = 5;
       float targetRotation = -5.8463125f;

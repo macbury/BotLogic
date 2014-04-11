@@ -259,7 +259,7 @@ public class RTSCameraController extends InputAdapter {
   public boolean touchDown(int screenX, int screenY, int pointer, int button) {
     if (!enabled)
       return false;
-    if (button == Input.Buttons.MIDDLE) {
+    if (button == Input.Buttons.RIGHT) {
       rotateMouseButtonPressed = true;
       mouseRotationDrag.set(screenX, screenY);
       return true;
@@ -272,7 +272,7 @@ public class RTSCameraController extends InputAdapter {
   public boolean touchUp(int screenX, int screenY, int pointer, int button) {
     if (!enabled)
       return false;
-    if (button == Input.Buttons.MIDDLE) {
+    if (button == Input.Buttons.RIGHT) {
       rotateMouseButtonPressed = false;
       return true;
     } else {

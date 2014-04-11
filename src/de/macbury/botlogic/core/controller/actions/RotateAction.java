@@ -2,6 +2,9 @@ package de.macbury.botlogic.core.controller.actions;
 
 import aurelienribon.tweenengine.BaseTween;
 import aurelienribon.tweenengine.TweenCallback;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.math.MathUtils;
+import com.badlogic.gdx.math.Quaternion;
 import de.macbury.botlogic.core.BotLogic;
 import de.macbury.botlogic.core.controller.GameAction;
 
@@ -9,6 +12,7 @@ import de.macbury.botlogic.core.controller.GameAction;
  * Created by macbury on 31.03.14.
  */
 public class RotateAction extends GameAction implements TweenCallback {
+  private static final String TAG = "RotateAction";
   private final int direction;
 
   public RotateAction(int dir) {
@@ -18,6 +22,8 @@ public class RotateAction extends GameAction implements TweenCallback {
   @Override
   public void onStart() {
     BotLogic.audio.rotation.play();
+    level.robot.setRotateLeftWheelsDirection(-direction);
+    level.robot.setRotateRightWheelsDirection(direction);
     level.robot.getRotationTween(direction).setCallback(this).start(level.gameObjectsTweenManager);
   }
 
@@ -29,7 +35,10 @@ public class RotateAction extends GameAction implements TweenCallback {
   @Override
   public void onEnd() {
     level.robot.rotations += 1;
+    level.robot.setRotateLeftWheelsDirection(0);
+    level.robot.setRotateRightWheelsDirection(0);
   }
+
 
   @Override
   public void onEvent(int i, BaseTween<?> baseTween) {

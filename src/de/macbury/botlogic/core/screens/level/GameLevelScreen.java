@@ -28,11 +28,13 @@ import de.macbury.botlogic.core.graphics.camera.RTSCameraController;
 import de.macbury.botlogic.core.graphics.compositor.LevelCompositor;
 import de.macbury.botlogic.core.graphics.skybox.SkyBox;
 import de.macbury.botlogic.core.screens.level.file.LevelFile;
+import de.macbury.botlogic.core.screens.level.map.Block;
 import de.macbury.botlogic.core.screens.level.map.Map;
 
 import java.util.ArrayList;
 
 public class GameLevelScreen implements Screen {
+  private final PointLight ledLight;
   private SkyBox skybox;
   private ModelBatch depthModelBatch;
   private RenderContext renderContext;
@@ -55,6 +57,8 @@ public class GameLevelScreen implements Screen {
   public TweenManager gameObjectsTweenManager;
   public TweenManager uiTweenManager;
   public RobotEntity robot;
+
+  private Vector3 tempVector = new Vector3();
 
   public GameLevelScreen(LevelFile levelDef) {
     this.gameObjectsTweenManager = new TweenManager();
@@ -80,7 +84,7 @@ public class GameLevelScreen implements Screen {
     environment.set(new ColorAttribute(ColorAttribute.AmbientLight, 0.5f, 0.5f, 0.5f, 1f));
 
     G3dModelLoader modelLoader = new G3dModelLoader(new UBJsonReader());
-    this.robotModel            = modelLoader.loadModel(Gdx.files.getFileHandle("models/robot.g3db", Files.FileType.Internal));
+    this.robotModel            = modelLoader.loadModel(Gdx.files.getFileHandle("models/bot.g3db", Files.FileType.Internal));
 
     this.cellShadingCompositor = new LevelCompositor(renderContext);
     //this.skybox                = new SkyBox("grid.png");
@@ -126,7 +130,9 @@ public class GameLevelScreen implements Screen {
     this.controller = new GameController(this);
     reset();
 
-    environment.add(new PointLight().set(new Color(1f,1f, 1f, 1f), map.getRobotStartPosition().cpy().add(0,1,0), 1.5f));
+    this.ledLight = new PointLight().set(new Color(1f,1f, 1f, 1f), map.getRobotStartPosition().cpy().add(0,5,0), 1.5f);
+
+    environment.add(ledLight);
     environment.set(new ColorAttribute(ColorAttribute.Fog, 0f, 0f, 0f, 1f));
     environment.add(new DirectionalLight().set(new Color(.4f,.4f, .4f, 0.1f), new Vector3(1,-1,0)));
     BotLogic.audio.mainMenuMusic.play();
@@ -274,5 +280,12 @@ public class GameLevelScreen implements Screen {
 
   public LevelFile getFile() {
     return levelDefinition;
+  }
+
+  public boolean isPassable(Vector3 position) {
+    int bx = (int)(Math.floor(position.x));
+    int by = (int)(Math.floor(position.z));
+    Block targetBlock = map.get(bx, by);
+    return (targetBlock != null && targetBlock.isPassable());
   }
 }
