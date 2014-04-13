@@ -5,8 +5,7 @@ import aurelienribon.tweenengine.Tween;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.utils.Disposable;
 import com.badlogic.gdx.utils.GdxRuntimeException;
-import de.macbury.botlogic.core.controller.api.GameLib;
-import de.macbury.botlogic.core.controller.api.RobotLib;
+import de.macbury.botlogic.core.controller.api.*;
 import de.macbury.botlogic.core.graphics.camera.RTSCameraController;
 import de.macbury.botlogic.core.runtime.script_runners.MissionScriptRunner;
 import de.macbury.botlogic.core.runtime.script_runners.RobotScriptRunner;
@@ -15,6 +14,9 @@ import de.macbury.botlogic.core.runtime.ScriptRunner;
 import de.macbury.botlogic.core.runtime.ScriptRuntimeListener;
 import de.macbury.botlogic.core.tween.CameraAccessor;
 import org.mozilla.javascript.RhinoException;
+import org.mozilla.javascript.ScriptableObject;
+
+import java.util.ArrayList;
 
 /**
  * Created by macbury on 31.03.14.
@@ -26,8 +28,9 @@ public class GameController implements Disposable, ScriptRuntimeListener {
   private GameAction currentAction;
   private RobotScriptRunner robotScriptRunner;
   private GameLevelScreen level;
-  private RobotLib robotLib;
   private float runningTime;
+
+  private ArrayList<BaseLib> robotLibs;
 
   public GameController(GameLevelScreen level) {
     this.level               = level;
@@ -38,8 +41,13 @@ public class GameController implements Disposable, ScriptRuntimeListener {
     this.robotScriptRunner.addListener(this);
     this.missionScriptRunner.addListener(this);
 
-    this.robotLib = new RobotLib(this);
     this.gameLib  = new GameLib(this);
+    this.robotLibs = new ArrayList<BaseLib>();
+    robotLibs.add(new RobotLib(this));
+    robotLibs.add(new SonarLib(this));
+    robotLibs.add(new MathLib(this));
+    robotLibs.add(new ConsoleLib(this));
+    robotLibs.add(new LedLib(this));
   }
 
   public void run(String source) {
@@ -69,6 +77,10 @@ public class GameController implements Disposable, ScriptRuntimeListener {
 
   public ScriptRunner getRobotScriptRunner() {
     return robotScriptRunner;
+  }
+
+  public ArrayList<BaseLib> getRobotLibs() {
+    return robotLibs;
   }
 
   public synchronized void setAction(GameAction action) {
@@ -155,10 +167,6 @@ public class GameController implements Disposable, ScriptRuntimeListener {
     currentAction = null;
   }
 
-  public RobotLib getRobotLib() {
-    return robotLib;
-  }
-
   public boolean isRunning() {
     return (robotScriptRunner != null && robotScriptRunner.isRunning()) || (missionScriptRunner != null && missionScriptRunner.isRunning());
   }
@@ -189,4 +197,5 @@ public class GameController implements Disposable, ScriptRuntimeListener {
   public GameLevelScreen getLevel() {
     return level;
   }
+
 }

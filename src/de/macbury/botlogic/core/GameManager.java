@@ -7,8 +7,12 @@ import com.badlogic.gdx.graphics.FPSLogger;
 import de.macbury.botlogic.core.audio.AudioManager;
 import de.macbury.botlogic.core.config.ConfigManager;
 import de.macbury.botlogic.core.controller.GameController;
+import de.macbury.botlogic.core.entites.EntityManager;
 import de.macbury.botlogic.core.entites.ModelEntity;
+import de.macbury.botlogic.core.entites.RobotEntity;
+import de.macbury.botlogic.core.graphics.managers.ModelManager;
 import de.macbury.botlogic.core.graphics.camera.RTSCameraController;
+import de.macbury.botlogic.core.graphics.managers.SpritesManager;
 import de.macbury.botlogic.core.input.InputManager;
 import de.macbury.botlogic.core.screens.level.GameLevelScreen;
 import de.macbury.botlogic.core.runtime.ext.ScriptContextFactory;
@@ -16,6 +20,7 @@ import de.macbury.botlogic.core.runtime.ScriptRunner;
 import de.macbury.botlogic.core.screens.ScreenManager;
 import de.macbury.botlogic.core.tween.CameraAccessor;
 import de.macbury.botlogic.core.tween.ModelEntityAccessor;
+import de.macbury.botlogic.core.tween.RobotEntityAccessor;
 import de.macbury.botlogic.core.ui.FlatSkin;
 import org.mozilla.javascript.ContextFactory;
 
@@ -33,12 +38,16 @@ public class GameManager extends Game {
 
     Tween.registerAccessor(ModelEntity.class, new ModelEntityAccessor());
     Tween.registerAccessor(RTSCameraController.class, new CameraAccessor());
+    Tween.registerAccessor(RobotEntity.class, new RobotEntityAccessor());
     ContextFactory.initGlobal(new ScriptContextFactory());
 
     BotLogic.game         = this;
     BotLogic.inputManager = new InputManager();
     BotLogic.audio        = new AudioManager();
     BotLogic.skin         = new FlatSkin();
+    BotLogic.models       = new ModelManager();
+    BotLogic.sprites      = new SpritesManager();
+    BotLogic.entities     = new EntityManager();
     BotLogic.config       = new ConfigManager();
 
     BotLogic.screens      = new ScreenManager(this);// always last!!!

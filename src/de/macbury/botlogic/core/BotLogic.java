@@ -1,9 +1,10 @@
 package de.macbury.botlogic.core;
 
-import com.badlogic.gdx.Preferences;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import de.macbury.botlogic.core.audio.AudioManager;
 import de.macbury.botlogic.core.config.ConfigManager;
+import de.macbury.botlogic.core.entites.EntityManager;
+import de.macbury.botlogic.core.graphics.managers.ModelManager;
+import de.macbury.botlogic.core.graphics.managers.SpritesManager;
 import de.macbury.botlogic.core.input.InputManager;
 import de.macbury.botlogic.core.screens.ScreenManager;
 import de.macbury.botlogic.core.ui.FlatSkin;
@@ -15,7 +16,10 @@ public class BotLogic {
   public static GameManager game;
   public static InputManager inputManager;
   public static AudioManager audio;
+  public static ModelManager models;
+  public static EntityManager entities;
   public static ScreenManager screens;
+  public static SpritesManager sprites;
   public static FlatSkin skin;
   public static ConfigManager config;
 }

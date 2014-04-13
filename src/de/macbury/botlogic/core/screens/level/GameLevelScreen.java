@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g3d.*;
 import com.badlogic.gdx.graphics.g3d.attributes.ColorAttribute;
 import com.badlogic.gdx.graphics.g3d.decals.CameraGroupStrategy;
+import com.badlogic.gdx.graphics.g3d.decals.Decal;
 import com.badlogic.gdx.graphics.g3d.decals.DecalBatch;
 import com.badlogic.gdx.graphics.g3d.environment.DirectionalLight;
 import com.badlogic.gdx.graphics.g3d.environment.PointLight;
@@ -34,31 +35,32 @@ import de.macbury.botlogic.core.screens.level.map.Map;
 import java.util.ArrayList;
 
 public class GameLevelScreen implements Screen {
-  private final PointLight ledLight;
   private SkyBox skybox;
-  private ModelBatch depthModelBatch;
-  private RenderContext renderContext;
-  private LevelCompositor cellShadingCompositor;
-  private FrameBuffer colorBuffer;
-  private DecalBatch decalBatch;
-  private LevelFile levelDefinition;
 
-  private GameController controller;
-  private Model robotModel;
-  private Map map;
-  protected RTSCameraController cameraController;
-  private Environment environment;
   private ModelBatch colorModelBatch;
-  private PerspectiveCamera perspectiveCamera;
-  private ArrayList<Entity> entities;
-  private int speed = 1;
+  private ModelBatch depthModelBatch;
+  private DecalBatch decalBatch;
+  private RenderContext renderContext;
+
+  private FrameBuffer colorBuffer;
   private FrameBuffer depthBuffer;
+  private FrameBuffer decalBuffer;
+  private LevelCompositor cellShadingCompositor;
+
+  private LevelFile levelDefinition;
+  private Map map;
+  private GameController controller;
+  private ArrayList<Entity> entities;
+  public RobotEntity robot;
+
+  protected PerspectiveCamera perspectiveCamera;
+  protected RTSCameraController cameraController;
+  public Environment environment;
+
+  private int speed = 1;
 
   public TweenManager gameObjectsTweenManager;
   public TweenManager uiTweenManager;
-  public RobotEntity robot;
-
-  private Vector3 tempVector = new Vector3();
 
   public GameLevelScreen(LevelFile levelDef) {
     this.gameObjectsTweenManager = new TweenManager();
@@ -81,44 +83,19 @@ public class GameLevelScreen implements Screen {
     cameraController.setEnabled(true);
 
     environment = new Environment();
-    environment.set(new ColorAttribute(ColorAttribute.AmbientLight, 0.5f, 0.5f, 0.5f, 1f));
-
-    G3dModelLoader modelLoader = new G3dModelLoader(new UBJsonReader());
-    this.robotModel            = modelLoader.loadModel(Gdx.files.getFileHandle("models/bot.g3db", Files.FileType.Internal));
+    environment.set(new ColorAttribute(ColorAttribute.AmbientLight, 0.3f, 0.3f, 0.3f, 1f));
 
     this.cellShadingCompositor = new LevelCompositor(renderContext);
-    //this.skybox                = new SkyBox("grid.png");
-    /*for (Material material : robotModel.materials) {
 
-     // for led
-      Gdx.app.log("TEST", material.id);
-      if (material.id.contains("Led")) {
-        /*ColorAttribute attr = (ColorAttribute)material.get(ColorAttribute.Diffuse);
-        attr.color.set(Color.BLUE);
+    this.robot = BotLogic.entities.robot();
+    this.robot.led = BotLogic.entities.led();
 
-        BlendingAttribute ba = (BlendingAttribute)material.get(BlendingAttribute.Type);
-        ba.opacity = 1.0f;
-        ba.sourceFunction = GL20.GL_ONE;
-        ba.destFunction = GL20.GL_SRC_ALPHA;
-        //attr = (ColorAttribute)material.get(ColorAttribute.Emissive);
-        //attr.color.set(Color.WHITE);
-
-
-      }
-    }*/
-    //TextureAttribute attr = (TextureAttribute) robotModel.materials.first().get(TextureAttribute.Diffuse);
-    //attr.textureDescription.minFilter = Texture.TextureFilter.Nearest;
-    //attr.textureDescription.magFilter = Texture.TextureFilter.Nearest;
-
-    this.robot = new RobotEntity(robotModel);
-    this.entities.add(robot);
-
-    for(MeshPart part : robotModel.meshParts) {
-      Gdx.app.log("TAG", part.id);
-    }
+    addEntity(this.robot);
+    addEntity(this.robot.led);
 
     colorModelBatch = new ModelBatch(renderContext);
     decalBatch      = new DecalBatch();
+
     decalBatch.setGroupStrategy(new CameraGroupStrategy(perspectiveCamera));
 
     DepthShader.Config depthConfig     = new DepthShader.Config(Gdx.files.internal("shaders/depth.vertex").readString(), Gdx.files.internal("shaders/depth.frag").readString());
@@ -130,12 +107,14 @@ public class GameLevelScreen implements Screen {
     this.controller = new GameController(this);
     reset();
 
-    this.ledLight = new PointLight().set(new Color(1f,1f, 1f, 1f), map.getRobotStartPosition().cpy().add(0,5,0), 1.5f);
-
-    environment.add(ledLight);
     environment.set(new ColorAttribute(ColorAttribute.Fog, 0f, 0f, 0f, 1f));
     environment.add(new DirectionalLight().set(new Color(.4f,.4f, .4f, 0.1f), new Vector3(1,-1,0)));
     BotLogic.audio.mainMenuMusic.play();
+  }
+
+  private void addEntity(Entity e) {
+    e.setLevel(this);
+    this.entities.add(e);
   }
 
   public GameController getController() {
@@ -157,15 +136,11 @@ public class GameLevelScreen implements Screen {
     return cameraController;
   }
 
-  public void renderEntitiesForBufferAndBatch(FrameBuffer buffer, ModelBatch batch, boolean renderSkyBox) {
+  public void renderEntitiesForBufferAndBatch(FrameBuffer buffer, ModelBatch batch, boolean renderDecals) {
     buffer.begin();
       Gdx.gl.glClearColor(0, 0, 0, 0);
       Gdx.gl.glViewport(0, 0, buffer.getWidth(), buffer.getHeight());
       Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
-
-      if (renderSkyBox) {
-        //skybox.render(renderContext, perspectiveCamera);
-      }
 
       batch.begin(perspectiveCamera);
         map.shader = null;
@@ -177,6 +152,41 @@ public class GameLevelScreen implements Screen {
           }
         }
       batch.end();
+      if (renderDecals) {
+        renderContext.end();
+        renderContext.begin();
+        for (Entity entity : entities) {
+          if (EntityDecalRenderable.class.isInstance(entity)) {
+            EntityDecalRenderable en = (EntityDecalRenderable)entity;
+            en.renderBatch(decalBatch, environment);
+          }
+        }
+        decalBatch.flush();
+        renderContext.end();
+      }
+
+    buffer.end();
+  }
+
+  public void renderDecalsForBufferAndBatch(FrameBuffer buffer, DecalBatch batch) {
+    buffer.begin();
+      renderContext.begin();
+      renderContext.end();
+      renderContext.begin();
+
+        Gdx.gl.glClearColor(0, 0, 0, 1);
+        Gdx.gl.glViewport(0, 0, buffer.getWidth(), buffer.getHeight());
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT  | GL20.GL_DEPTH_BUFFER_BIT);
+
+        for (Entity entity : entities) {
+          if (EntityDecalRenderable.class.isInstance(entity)) {
+            EntityDecalRenderable en = (EntityDecalRenderable)entity;
+            en.renderBatch(batch, environment);
+          }
+        }
+
+        batch.flush();
+      renderContext.end();
     buffer.end();
   }
 
@@ -193,20 +203,12 @@ public class GameLevelScreen implements Screen {
       entity.update(nd);
     }
 
+
     renderEntitiesForBufferAndBatch(depthBuffer, depthModelBatch, false);
     renderEntitiesForBufferAndBatch(colorBuffer, colorModelBatch, true);
+    //renderDecalsForBufferAndBatch(decalBuffer, decalBatch);
 
-
-    for (Entity entity : entities) {
-      if (EntityDecalRenderable.class.isInstance(entity)) {
-        EntityDecalRenderable en = (EntityDecalRenderable)entity;
-        en.renderBatch(decalBatch, environment);
-      }
-    }
-
-    decalBatch.flush();
-
-    cellShadingCompositor.render(colorBuffer, depthBuffer);
+    cellShadingCompositor.render(colorBuffer, depthBuffer, decalBuffer);
   }
 
   @Override
@@ -223,9 +225,13 @@ public class GameLevelScreen implements Screen {
       this.depthBuffer.dispose();
     }
 
+    if (this.decalBuffer != null) {
+      this.decalBuffer.dispose();
+    }
+
     this.colorBuffer = new FrameBuffer(Pixmap.Format.RGBA8888, Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), true);
     this.depthBuffer = new FrameBuffer(Pixmap.Format.RGBA8888, Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), true);
-
+    this.decalBuffer = new FrameBuffer(Pixmap.Format.RGBA8888, Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), true);
     cellShadingCompositor.resize(width, height);
   }
 
@@ -254,9 +260,9 @@ public class GameLevelScreen implements Screen {
     //skybox.dispose();
     colorModelBatch.dispose();
     depthModelBatch.dispose();
+    decalBuffer.dispose();
     controller.dispose();
     map.dispose();
-    robotModel.dispose();
     decalBatch.dispose();
     for (Entity e : entities) {
       e.dispose();

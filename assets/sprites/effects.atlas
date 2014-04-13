@@ -1,0 +1,12 @@
+
+effects.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+sonar_ping
+  rotate: false
+  xy: 1, 1
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1

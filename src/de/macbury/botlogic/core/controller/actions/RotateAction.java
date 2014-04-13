@@ -34,7 +34,6 @@ public class RotateAction extends GameAction implements TweenCallback {
 
   @Override
   public void onEnd() {
-    level.robot.rotations += 1;
     level.robot.setRotateLeftWheelsDirection(0);
     level.robot.setRotateRightWheelsDirection(0);
   }

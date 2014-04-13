@@ -21,7 +21,7 @@ public class LevelCompositor implements Disposable {
     //bloomStep          = new BloomStep(context);
   }
 
-  public void render(FrameBuffer colorBuffer, FrameBuffer depthBuffer) {
+  public void render(FrameBuffer colorBuffer, FrameBuffer depthBuffer, FrameBuffer decalBuffer) {
     outlineStep.setTexture(depthBuffer.getColorBufferTexture());
     outlineStep.render();
 
@@ -33,6 +33,7 @@ public class LevelCompositor implements Disposable {
     //bloomStep.render();
 
     displayStep.setDiffuseTexture(finalCellShadeStep.getBufferedTexture());
+    //displayStep.setEffectsTexture(decalBuffer.getColorBufferTexture());
     displayStep.render();
   }
 

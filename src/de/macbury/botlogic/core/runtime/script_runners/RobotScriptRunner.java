@@ -1,7 +1,9 @@
 package de.macbury.botlogic.core.runtime.script_runners;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.utils.compression.lzma.Base;
 import de.macbury.botlogic.core.controller.GameController;
+import de.macbury.botlogic.core.controller.api.BaseLib;
 import de.macbury.botlogic.core.controller.api.MathLib;
 import de.macbury.botlogic.core.runtime.ScriptRunner;
 import org.mozilla.javascript.ScriptableObject;
@@ -18,8 +20,9 @@ public class RobotScriptRunner extends ScriptRunner {
   @Override
   public void prepareScriptEnv() {
     ScriptableObject scriptObjectScope = currentScriptRunnable.getScriptObjectScope();
-    scriptObjectScope.put("robot", scriptObjectScope, gameController.getRobotLib());
-    scriptObjectScope.put("math", scriptObjectScope, new MathLib());
+    for(BaseLib lib : gameController.getRobotLibs()) {
+      bindLib(lib);
+    }
     currentScriptRunnable.getContext().evaluateString(scriptObjectScope, Gdx.files.internal("sketches/rdk/helpers.js").readString(), "RobotScriptRunner", 0, null);//TODO: Better loading
   }
 

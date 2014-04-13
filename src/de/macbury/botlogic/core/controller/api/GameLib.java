@@ -5,11 +5,19 @@ import de.macbury.botlogic.core.controller.GameController;
 /**
  * Created by macbury on 09.04.14.
  */
-public class GameLib {
-  private GameController controller;
+public class GameLib extends BaseLib{
+  public GameLib(GameController controller) {
+    super(controller);
+  }
 
-  public GameLib(GameController gameController) {
-    this.controller = gameController;
+  @Override
+  public void reset() {
+
+  }
+
+  @Override
+  public String getNamespace() {
+     return "game";
   }
 
   public void stop() {
@@ -25,10 +33,10 @@ public class GameLib {
   }
 
   public int robotSteps() {
-    return controller.getLevel().robot.steps;
+    return 0;
   }
 
   public int robotRotations() {
-    return controller.getLevel().robot.rotations;
+    return 0;
   }
 }

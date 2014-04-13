@@ -5,4 +5,5 @@
    <script>maps/playground.js</script>
    <using>Led</using>
    <using>Sonar</using>
+   <using>Console</using>
 </levelFile>

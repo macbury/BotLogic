@@ -9,6 +9,7 @@ import com.badlogic.gdx.utils.Disposable;
  * Created by macbury on 31.03.14.
  */
 public class AudioManager implements Disposable {
+  public Sound sonar;
   public Sound wallImpact;
   public Sound codeError;
   public Sound slide;
@@ -30,6 +31,7 @@ public class AudioManager implements Disposable {
     this.move               = Gdx.audio.newSound(Gdx.files.internal("audio/effects/move.mp3"));
     this.click              = Gdx.audio.newSound(Gdx.files.internal("audio/effects/click.ogg"));
     this.slide              = Gdx.audio.newSound(Gdx.files.internal("audio/effects/slide.ogg"));
+    this.sonar              = Gdx.audio.newSound(Gdx.files.internal("audio/effects/sonar.ogg"));
     this.codeError          = Gdx.audio.newSound(Gdx.files.internal("audio/effects/code_error.ogg"));
     this.wallImpact         = Gdx.audio.newSound(Gdx.files.internal("audio/effects/wall_impact.mp3"));
     //rotation.setLooping(1, true);

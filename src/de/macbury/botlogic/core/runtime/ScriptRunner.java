@@ -4,7 +4,9 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.utils.Disposable;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import de.macbury.botlogic.core.controller.GameController;
+import de.macbury.botlogic.core.controller.api.BaseLib;
 import de.macbury.botlogic.core.runtime.ext.ScriptRunnable;
+import org.mozilla.javascript.ScriptableObject;
 
 import java.util.ArrayList;
 
@@ -73,6 +75,12 @@ public abstract class ScriptRunner implements Disposable {
     if (currentScriptRunnable != null) {
       currentScriptRunnable.dispose();
     }
+  }
+
+  protected void bindLib(BaseLib lib) {
+    ScriptableObject scriptObjectScope = currentScriptRunnable.getScriptObjectScope();
+    lib.reset();
+    scriptObjectScope.put(lib.getNamespace(), scriptObjectScope, lib);
   }
 
   public ArrayList<ScriptRuntimeListener> getListeners() {

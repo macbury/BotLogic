@@ -14,12 +14,21 @@ import org.mozilla.javascript.RhinoException;
 /**
  * Created by macbury on 31.03.14.
  */
-public class RobotLib {
+public class RobotLib extends BaseLib{
   private static final String TAG = "RobotLib";
-  private GameController controller;
 
   public RobotLib(GameController controller) {
-    this.controller = controller;
+    super(controller);
+  }
+
+  @Override
+  public void reset() {
+
+  }
+
+  @Override
+  public String getNamespace() {
+    return "robot";
   }
 
   public void say(String text) {
@@ -28,10 +37,10 @@ public class RobotLib {
 
   public void moveForward() throws RhinoException {
     Vector3 targetPosition = new Vector3();
-    ModelEntity.directionToVector(controller.getLevel().robot.getDirection(), targetPosition);
-    targetPosition.add(controller.getLevel().robot.position);
+    ModelEntity.directionToVector(robot.getDirection(), targetPosition);
+    targetPosition.add(robot.position);
 
-    if (controller.getLevel().isPassable(targetPosition)) {
+    if (level.isPassable(targetPosition)) {
       MoveAction action = new MoveAction(targetPosition);
       this.controller.setAction(action);
       action.waitUntilDone();

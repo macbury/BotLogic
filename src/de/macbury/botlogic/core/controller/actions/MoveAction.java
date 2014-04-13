@@ -28,9 +28,7 @@ public class MoveAction extends GameAction implements TweenCallback {
     level.robot.setRotateRightWheelsDirection(1);
 
 
-    Timeline.createParallel()
-            .push(Tween.to(level.robot, ModelEntityAccessor.POSITION_XZ, 0.5f).target(targetPosition.x, targetPosition.z))
-            .setCallback(this).start(level.gameObjectsTweenManager);
+    level.robot.getTranslationTween(targetPosition).setCallback(this).start(level.gameObjectsTweenManager);
     BotLogic.audio.move.play();
   }
 
@@ -41,7 +39,6 @@ public class MoveAction extends GameAction implements TweenCallback {
 
   @Override
   public void onEnd() {
-    level.robot.steps += 1;
     level.robot.setRotateLeftWheelsDirection(0);
     level.robot.setRotateRightWheelsDirection(0);
   }
