@@ -1,6 +1,7 @@
 package de.macbury.botlogic.core.ui.tiles;
 
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import de.macbury.botlogic.core.BotLogicDebug;
 import de.macbury.botlogic.core.ui.scroll.ScrollPaneWithoutMouseScroll;
 
 /**
@@ -20,8 +21,8 @@ public class TileScrollPane extends ScrollPaneWithoutMouseScroll {
     this.table = new Table();
     table.row().top().left();
 
-    //if (Debug.TABLE)
-    //  table.debug();
+    if (BotLogicDebug.TABLE)
+      table.debug();
     setWidget(table);
   }
 

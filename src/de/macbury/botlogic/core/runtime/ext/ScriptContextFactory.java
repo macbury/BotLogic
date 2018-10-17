@@ -1,7 +1,6 @@
 package de.macbury.botlogic.core.runtime.ext;
 
 
-import de.macbury.botlogic.core.runtime.ext.ScriptContext;
 import org.mozilla.javascript.Context;
 import org.mozilla.javascript.ContextFactory;
 

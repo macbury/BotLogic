@@ -14,7 +14,6 @@ import de.macbury.botlogic.core.runtime.ScriptRunner;
 import de.macbury.botlogic.core.runtime.ScriptRuntimeListener;
 import de.macbury.botlogic.core.tween.CameraAccessor;
 import org.mozilla.javascript.RhinoException;
-import org.mozilla.javascript.ScriptableObject;
 
 import java.util.ArrayList;
 

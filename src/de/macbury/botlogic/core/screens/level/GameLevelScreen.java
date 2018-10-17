@@ -1,33 +1,32 @@
 package de.macbury.botlogic.core.screens.level;
 
 import aurelienribon.tweenengine.TweenManager;
-import com.badlogic.gdx.Files;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.graphics.*;
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.g3d.*;
+import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.PerspectiveCamera;
+import com.badlogic.gdx.graphics.Pixmap;
+import com.badlogic.gdx.graphics.g3d.Environment;
+import com.badlogic.gdx.graphics.g3d.ModelBatch;
 import com.badlogic.gdx.graphics.g3d.attributes.ColorAttribute;
 import com.badlogic.gdx.graphics.g3d.decals.CameraGroupStrategy;
-import com.badlogic.gdx.graphics.g3d.decals.Decal;
 import com.badlogic.gdx.graphics.g3d.decals.DecalBatch;
 import com.badlogic.gdx.graphics.g3d.environment.DirectionalLight;
-import com.badlogic.gdx.graphics.g3d.environment.PointLight;
-import com.badlogic.gdx.graphics.g3d.loader.G3dModelLoader;
-import com.badlogic.gdx.graphics.g3d.model.MeshPart;
 import com.badlogic.gdx.graphics.g3d.shaders.DepthShader;
 import com.badlogic.gdx.graphics.g3d.utils.DefaultTextureBinder;
 import com.badlogic.gdx.graphics.g3d.utils.DepthShaderProvider;
 import com.badlogic.gdx.graphics.g3d.utils.RenderContext;
 import com.badlogic.gdx.graphics.glutils.FrameBuffer;
 import com.badlogic.gdx.math.Vector3;
-import com.badlogic.gdx.utils.UBJsonReader;
 import de.macbury.botlogic.core.BotLogic;
 import de.macbury.botlogic.core.controller.GameController;
-import de.macbury.botlogic.core.entites.*;
+import de.macbury.botlogic.core.entites.Entity;
+import de.macbury.botlogic.core.entites.EntityDecalRenderable;
+import de.macbury.botlogic.core.entites.EntityModelRenderable;
+import de.macbury.botlogic.core.entites.RobotEntity;
 import de.macbury.botlogic.core.graphics.camera.RTSCameraController;
 import de.macbury.botlogic.core.graphics.compositor.LevelCompositor;
-import de.macbury.botlogic.core.graphics.skybox.SkyBox;
 import de.macbury.botlogic.core.screens.level.file.LevelFile;
 import de.macbury.botlogic.core.screens.level.map.Block;
 import de.macbury.botlogic.core.screens.level.map.Map;
@@ -35,7 +34,6 @@ import de.macbury.botlogic.core.screens.level.map.Map;
 import java.util.ArrayList;
 
 public class GameLevelScreen implements Screen {
-  private SkyBox skybox;
 
   private ModelBatch colorModelBatch;
   private ModelBatch depthModelBatch;
@@ -94,9 +92,7 @@ public class GameLevelScreen implements Screen {
     addEntity(this.robot.led);
 
     colorModelBatch = new ModelBatch(renderContext);
-    decalBatch      = new DecalBatch();
-
-    decalBatch.setGroupStrategy(new CameraGroupStrategy(perspectiveCamera));
+    decalBatch      = new DecalBatch(new CameraGroupStrategy(perspectiveCamera));
 
     DepthShader.Config depthConfig     = new DepthShader.Config(Gdx.files.internal("shaders/depth.vertex").readString(), Gdx.files.internal("shaders/depth.frag").readString());
     depthConfig.defaultCullFace        = GL20.GL_BACK;

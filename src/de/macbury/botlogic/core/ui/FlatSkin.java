@@ -2,6 +2,7 @@ package de.macbury.botlogic.core.ui;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Cursor;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -15,8 +16,8 @@ import de.macbury.botlogic.core.ui.tooltip.TooltipWidget;
 public class FlatSkin extends Skin {
   public static final float BUTTON_PADDING = 10;
   public TooltipWidget.TooltipStyle tooltipStyle;
-  private Pixmap textCursorPixmap;
-  private Pixmap pointerCursorPixmap;
+  private Cursor pointer;
+  private Cursor text;
   public Label.LabelStyle codeLabelStyle;
   public ScrollPane.ScrollPaneStyle codeEditorScroll;
   public BitmapFont codeFont;
@@ -37,6 +38,7 @@ public class FlatSkin extends Skin {
   public BitmapFont defaultFont;
   public UIBuilder  builder;
   public TextButton.TextButtonStyle redTextButton;
+
 
   public FlatSkin() {
     super(new TextureAtlas(Gdx.files.internal("gui/skin.pack")));
@@ -147,8 +149,8 @@ public class FlatSkin extends Skin {
     this.codeEditorArea.syntaxErrorTextColor      = Color.WHITE;
     this.codeEditorArea.exceptionGutterIcon       = this.getDrawable("exception");
 
-    this.pointerCursorPixmap = new Pixmap(Gdx.files.internal("gui/arrow.png"));
-    this.textCursorPixmap    = new Pixmap(Gdx.files.internal("gui/text_cursor.png"));
+    this.pointer = Gdx.graphics.newCursor(new Pixmap(Gdx.files.internal("gui/arrow.png")), 0, 0);
+    this.text = Gdx.graphics.newCursor(new Pixmap(Gdx.files.internal("gui/text_cursor.png")), 16, 16);
 
     this.tooltipStyle           = new TooltipWidget.TooltipStyle();
     tooltipStyle.font           = robotoThinFont;
@@ -160,10 +162,10 @@ public class FlatSkin extends Skin {
   }
 
   public void setPointerCursor() {
-    Gdx.input.setCursorImage(pointerCursorPixmap, 0, 0);
+    Gdx.graphics.setCursor(pointer);
   }
 
   public void setTextCursor() {
-    Gdx.input.setCursorImage(textCursorPixmap, 16, 16);
+    Gdx.graphics.setCursor(pointer);
   }
 }

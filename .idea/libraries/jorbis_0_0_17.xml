@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="jorbis-0.0.17">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/jorbis-0.0.17.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

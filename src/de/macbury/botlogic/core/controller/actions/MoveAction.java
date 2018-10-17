@@ -1,14 +1,10 @@
 package de.macbury.botlogic.core.controller.actions;
 
 import aurelienribon.tweenengine.BaseTween;
-import aurelienribon.tweenengine.Timeline;
-import aurelienribon.tweenengine.Tween;
 import aurelienribon.tweenengine.TweenCallback;
 import com.badlogic.gdx.math.Vector3;
 import de.macbury.botlogic.core.BotLogic;
 import de.macbury.botlogic.core.controller.GameAction;
-import de.macbury.botlogic.core.entites.ModelEntity;
-import de.macbury.botlogic.core.tween.ModelEntityAccessor;
 
 /**
  * Created by macbury on 31.03.14.

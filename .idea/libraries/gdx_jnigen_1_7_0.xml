@@ -1,7 +1,7 @@
 <component name="libraryTable">
-  <library name="js">
+  <library name="gdx-jnigen-1.7.0">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/lib/js.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/gdx-jnigen-1.7.0.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

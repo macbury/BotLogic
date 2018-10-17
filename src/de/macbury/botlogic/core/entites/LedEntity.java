@@ -6,7 +6,6 @@ import com.badlogic.gdx.graphics.g3d.Material;
 import com.badlogic.gdx.graphics.g3d.Model;
 import com.badlogic.gdx.graphics.g3d.attributes.BlendingAttribute;
 import com.badlogic.gdx.graphics.g3d.attributes.ColorAttribute;
-import com.badlogic.gdx.graphics.g3d.environment.BaseLight;
 import com.badlogic.gdx.graphics.g3d.environment.PointLight;
 import com.badlogic.gdx.math.Vector3;
 
@@ -58,9 +57,7 @@ public class LedEntity extends ModelEntity {
   }
 
   public void on() {
-    if (level.environment.pointLights.indexOf(light, true) == -1) {
-      level.environment.add(light);
-    }
+    level.environment.add(light);
 
     setColor(ledColor, false);
   }
@@ -68,7 +65,7 @@ public class LedEntity extends ModelEntity {
   public void off() {
     setColor(Color.WHITE, false);
 
-    level.environment.pointLights.removeValue(light, true);
+    level.environment.remove(light);
   }
 
   @Override

@@ -12,7 +12,6 @@ import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.badlogic.gdx.utils.Pool;
 import com.badlogic.gdx.utils.Pools;
 
-import java.util.AbstractCollection;
 import java.util.ArrayList;
 
 /**

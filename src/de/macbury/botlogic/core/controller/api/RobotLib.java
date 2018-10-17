@@ -8,8 +8,6 @@ import de.macbury.botlogic.core.controller.actions.RotateAction;
 import de.macbury.botlogic.core.controller.actions.WaitAction;
 import de.macbury.botlogic.core.entites.ModelEntity;
 import org.mozilla.javascript.Context;
-import org.mozilla.javascript.EvaluatorException;
-import org.mozilla.javascript.JavaScriptException;
 import org.mozilla.javascript.RhinoException;
 /**
  * Created by macbury on 31.03.14.

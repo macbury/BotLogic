@@ -12,7 +12,6 @@ public class StateImageButton extends ImageButton {
 
   public StateImageButton(ImageButtonStyle style, Drawable first, Drawable second) {
     super(style);
-
     this.first  = first;
     this.second = second;
     setOn(false);
@@ -21,9 +20,9 @@ public class StateImageButton extends ImageButton {
   public void setOn(boolean on) {
 
     if(on) {
-      this.getImage().setDrawable(second);
+      this.getStyle().imageUp = second;
     } else {
-      this.getImage().setDrawable(first);
+      this.getStyle().imageUp = first;
     }
   }
 }

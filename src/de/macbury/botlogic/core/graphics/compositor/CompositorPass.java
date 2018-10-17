@@ -4,7 +4,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.*;
 import com.badlogic.gdx.graphics.g3d.utils.RenderContext;
-import com.badlogic.gdx.graphics.glutils.FrameBuffer;
 import com.badlogic.gdx.graphics.glutils.ShaderProgram;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.Disposable;
@@ -45,17 +44,17 @@ public abstract class CompositorPass implements Disposable {
     if (screenQuad != null)
       return;
     screenQuad = new Mesh(true, 4, 6, new VertexAttribute(VertexAttributes.Usage.Position, 3,
-            "a_position"), new VertexAttribute(VertexAttributes.Usage.Color, 4, "a_color"),
+            "a_position"), new VertexAttribute(VertexAttributes.Usage.ColorPacked, 4, "a_color"),
             new VertexAttribute(VertexAttributes.Usage.TextureCoordinates, 2, "a_texCoords"));
 
     Vector3 vec0 = new Vector3(0, 0, 0);
     screenCamera.unproject(vec0);
     Vector3 vec1 = new Vector3(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), 0);
     screenCamera.unproject(vec1);
-    screenQuad.setVertices(new float[]{vec0.x, vec0.y, 0, 1, 1, 1, 1, 0, 1,
-            vec1.x, vec0.y, 0, 1, 1, 1, 1, 1, 1,
-            vec1.x, vec1.y, 0, 1, 1, 1, 1, 1, 0,
-            vec0.x, vec1.y, 0, 1, 1, 1, 1, 0, 0});
+    screenQuad.setVertices(new float[]{vec0.x, vec0.y, 0, 1, 0, 1,
+            vec1.x, vec0.y, 0, 1, 1, 1,
+            vec1.x, vec1.y, 0, 1, 1, 0,
+            vec0.x, vec1.y, 0, 1, 0, 0});
     screenQuad.setIndices(new short[]{0, 1, 2, 2, 3, 0});
   }
 

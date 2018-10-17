@@ -7,17 +7,28 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" exported="" name="JGoodies Forms" level="project" />
-    <orderEntry type="library" exported="" name="gdx" level="project" />
-    <orderEntry type="library" exported="" name="gdx-backend-lwjgl" level="project" />
-    <orderEntry type="library" exported="" name="gdx-backend-lwjgl-natives" level="project" />
-    <orderEntry type="library" exported="" name="gdx-natives" level="project" />
-    <orderEntry type="library" exported="" name="gdx-openal" level="project" />
-    <orderEntry type="library" exported="" name="js" level="project" />
-    <orderEntry type="library" exported="" name="tween-engine-api" level="project" />
-    <orderEntry type="library" exported="" name="tween-engine-api-sources" level="project" />
-    <orderEntry type="library" exported="" name="org.simpleframework:simple-xml:2.6.8" level="project" />
-    <orderEntry type="library" name="com.restfb:restfb:1.6.14" level="project" />
+    <orderEntry type="library" name="aurelienribon" level="project" />
+    <orderEntry type="library" name="gdx-1.7.0" level="project" />
+    <orderEntry type="library" name="gdx-backend-jglfw-1.7.0" level="project" />
+    <orderEntry type="library" name="gdx-backend-lwjgl-1.7.0" level="project" />
+    <orderEntry type="library" name="gdx-jnigen-1.7.0" level="project" />
+    <orderEntry type="library" name="gdx-natives-1.7.0" level="project" />
+    <orderEntry type="library" name="gdx-openal-0.9.9" level="project" />
+    <orderEntry type="library" name="javaxz" level="project" />
+    <orderEntry type="library" name="jglfw-1.1" level="project" />
+    <orderEntry type="library" name="jglfw-platform-1.1" level="project" />
+    <orderEntry type="library" name="jinput-2.0.5" level="project" />
+    <orderEntry type="library" name="jlayer-1.0.1-gdx" level="project" />
+    <orderEntry type="library" name="jorbis-0.0.17" level="project" />
+    <orderEntry type="library" name="jutils-1.0.0" level="project" />
+    <orderEntry type="library" name="lwjgl-2.9.2" level="project" />
+    <orderEntry type="library" name="lwjgl_util-2.9.2" level="project" />
+    <orderEntry type="library" name="mozilla-javascript" level="project" />
+    <orderEntry type="library" name="restfb-1.6.14" level="project" />
+    <orderEntry type="library" name="simple-xml-2.6.8" level="project" />
+    <orderEntry type="library" name="stax-1.2.0" level="project" />
+    <orderEntry type="library" name="stax-api-1.0.1" level="project" />
+    <orderEntry type="library" name="xpp3-1.1.3.3" level="project" />
+    <orderEntry type="library" name="lwjgl-platform-2.9.2-natives-windows" level="project" />
   </component>
 </module>
-

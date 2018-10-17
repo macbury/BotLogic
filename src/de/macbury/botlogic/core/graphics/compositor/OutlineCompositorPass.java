@@ -1,7 +1,6 @@
 package de.macbury.botlogic.core.graphics.compositor;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g3d.utils.RenderContext;
 import de.macbury.botlogic.core.BotLogic;
@@ -29,12 +28,12 @@ public class OutlineCompositorPass extends BufferedCompositorPass {
 
   @Override
   public int getWidth() {
-    return Math.round(super.getWidth() / BotLogic.config.getOutlineQuality());
+    return Math.round(((float) super.getWidth()) / BotLogic.config.getOutlineQuality());
   }
 
   @Override
   public int getHeight() {
-    return Math.round(super.getHeight() / BotLogic.config.getOutlineQuality());
+    return Math.round(((float) super.getHeight()) / BotLogic.config.getOutlineQuality());
   }
 
   public Texture getTexture() {

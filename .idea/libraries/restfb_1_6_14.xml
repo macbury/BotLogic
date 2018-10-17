@@ -1,6 +1,5 @@
 <component name="libraryTable">
-  <library name="com.restfb:restfb:1.6.14" type="repository">
-    <properties maven-id="com.restfb:restfb:1.6.14" />
+  <library name="restfb-1.6.14">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/lib/restfb-1.6.14.jar!/" />
     </CLASSES>

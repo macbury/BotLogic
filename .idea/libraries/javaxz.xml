@@ -1,7 +1,7 @@
 <component name="libraryTable">
-  <library name="gdx-backend-lwjgl">
+  <library name="javaxz">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/lib/gdx-backend-lwjgl.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/javaxz.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

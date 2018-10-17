@@ -1,19 +1,17 @@
 package de.macbury.botlogic.core.ui.dialog;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Graphics;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Array;
 import de.macbury.botlogic.core.BotLogic;
-import de.macbury.botlogic.core.Debug;
+import de.macbury.botlogic.core.BotLogicDebug;
 import org.lwjgl.LWJGLException;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 
 /**
@@ -124,7 +122,7 @@ public class SettingsDialog extends Dialog {
       this.add(saveButton).width(180).height(52).padTop(PADDING_BUTTONS_BOTTOM).padBottom(20);
       this.add(cancelButton).width(180).height(52).padTop(PADDING_BUTTONS_BOTTOM).padBottom(20).padRight(20).padLeft(20);
 
-    if (Debug.TABLE)
+    if (BotLogicDebug.TABLE)
       this.debug();
   }
 

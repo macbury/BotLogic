@@ -1,11 +1,9 @@
 package de.macbury.botlogic.core.entites;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g3d.Environment;
 import com.badlogic.gdx.graphics.g3d.Model;
 import com.badlogic.gdx.graphics.g3d.ModelBatch;
 import com.badlogic.gdx.graphics.g3d.ModelInstance;
-import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Quaternion;
 import com.badlogic.gdx.math.Vector3;
 
@@ -49,14 +47,16 @@ public abstract class ModelEntity extends Entity implements EntityModelRenderabl
   Quaternion tempDirectionRotation = new Quaternion();
   public Direction getDirection() {
     instance.transform.getRotation(tempDirectionRotation, true);
-    if (tempDirectionRotation.getYaw() == 0) {
+    int yaw = Math.round(tempDirectionRotation.getYaw());
+    if (yaw == 0) {
       return Direction.South;
-    } else if (tempDirectionRotation.getYaw() == -90) {
+    } else if (yaw == -90) {
       return Direction.East;
-    } else if (tempDirectionRotation.getYaw() == 90) {
+    } else if (yaw == 90) {
       return Direction.Weast;
-    }
-    return Direction.North;
+    } else if (yaw == 180 || yaw == -180)
+      return Direction.North;
+    return null;
   }
 
   public static void directionToVector(Direction dir, Vector3 vector) {

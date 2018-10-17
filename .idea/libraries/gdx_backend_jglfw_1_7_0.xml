@@ -1,7 +1,7 @@
 <component name="libraryTable">
-  <library name="gdx-openal">
+  <library name="gdx-backend-jglfw-1.7.0">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/lib/gdx-openal.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/gdx-backend-jglfw-1.7.0.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

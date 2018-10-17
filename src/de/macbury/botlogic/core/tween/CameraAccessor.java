@@ -1,7 +1,6 @@
 package de.macbury.botlogic.core.tween;
 
 import aurelienribon.tweenengine.TweenAccessor;
-import de.macbury.botlogic.core.entites.ModelEntity;
 import de.macbury.botlogic.core.graphics.camera.RTSCameraController;
 
 /**

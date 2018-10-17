@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.ui.Widget;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
@@ -29,8 +30,9 @@ public class TooltipWidget extends Widget {
 
   public void setContent(String content) {
     this.content = content;
-    BitmapFont.TextBounds bounds = style.font.getBounds(content);
-    this.setWidth(bounds.width);
+    GlyphLayout glyphLayout = new GlyphLayout();
+    glyphLayout.setText(style.font, content);
+    this.setWidth(glyphLayout.width);
     this.setHeight(style.font.getLineHeight());
   }
 
