@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="mozilla-javascript">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/lib/mozilla-javascript.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

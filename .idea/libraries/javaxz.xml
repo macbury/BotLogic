@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="javaxz">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/lib/javaxz.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

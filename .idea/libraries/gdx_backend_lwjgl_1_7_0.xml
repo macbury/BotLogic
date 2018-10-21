@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="gdx-backend-lwjgl-1.7.0">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/lib/gdx-backend-lwjgl-1.7.0.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
