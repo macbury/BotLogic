@@ -52,9 +52,9 @@ public class UIBuilder {
   }
 
   public ImageButton redImageButton(String iconName) {
-    ImageButton button = new ImageButton(skin.getDrawable(iconName));
-    button.setStyle(skin.redImageButton);
-    return button;
+    ImageButton.ImageButtonStyle style = new ImageButton.ImageButtonStyle(skin.redImageButton);
+    style.imageUp = skin.getDrawable(iconName);
+    return new ImageButton(style);
   }
 
   public ScrollPane getScrollPaneWithoutMouseScroll() {
@@ -72,13 +72,14 @@ public class UIBuilder {
   }
 
   public ImageButton blueImageButton(String iconName) {
-    ImageButton button = new ImageButton(skin.getDrawable(iconName));
-    button.setStyle(skin.blueImageButton);
-    return button;
+    ImageButton.ImageButtonStyle style = new ImageButton.ImageButtonStyle(skin.blueImageButton);
+    style.imageUp = skin.getDrawable(iconName);
+    return new ImageButton(style);
   }
 
   public StateImageButton twoStateButton(String first, String second) {
-    StateImageButton button = new StateImageButton(skin.blueImageButton, skin.getDrawable(first), skin.getDrawable(second));
+    ImageButton.ImageButtonStyle style = new ImageButton.ImageButtonStyle(skin.blueImageButton);
+    StateImageButton button = new StateImageButton(style, skin.getDrawable(first), skin.getDrawable(second));
     return button;
   }
 

@@ -4,14 +4,11 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
-import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.TextField;
-import com.badlogic.gdx.scenes.scene2d.ui.Widget;
 import com.badlogic.gdx.scenes.scene2d.ui.WidgetGroup;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
@@ -52,7 +49,6 @@ public class CodeEditorTextArea extends WidgetGroup {
   private ArrayList<Line> lines;
 
   private CodeEditorTextAreaStyle style;
-  private ShapeRenderer shape;
 
   private String text           = "";
   private Caret caret;
@@ -257,7 +253,7 @@ public class CodeEditorTextArea extends WidgetGroup {
           insertText(" ");
         }
         caret.setCol(spaces);
-      } else if (style.font.containsCharacter(character)) {
+      } else if (style.font.getData().hasGlyph(character)) {
         insertText(String.valueOf(character));
         caret.incCol(1);
       } else {
@@ -615,7 +611,8 @@ public class CodeEditorTextArea extends WidgetGroup {
       float linePosY      = lineToY(line.getLineNumber() - 1);
 
       style.font.setColor(style.lineNumberColor);
-      style.font.draw(batch, line.getLineString(), gx - style.font.getBounds(line.getLineString()).width - GUTTER_PADDING, linePosY);
+      GlyphLayout layout = new GlyphLayout(style.font, line.getLineString());
+      style.font.draw(batch, line.getLineString(), gx - layout.width - GUTTER_PADDING, linePosY);
 
       if (line.getLineNumber() == lineWithError) {
         style.exceptionGutterIcon.draw(batch, EXCEPTION_ICON_LEFT_MARGIN, linePosY-style.exceptionGutterIcon.getMinHeight()+style.exceptionGutterIcon.getMinHeight()/4, style.exceptionGutterIcon.getMinWidth(), style.exceptionGutterIcon.getMinHeight());
@@ -624,7 +621,7 @@ public class CodeEditorTextArea extends WidgetGroup {
 
       for (int lx = 0; lx < line.size(); lx++) {
         Element elem                 = line.get(lx);
-        BitmapFont.TextBounds bounds = style.font.getBounds(elem.text);
+        layout = new GlyphLayout(style.font, elem.text);
 
         if (line.getLineNumber() == lineWithError) {
           style.font.setColor(style.syntaxErrorTextColor);
@@ -634,7 +631,7 @@ public class CodeEditorTextArea extends WidgetGroup {
 
         style.font.draw(batch, elem.text, gx + GUTTER_PADDING + lineElementX, linePosY);
 
-        lineElementX += bounds.width;
+        lineElementX += layout.width;
       }
 
 

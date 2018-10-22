@@ -1,10 +1,8 @@
 package de.macbury.botlogic.core.controller.api;
 
-import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import de.macbury.botlogic.core.controller.GameController;
 import de.macbury.botlogic.core.controller.actions.SonarPingAction;
-import de.macbury.botlogic.core.controller.actions.WaitAction;
 import de.macbury.botlogic.core.entites.ModelEntity;
 
 /**

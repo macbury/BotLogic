@@ -1,7 +1,6 @@
 package de.macbury.botlogic.core.graphics.compositor;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.GLTexture;
 import com.badlogic.gdx.graphics.g3d.utils.RenderContext;
 

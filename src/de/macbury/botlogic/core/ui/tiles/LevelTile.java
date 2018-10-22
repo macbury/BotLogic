@@ -3,10 +3,14 @@ package de.macbury.botlogic.core.ui.tiles;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
-import com.badlogic.gdx.scenes.scene2d.ui.*;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.ui.ScrollPane;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import de.macbury.botlogic.core.BotLogic;
-import de.macbury.botlogic.core.Debug;
+import de.macbury.botlogic.core.BotLogicDebug;
 import de.macbury.botlogic.core.screens.level.file.LevelFile;
 import de.macbury.botlogic.core.ui.FlatSkin;
 
@@ -32,12 +36,12 @@ public class LevelTile extends Table {
     this.descriptionScrollPane = skin.builder.getScrollPaneWithoutMouseScroll();
     descriptionScrollPane.setFlickScroll(false);
 
-    if (Debug.TABLE)
+    if (BotLogicDebug.TABLE)
       descriptionTable.debug();
 
     this.setBackground(skin.getDrawable("background_light"));
 
-    if (Debug.TABLE)
+    if (BotLogicDebug.TABLE)
       this.debug();
 
     this.row().top().left();

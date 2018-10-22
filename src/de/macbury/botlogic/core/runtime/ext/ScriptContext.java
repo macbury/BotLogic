@@ -1,6 +1,5 @@
 package de.macbury.botlogic.core.runtime.ext;
 
-import com.badlogic.gdx.Gdx;
 import org.mozilla.javascript.Context;
 import org.mozilla.javascript.ContextFactory;
 

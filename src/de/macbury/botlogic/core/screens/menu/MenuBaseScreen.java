@@ -3,6 +3,7 @@ package de.macbury.botlogic.core.screens.menu;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Dialog;
@@ -12,7 +13,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import de.macbury.botlogic.core.BotLogic;
-import de.macbury.botlogic.core.Debug;
+import de.macbury.botlogic.core.BotLogicDebug;
 import de.macbury.botlogic.core.ui.colors.FlatColors;
 
 /**
@@ -25,12 +26,15 @@ public abstract class MenuBaseScreen implements Screen {
   protected ImageButton settingsButton;
   protected Stage stage;
   protected Table tableLayout;
+  private ShapeRenderer renderer = new ShapeRenderer();
 
   public MenuBaseScreen() {
     this.stage        = new Stage(new ScreenViewport());
     this.tableLayout  = new Table();
 
-    if (Debug.TABLE)
+    renderer.setAutoShapeType(true);
+
+    if (BotLogicDebug.TABLE)
       tableLayout.debug();
     tableLayout.setFillParent(true);
 
@@ -82,8 +86,11 @@ public abstract class MenuBaseScreen implements Screen {
     stage.act();
     stage.draw();
 
-    if (Debug.TABLE)
-      Table.drawDebug(stage);
+    if (BotLogicDebug.TABLE) {
+      renderer.begin();
+      stage.getRoot().debug().drawDebug(renderer);
+      renderer.end();
+    }
   }
 
   @Override

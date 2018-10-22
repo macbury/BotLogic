@@ -1,6 +1,5 @@
 package de.macbury.botlogic.core.runtime.script_runners;
 
-import com.badlogic.gdx.Gdx;
 import de.macbury.botlogic.core.controller.GameController;
 import de.macbury.botlogic.core.runtime.ScriptRunner;
 import de.macbury.botlogic.core.runtime.ext.ScriptRunnable;

@@ -22,4 +22,6 @@ public class BotLogic {
   public static SpritesManager sprites;
   public static FlatSkin skin;
   public static ConfigManager config;
+
+  private BotLogic() {} // uniemożliwia utworzenie nowego obiektu
 }

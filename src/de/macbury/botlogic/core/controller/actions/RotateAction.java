@@ -2,9 +2,6 @@ package de.macbury.botlogic.core.controller.actions;
 
 import aurelienribon.tweenengine.BaseTween;
 import aurelienribon.tweenengine.TweenCallback;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.math.MathUtils;
-import com.badlogic.gdx.math.Quaternion;
 import de.macbury.botlogic.core.BotLogic;
 import de.macbury.botlogic.core.controller.GameAction;
 

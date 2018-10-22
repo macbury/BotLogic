@@ -3,7 +3,6 @@ package de.macbury.botlogic.core.controller.api;
 import com.badlogic.gdx.graphics.Color;
 import de.macbury.botlogic.core.controller.GameController;
 import de.macbury.botlogic.core.controller.actions.LedBlinkAction;
-import de.macbury.botlogic.core.controller.actions.RotateAction;
 
 /**
  * Created by macbury on 11.04.14.

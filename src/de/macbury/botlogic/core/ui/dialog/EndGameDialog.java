@@ -5,7 +5,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Dialog;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import de.macbury.botlogic.core.BotLogic;
-import de.macbury.botlogic.core.Debug;
+import de.macbury.botlogic.core.BotLogicDebug;
 
 /**
  * Created by macbury on 06.04.14.
@@ -21,7 +21,7 @@ public class EndGameDialog extends Dialog {
   public EndGameDialog(WindowStyle windowStyle) {
     super("", windowStyle);
 
-    this.okButton   = BotLogic.skin.builder.redTextButton("No");
+    this.okButton   = BotLogic.skin.builder.redTextButton("Tak");
     this.cancelButton = BotLogic.skin.builder.redTextButton("Nie");
 
     okButton.addListener(new ClickListener() {
@@ -54,7 +54,7 @@ public class EndGameDialog extends Dialog {
       this.add(cancelButton).width(180).height(52).padTop(PADDING_BUTTONS_BOTTOM).padBottom(20).padLeft(20);
       this.add().expandX().padRight(PADDING_BUTTONS_BOTTOM);
 
-    if (Debug.TABLE)
+    if (BotLogicDebug.TABLE)
       this.debug();
   }
 

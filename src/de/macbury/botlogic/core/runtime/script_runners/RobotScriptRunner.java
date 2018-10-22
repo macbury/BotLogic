@@ -1,10 +1,8 @@
 package de.macbury.botlogic.core.runtime.script_runners;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.utils.compression.lzma.Base;
 import de.macbury.botlogic.core.controller.GameController;
 import de.macbury.botlogic.core.controller.api.BaseLib;
-import de.macbury.botlogic.core.controller.api.MathLib;
 import de.macbury.botlogic.core.runtime.ScriptRunner;
 import org.mozilla.javascript.ScriptableObject;
 

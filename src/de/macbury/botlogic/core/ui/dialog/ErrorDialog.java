@@ -5,7 +5,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Dialog;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import de.macbury.botlogic.core.BotLogic;
-import de.macbury.botlogic.core.Debug;
+import de.macbury.botlogic.core.BotLogicDebug;
 
 /**
  * Created by macbury on 09.04.14.
@@ -40,7 +40,7 @@ public class ErrorDialog extends Dialog {
     this.add(okButton).width(180).height(52).padTop(PADDING_BUTTONS_BOTTOM).padBottom(20).colspan(2);
     this.add().expandX().padRight(PADDING_BUTTONS_BOTTOM);
 
-    if (Debug.TABLE)
+    if (BotLogicDebug.TABLE)
       this.debug();
   }
 
